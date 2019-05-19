@@ -12,7 +12,14 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("");
-        primaryStage.setScene(new Scene(root, 250, 350));
+
+
+        Scene scene = new Scene(root,700,400);  //SAMPLE
+
+        //Scene scene = new Scene(root,800,500); //CONSULTAS
+        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
+
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
