@@ -14,7 +14,7 @@
    <top>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
-            <Label text="Reporte Entrega y Recepcion" BorderPane.alignment="CENTER" />
+            <Label text="Reporte Entrega y Recepcin" BorderPane.alignment="CENTER" />
          </top>
          <left>
              <VBox prefHeight="183.0" prefWidth="113.0" BorderPane.alignment="CENTER">
@@ -23,6 +23,15 @@
                      <RadioButton fx:id="puesto" text="Puesto" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                      <RadioButton fx:id="fechaypuesto" text="Fecha Y Puesto" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                      <RadioButton fx:id="folio" text="Folio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                  <columnConstraints>
+                     <ColumnConstraints />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
                  </GridPane>
              </VBox>
          </left>
