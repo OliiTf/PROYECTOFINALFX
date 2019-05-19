@@ -23,15 +23,6 @@
                      <RadioButton fx:id="puesto" text="Puesto" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                      <RadioButton fx:id="fechaypuesto" text="Fecha Y Puesto" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                      <RadioButton fx:id="folio" text="Folio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                  <columnConstraints>
-                     <ColumnConstraints />
-                  </columnConstraints>
-                  <rowConstraints>
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                     <RowConstraints />
-                  </rowConstraints>
                  </GridPane>
              </VBox>
          </left>
