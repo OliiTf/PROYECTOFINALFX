@@ -13,6 +13,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("");
 
+        //Hola Omar
 
         Scene scene = new Scene(root,700,400);  //SAMPLE
 
