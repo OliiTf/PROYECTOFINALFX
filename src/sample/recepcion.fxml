@@ -16,19 +16,62 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="750.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<BorderPane prefHeight="750.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionController">
     <top>
         <VBox spacing="0">
             <padding>
                 <Insets topRightBottomLeft="3" />
             </padding>
+            <MenuBar>
+                <menus>
+                    <Menu text="FILE">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
+                        </graphic>
+
+                        <items>
+
+                            <MenuItem text="Cerrar Sesion" fx:id="SignOff">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="USER_TIMES" glyphSize="10" fill="brown"/>
+                                </graphic>
+
+
+                            </MenuItem>
+
+                        </items>
+
+                    </Menu>
+                    <Menu text="Catalogos">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
+                        </graphic>
+
+                        <items>
+                            <MenuItem text="Instituciones de prodencia" fx:id="instituciones">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="USER_TIMES" glyphSize="10" fill="brown"/>
+                                </graphic>
+
+
+                            </MenuItem>
+
+                        </items>
+                    </Menu>
+                </menus>
+
+            </MenuBar>
+
             <ToolBar>
                 <VBox spacing="10">
 
 
                     <HBox spacing="10">
 
-                        <Button fx:id="BtnReporte" text="REPORTES" />
+                        <Button fx:id="BtnReportes" text="REPORTES" />
                         <Button fx:id="BtnConsultas" text="CONSULTAS" />
 
                     </HBox>
@@ -38,17 +81,17 @@
 
                 <items>
 
-                    <Button contentDisplay="TOP" styleClass="btn, btn-lg, btn-default" text="Guardar">
+                    <Button fx:id="BtnGuardar" contentDisplay="TOP" styleClass="btn, btn-lg, btn-default" text="Guardar">
                         <graphic>
                             <FontAwesomeIconView fill="black" glyphName="SAVE" glyphSize="10" />
                         </graphic>
                     </Button>
-                    <Button contentDisplay="TOP" styleClass="btn, btn-lg, btn-primary" text="Eliminar">
+                    <Button  fx:id="BtnEliminar" contentDisplay="TOP" styleClass="btn, btn-lg, btn-primary" text="Eliminar">
                         <graphic>
                             <FontAwesomeIconView fill="black" glyphName="DELETE" glyphSize="10" />
                         </graphic>
                     </Button>
-                    <Button contentDisplay="TOP" styleClass="btn, btn-lg, btn-success" text="Nuevo">
+                    <Button fx:id="BtnNuevo" contentDisplay="TOP" styleClass="btn, btn-lg, btn-success" text="Nuevo">
                         <graphic>
                             <FontAwesomeIconView fill="black" glyphName="BOLT" glyphSize="10" />
                         </graphic>
@@ -77,22 +120,22 @@
 
 
                 <Label text="Folio" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="Fechadoc" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="txtFolio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
                 <Label text="Numero Doc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="fecharecep" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="txtNoDoc" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                 <Label text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                <DatePicker fx:id="formato" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <DatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
                 <Label text="Fecha Recep" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <DatePicker fx:id="tipod" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <DatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                 <Label text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                <ComboBox fx:id="tipoc" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                <ComboBox fx:id="cmbFormato" GridPane.columnIndex="0" GridPane.rowIndex="7" prefWidth="120"/>
 
                 <Label text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <ComboBox fx:id="tipo" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <ComboBox fx:id="cmbTipo" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="120" />
 
 
 
@@ -117,22 +160,30 @@
 
 
 
-                    <Label text="Puesto" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <TextField fx:id="Puesto" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <Label text="QuienRecibe" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="QuienRecibe" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
-                    <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                    <ComboBox fx:id="instruccion" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                    <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <TextField fx:id="areaayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-                    <Label text="Prioridad" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                    <ComboBox fx:id="prioridad" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-                    <Label text="Fecha Limite" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                    <DatePicker fx:id="fechalimite" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                    <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                    <ComboBox fx:id="instruccion" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="70"/>
 
-                    <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                    <CheckBox fx:id="entregado" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-                    <Button fx:id="btnagregar" text="Agregar" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                    <Button fx:id="btncancelar" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                    <Label text="Prioridad" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                    <ComboBox fx:id="prioridad" GridPane.columnIndex="0" GridPane.rowIndex="7" prefWidth="120"/>
+
+                    <Label text="Fecha Limite" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                    <DatePicker fx:id="fechalimite" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+
+                    <Label text="Fecha Entrega" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                    <DatePicker fx:id="fechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+
+
+                    <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                    <CheckBox fx:id="entregado" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                    <Button fx:id="btnagregar" text="Agregar" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                    <Button fx:id="btncancelar" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="13" />
 
 
 
