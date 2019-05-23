@@ -153,7 +153,7 @@
                         <Insets topRightBottomLeft="3" />
                     </padding>
                     <ToolBar>
-                        <Label alignment="CENTER_LEFT" text="TURNAR" />
+                        <Label alignment="CENTER_LEFT" text="DESTINATARIO" />
 
                     </ToolBar>
 
