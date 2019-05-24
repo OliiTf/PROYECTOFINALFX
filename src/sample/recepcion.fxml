@@ -133,10 +133,10 @@
                 <DatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                 <Label text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                <ComboBox fx:id="cmbFormato" GridPane.columnIndex="0" GridPane.rowIndex="7" prefWidth="120"/>
+                <ComboBox fx:id="cmbFormato" GridPane.columnIndex="0" GridPane.rowIndex="7" prefWidth="140"/>
 
                 <Label text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <ComboBox fx:id="cmbTipo" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="120" />
+                <ComboBox fx:id="cmbTipo" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="140" />
 
 
 
