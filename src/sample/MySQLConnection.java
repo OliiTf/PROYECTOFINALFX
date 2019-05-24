@@ -31,6 +31,7 @@ public class MySQLConnection {
                 Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);
+                //
             }        
     }
     
