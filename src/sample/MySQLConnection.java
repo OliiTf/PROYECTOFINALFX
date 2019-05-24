@@ -17,9 +17,9 @@ import java.util.logging.Logger;
 public class MySQLConnection {
     private static Connection conn = null;
     private static String hostname   = "localhost";
-    private static String dbname = "oficina";
+    private static String dbname = "oficialia";
     private static String dbuser = "root";
-    private static String dbpass = "17030499L";
+    private static String dbpass = "1234";
     
 
     public static void Connect() {
