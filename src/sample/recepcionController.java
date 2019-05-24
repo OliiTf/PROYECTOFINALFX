@@ -53,6 +53,37 @@ public class recepcionController implements Initializable {
         cmbFormato.getItems().add(0,"Original");
         cmbFormato.getItems().add(1, "Copia");
 
+        cmbprioridad.getItems().add(0, "Ordinario" );
+        cmbprioridad.getItems().add(1, "Urgente" );
+        cmbprioridad.getItems().add(2, "Inmediata" );
+
+        cmbinstitucion.getItems().add(0,"Obras publicas y servicios");
+        cmbinstitucion.getItems().add(1,"Desarrollo Urbano");
+        cmbinstitucion.getItems().add(2,"Desarrollo Rural");
+        cmbinstitucion.getItems().add(3,"Recursos Humanos");
+        cmbinstitucion.getItems().add(4,"Servicio Civil");
+        cmbinstitucion.getItems().add(5,"Educaion");
+        cmbinstitucion.getItems().add(6,"Agua Potable y Alcantarillado");
+        cmbinstitucion.getItems().add(7,"Igualdad de Género");
+        cmbinstitucion.getItems().add(8,"Contraloria");
+        cmbinstitucion.getItems().add(9,"Salud y Asistencia Social");
+        cmbinstitucion.getItems().add(11,"Desarrollo Economico y Turismo");
+        cmbinstitucion.getItems().add(12,"Cultura y Deporte");
+        cmbinstitucion.getItems().add(12,"Tesoreria");
+        cmbinstitucion.getItems().add(14,"Oficialia Mayor");
+        cmbinstitucion.getItems().add(15,"Juridico");
+        cmbinstitucion.getItems().add(16,"Seguridad Publica");
+        cmbinstitucion.getItems().add(17,"Relaciones Exteriores");
+        cmbinstitucion.getItems().add(18,"Desarrollo Social");
+
+        cmbinstruccion.getItems().add(0,"Para su Atencion Porcedente");
+        cmbinstruccion.getItems().add(1,"Dar Respuesta al Interesado");
+        cmbinstruccion.getItems().add(2,"Para su Conocimiento");
+        cmbinstruccion.getItems().add(3,"Para su Difusion");
+        cmbinstruccion.getItems().add(4,"Atencion y Seguimiento");
+
+
+
 
 
 

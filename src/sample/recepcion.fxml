@@ -181,10 +181,11 @@
                     <DatePicker fx:id="dpfechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="11" />
 
 
-                    <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-                    <CheckBox fx:id="checkentregado" alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="13" />
-                    <Button fx:id="btnagregar" text="Agregar" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-                    <Button fx:id="btncancelar" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                    <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                    <CheckBox fx:id="checkentregado" GridPane.columnIndex="0" GridPane.rowIndex="14"  />
+
+                    <Button fx:id="btnagregar" text="Agregar" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                    <Button fx:id="btncancelar" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="14" />
 
 
 
@@ -209,7 +210,10 @@
 
 
                 <Label text="Institucion" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <ComboBox fx:id="cmbinstitucion" GridPane.columnIndex="0" GridPane.rowIndex="3" prefWidth="150" />
+                <ComboBox fx:id="cmbinstitucion" GridPane.columnIndex="0" GridPane.rowIndex="3" prefWidth="240" />
+
+                <Label text="Otra" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtotra" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="150" />
 
 
                 <Label text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
@@ -230,6 +234,7 @@
             </GridPane>
         </ToolBar>
     </bottom>
+
 
 
     <ToolBar>
