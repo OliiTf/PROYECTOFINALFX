@@ -1,8 +1,6 @@
 package sample;
 
-import Login.Estados;
-import Login.Municipio;
-import Login.Rol;
+import Login.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -30,7 +29,7 @@ public class Controller implements Initializable {
     ComboBox<Municipio> cmbMun;
 
     @FXML
-    Label lblEdo, lblMun;
+    Label lblEdo, lblMun, lblDir;
 
     @FXML
     TextField txtUsuario, txtPass;
@@ -70,8 +69,56 @@ public class Controller implements Initializable {
                 Estados estados = cmbEdo.getSelectionModel().getSelectedItem();
                 lblEdo.setText(estados.getNombreEstado());
 
+
+
             }
         });
+        cmbRol.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                if(cmbRol.getSelectionModel().getSelectedIndex()==0) {
+                    cmbMun.setVisible(false);
+                    cmbEdo.setVisible(false);
+                    lblEdo.setVisible(false);
+                    lblMun.setVisible(false);
+                    lblDir.setVisible(false);
+                } else
+                {
+                    cmbMun.setVisible(true);
+                    cmbEdo.setVisible(true);
+                    lblEdo.setVisible(true);
+                    lblMun.setVisible(true);
+                    lblDir.setVisible(true);
+                }
+            }
+        });
+
+
+
+        cmbMun.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                lblMun.setText("");
+                lblDir.setText("");
+                Municipio municipio = cmbMun.getSelectionModel().getSelectedItem();
+                lblMun.setText(municipio.getNombreMunicipio());
+
+
+
+                List<Configuracion> ConfIdMun = loginDAO.findIdConf();
+
+                for (int i=1; i<=ConfIdMun.size(); i++) {
+                    if (cmbMun.getSelectionModel().getSelectedIndex() + 1 == i) {
+                        List<Configuracion> configuracionList = loginDAO.findConfig(i);
+                        lblDir.setText(configuracionList.toString());
+
+                    }
+                }
+            }
+        });
+
+
 
 
     }

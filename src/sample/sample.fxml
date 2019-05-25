@@ -62,36 +62,22 @@
 
 
         </Pane>
-        <Label fx:id="lblEdo" layoutX="160.0" layoutY="150.0" text="ESTADO">
+        <Label fx:id="lblEdo" layoutX="145.0" layoutY="145.0" text="" textFill="#332365">
             <font>
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="153.0" layoutY="233.0" text="DIRECCION">
+        <Label fx:id="lblDir" layoutX="90.0" layoutY="210.0" text="">
             <font>
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label fx:id="lblMun" layoutX="155.0" layoutY="192.0" text="MUNICIPIO">
+        <Label fx:id="lblMun" layoutX="155.0" layoutY="180.0" text="" textFill="#332365">
             <font>
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="177.0" layoutY="307.0" text="JEFE">
-            <font>
-                <Font name="Arial Bold Italic" size="15.0" />
-            </font>
-        </Label>
-        <Label layoutX="155.0" layoutY="268.0" text="TELEFONO">
-            <font>
-                <Font name="Arial Bold Italic" size="15.0" />
-            </font>
-        </Label>
-        <Label layoutX="161.0" layoutY="354.0" text="HORARIO">
-            <font>
-                <Font name="Arial Bold Italic" size="15.0" />
-            </font>
-        </Label>
+
         <Label layoutX="183.0" layoutY="47.0" prefHeight="31.0" prefWidth="149.0" text="DE PARTES">
             <font>
                 <Font name="Candara Bold Italic" size="26.0" />
