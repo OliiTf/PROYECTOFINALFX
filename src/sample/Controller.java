@@ -23,13 +23,10 @@ public class Controller implements Initializable {
     ComboBox<Rol> cmbRol;
 
     @FXML
-    ComboBox<Estados> cmbEdo;
-
-    @FXML
     ComboBox<Municipio> cmbMun;
 
     @FXML
-    Label lblEdo, lblMun, lblDir;
+    Label  lblMun, lblDir;
 
     @FXML
     TextField txtUsuario, txtPass;
@@ -60,34 +57,25 @@ public class Controller implements Initializable {
     private void initLogin()
     {
         cmbRol.setItems(loginDAO.fetchRol());
-        cmbEdo.setItems(loginDAO.fetchEstados());
+
         cmbMun.setItems(loginDAO.fetchMunicipios());
+        boolean disable = !cmbMun.isDisable();
+        boolean enable = cmbMun.isDisable();
+        cmbMun.setDisable(disable);
 
-        cmbEdo.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Estados estados = cmbEdo.getSelectionModel().getSelectedItem();
-                lblEdo.setText(estados.getNombreEstado());
-
-
-
-            }
-        });
         cmbRol.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 
                 if(cmbRol.getSelectionModel().getSelectedIndex()==0) {
                     cmbMun.setVisible(false);
-                    cmbEdo.setVisible(false);
-                    lblEdo.setVisible(false);
                     lblMun.setVisible(false);
                     lblDir.setVisible(false);
+
                 } else
                 {
+                    cmbMun.setDisable(enable);
                     cmbMun.setVisible(true);
-                    cmbEdo.setVisible(true);
-                    lblEdo.setVisible(true);
                     lblMun.setVisible(true);
                     lblDir.setVisible(true);
                 }

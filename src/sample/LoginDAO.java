@@ -42,7 +42,7 @@ public class LoginDAO {
         return rols;
     }
 
-    public ObservableList<Estados> fetchEstados() {
+   /* public ObservableList<Estados> fetchEstados() {
         ObservableList<Estados> estados = FXCollections.observableArrayList();
         try {
             String query = "select nombreEstado from estados";
@@ -63,7 +63,7 @@ public class LoginDAO {
             System.out.println("Error al recuperar información...");
         }
         return estados;
-    }
+    }*/
 
     public ObservableList<Municipio> fetchMunicipios() {
         ObservableList<Municipio> municipios = FXCollections.observableArrayList();
@@ -92,7 +92,7 @@ public class LoginDAO {
     public List<Configuracion> findConfig(int  id_mun) {
         List<Configuracion> configList = new ArrayList<Configuracion>();
         try {
-            String query = "select c.nombreJefe, c.direccion, c.telefono, c.horarioInicio, c.horarioSalida" +
+            String query = "select c.nombreJefe, c.direccion, c.telefono, c.horarioInicio, c.horarioSalida, m.nombreEstado" +
                     " from configuracion c inner join municipio m on c.idMunicipio = m.idMunicipio where c.idMunicipio = '" + id_mun + "'";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
@@ -101,7 +101,7 @@ public class LoginDAO {
                 p = new Configuracion(
                         rs.getString("c.nombreJefe"), rs.getString("c.direccion"),
                         rs.getString("c.telefono"), rs.getString("c.horarioInicio"),
-                        rs.getString("c.horarioSalida")
+                        rs.getString("c.horarioSalida"), rs.getString("m.nombreEstado")
                 );
                 configList.add(p);
             }

@@ -54,25 +54,20 @@
 
 
             </HBox>
-            <ComboBox fx:id="cmbMun" layoutX="72.0" layoutY="137.0" prefWidth="150.0" promptText="Selecciona Municipio" />
-            <ComboBox fx:id="cmbEdo" layoutX="72.0" layoutY="99.0" prefWidth="150.0" promptText="Selecciona Estado" />
+            <ComboBox fx:id="cmbMun" layoutX="72.0" layoutY="99.0" prefWidth="150.0" promptText="Selecciona Municipio" />
             <ComboBox fx:id="cmbRol" layoutX="111.0" layoutY="68.0" prefHeight="25.0" prefWidth="71.0" promptText="Rol" />
 
 
 
 
         </Pane>
-        <Label fx:id="lblEdo" layoutX="145.0" layoutY="145.0" text="" textFill="#332365">
+
+        <Label fx:id="lblDir" layoutX="100.0" layoutY="180.0" text="">
             <font>
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label fx:id="lblDir" layoutX="90.0" layoutY="210.0" text="">
-            <font>
-                <Font name="Arial Bold Italic" size="15.0" />
-            </font>
-        </Label>
-        <Label fx:id="lblMun" layoutX="155.0" layoutY="180.0" text="" textFill="#332365">
+        <Label fx:id="lblMun" layoutX="145.0" layoutY="145.0" text="" textFill="#332365">
             <font>
                 <Font name="Arial Bold Italic" size="15.0" />
             </font>
