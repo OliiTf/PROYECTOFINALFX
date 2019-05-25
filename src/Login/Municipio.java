@@ -16,6 +16,7 @@ public class Municipio {
         this.nombreMunicipio = nombreMunicipio;
     }
 
+
     public int getIdMunicipio() {
         return idMunicipio;
     }
@@ -44,4 +45,7 @@ public class Municipio {
     public String toString() {
         return nombreMunicipio;
     }
+
+
+
 }

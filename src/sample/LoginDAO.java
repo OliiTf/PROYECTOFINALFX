@@ -1,9 +1,6 @@
 package sample;
 
-import Login.Estados;
-import Login.Municipio;
-import Login.Rol;
-import Login.Usuarios;
+import Login.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,6 +8,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginDAO {
 
@@ -87,6 +86,59 @@ public class LoginDAO {
             System.out.println("Error al recuperar información...");
         }
         return municipios;
+    }
+
+
+    public List<Configuracion> findConfig(int  id_mun) {
+        List<Configuracion> configList = new ArrayList<Configuracion>();
+        try {
+            String query = "select c.nombreJefe, c.direccion, c.telefono, c.horarioInicio, c.horarioSalida" +
+                    " from configuracion c inner join municipio m on c.idMunicipio = m.idMunicipio where c.idMunicipio = '" + id_mun + "'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            Configuracion p = null;
+            while(rs.next()) {
+                p = new Configuracion(
+                        rs.getString("c.nombreJefe"), rs.getString("c.direccion"),
+                        rs.getString("c.telefono"), rs.getString("c.horarioInicio"),
+                        rs.getString("c.horarioSalida")
+                );
+                configList.add(p);
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return configList;
+
+    }
+
+    public List<Configuracion> findIdConf() {
+        List<Configuracion> configList = new ArrayList<Configuracion>();
+        try {
+            String query = "select idMunicipio from configuracion;";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            Configuracion p = null;
+            while(rs.next()) {
+                p = new Configuracion(
+                        rs.getInt("idMunicipio")
+                );
+                configList.add(p);
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        System.out.println(configList);
+        return configList;
+
     }
 
     public Boolean validUser(String username, String password) {
