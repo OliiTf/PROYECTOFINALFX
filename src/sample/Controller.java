@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -93,7 +94,6 @@ public class Controller implements Initializable {
                 lblMun.setText(municipio.getNombreMunicipio());
 
 
-
                 List<Configuracion> ConfIdMun = loginDAO.findIdConf();
 
                 for (int i=1; i<=ConfIdMun.size(); i++) {
@@ -113,23 +113,40 @@ public class Controller implements Initializable {
 
     public void validarUsuarios() throws IOException {
         Alert alert= new Alert(Alert.AlertType.INFORMATION);
-        if(loginDAO.validUser(txtUsuario.getText(),txtPass.getText()))
-        {
+        Alert alertUser= new Alert(Alert.AlertType.INFORMATION);
+        Alert alertMun= new Alert(Alert.AlertType.INFORMATION);
 
-            showStage();
-            ((Stage)(btnAccept.getScene().getWindow())).hide();//mediante el boton aceptar accedemos a la escena despues a la ventana y lo convierte a Stage
-        }
-        else
+       Usuarios users = loginDAO.finIdRol(txtUsuario.getText());
 
+       UsuarioByMun idMunByUser = loginDAO.findIdMunicipioUser(txtUsuario.getText());
+       Municipio municipio =loginDAO.findIdMunicipio(cmbMun.getSelectionModel().getSelectedIndex()+1);
+
+
+
+        if(users.getIdRol() == cmbRol.getSelectionModel().getSelectedIndex()+1) {
+            if (idMunByUser.getIdMunicipio() == municipio.getIdMunicipio()) {
+                if (loginDAO.validUser(txtUsuario.getText(), txtPass.getText())) {
+
+                    showStage();
+                    ((Stage) (btnAccept.getScene().getWindow())).hide();//mediante el boton aceptar accedemos a la escena despues a la ventana y lo convierte a Stage
+                } else {
+                    alert.setContentText("Usuario Inconrrecto");
+                    alert.show();
+                }
+            } else {
+                alertMun.setContentText("Este usuario no pertenece a este Municipio");
+                alertMun.show();
+            }
+        }else
         {
-            alert.setContentText("Usuario Inconrrecto");
-            alert.show();
+            alertUser.setContentText("Este usuario tiene ese rol");
+            alertUser.show();
         }
 
     }
 
     public void showStage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("recepcion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("consultas.fxml"));
         Stage st= new Stage();
         st.setTitle("Reportes");
 
