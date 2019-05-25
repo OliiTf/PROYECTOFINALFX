@@ -19,7 +19,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
-<BorderPane prefHeight="750.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionController">
+<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionController">
     <top>
         <VBox spacing="0">
             <padding>
@@ -71,6 +71,7 @@
 
                     <HBox spacing="10">
 
+                        <Button fx:id="BtnRecepcion" text="RECEPCIÓN"/>
                         <Button fx:id="BtnReportes" text="REPORTES" />
                         <Button fx:id="BtnConsultas" text="CONSULTAS" />
 
@@ -120,22 +121,22 @@
 
 
 
-                <Label text="Folio" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label fx:id="lblFolio" text="Folio" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <TextField fx:id="txtFolio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
-                <Label text="Numero Doc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="lblNumeroDoc" text="Numero Doc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="txtNoDoc" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label fx:id="lblFechaDoc" text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-                <Label text="Fecha Recep" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="lblFechaRecep" text="Fecha Recep" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                <Label text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <Label fx:id="lblFormato" text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                 <ComboBox fx:id="cmbFormato" GridPane.columnIndex="0" GridPane.rowIndex="7" prefWidth="140"/>
 
-                <Label text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label fx:id="lblTipo" text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                 <ComboBox fx:id="cmbTipo" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="140" />
 
 
@@ -146,7 +147,7 @@
 
 
 
-    <right>
+    <rightOl
         <VBox prefWidth="321.0">
             <ToolBar>
                 <GridPane hgap="4" vgap="1">
@@ -195,7 +196,7 @@
         </VBox>
     </right>
 
-    <bottom>
+    <center>
         <ToolBar>
             <GridPane hgap="5" vgap="1">
                 <padding>
@@ -233,10 +234,10 @@
 
             </GridPane>
         </ToolBar>
-    </bottom>
+    </center>
 
 
-
+<bottom>
     <ToolBar>
         <GridPane hgap="5" vgap="1">
             <padding>
@@ -261,6 +262,7 @@
 
         </GridPane>
     </ToolBar>
+</bottom>
 
 
 
