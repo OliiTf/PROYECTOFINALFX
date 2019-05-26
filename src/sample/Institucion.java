@@ -1,4 +1,4 @@
-package Recepcion;
+package sample;
 
 public class Institucion {
     int idInstitucion;

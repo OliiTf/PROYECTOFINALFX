@@ -1,4 +1,4 @@
-package Recepcion;
+package Recepcion.Destinatario;
 
 public class Instruccion {
     int idInstruccion;
@@ -6,6 +6,10 @@ public class Instruccion {
 
     public Instruccion(int idInstruccion, String descInstruccion) {
         this.idInstruccion = idInstruccion;
+        this.descInstruccion = descInstruccion;
+    }
+
+    public Instruccion(String descInstruccion) {
         this.descInstruccion = descInstruccion;
     }
 
@@ -23,5 +27,9 @@ public class Instruccion {
 
     public void setDescInstruccion(String descInstruccion) {
         this.descInstruccion = descInstruccion;
+    }
+    @Override
+    public String toString() {
+        return descInstruccion;
     }
 }

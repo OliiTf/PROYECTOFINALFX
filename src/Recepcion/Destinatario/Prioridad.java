@@ -1,4 +1,4 @@
-package Recepcion;
+package Recepcion.Destinatario;
 
 public class Prioridad {
    int idPrioridad;
@@ -6,6 +6,10 @@ public class Prioridad {
 
     public Prioridad(int idPrioridad, String descPrioridad) {
         this.idPrioridad = idPrioridad;
+        this.descPrioridad = descPrioridad;
+    }
+
+    public Prioridad(String descPrioridad) {
         this.descPrioridad = descPrioridad;
     }
 
@@ -23,5 +27,9 @@ public class Prioridad {
 
     public void setDescPrioridad(String descPrioridad) {
         this.descPrioridad = descPrioridad;
+    }
+    @Override
+    public String toString() {
+        return descPrioridad;
     }
 }
