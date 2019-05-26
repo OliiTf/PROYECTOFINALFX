@@ -1,4 +1,4 @@
-package Formato;
+package tipoDocumento;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,41 +18,41 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class formatoController implements  Initializable{
+public class tipoDocumentoController implements  Initializable{
 
     @FXML
     Button btnReturn, btnNew, btnSave, btnDelete;
 
     @FXML
-    TextField txtIdForm, txtNombreForm;
+    TextField txtIdTipoDoc, txtNombreTipoDoc;
 
     @FXML
-    TableView<formato> tblFormato;
+    TableView<tipoDocumento> tbTipoDoc;
 
-    formatoDAO formatoDAO = new formatoDAO(MySQLConnection.getConnection());
+    tipoDocumentoDAO tipoDocumentoDAO = new tipoDocumentoDAO(MySQLConnection.getConnection());
     private boolean insertMode=false;
     private boolean updateMode=false;
 
-    @Override
+   @Override
     public void initialize(URL location, ResourceBundle resources) {
-        }
+    }
 
     private void initComponents()
     {
-        TableColumn col1 = new TableColumn("Id Formato");
-        TableColumn col2 = new TableColumn("Nombre Formato");
+        TableColumn col1 = new TableColumn("Id Tipo Documento");
+        TableColumn col2 = new TableColumn("Nombre Tipo Docuemnto");
 
 
 
         col1.setCellValueFactory(new PropertyValueFactory<>("idFormato"));
         col2.setCellValueFactory(new PropertyValueFactory<>("nombreFormato"));
 
-        tblFormato.getColumns().addAll(col1, col2);
-        tblFormato.setItems(formatoDAO.fetchAll());
-        tblFormato.refresh();
+        tbTipoDoc.getColumns().addAll(col1, col2);
+        tbTipoDoc.setItems(tipoDocumentoDAO.fetchAll());
+        tbTipoDoc.refresh();
 
         btnNew.setOnAction(handlerNew);
-        tblFormato.setOnMouseClicked(handlerTable);
+        tbTipoDoc.setOnMouseClicked(handlerTable);
         btnSave.setOnAction(handlerSave);
         btnDelete.setOnAction(handlerDelete);
 
@@ -74,9 +74,9 @@ public class formatoController implements  Initializable{
             if (event.getClickCount() == 2) {
                 updateMode = true;
                 insertMode = false;
-                formato form = tblFormato.getSelectionModel().getSelectedItem();
-                txtIdForm.setText(String.valueOf(form.getIdFormato()));
-                txtNombreForm.setText(form.getNombreFormato());
+                tipoDocumento tipdoc = tbTipoDoc.getSelectionModel().getSelectedItem();
+                txtIdTipoDoc.setText(String.valueOf(tipdoc.getIdTipoDocumento()));
+                txtNombreTipoDoc.setText(tipdoc.getNombreTipoDoc());
             }
         }
     };
@@ -101,8 +101,8 @@ public class formatoController implements  Initializable{
             Optional<ButtonType> result = alert.showAndWait();
             if(result.get()==ButtonType.OK)
             {
-                formato form=tblFormato.getSelectionModel().getSelectedItem();
-                formatoDAO.delete(form.getIdFormato());
+                tipoDocumento tipdoc=tbTipoDoc.getSelectionModel().getSelectedItem();
+                tipoDocumentoDAO.delete(tipdoc.getIdTipoDocumento());
                 clearForm();
                 reloadProceptList();
             }
@@ -114,11 +114,11 @@ public class formatoController implements  Initializable{
 
     private void insertProcedencia()
     {
-        formato form = new formato(
-                Integer.valueOf(txtIdForm.getText()),
-                txtNombreForm.getText());
+        tipoDocumento tipdoc = new tipoDocumento(
+                Integer.valueOf(txtIdTipoDoc.getText()),
+                txtNombreTipoDoc.getText());
 
-        if(formatoDAO.insert(form))
+        if(tipoDocumentoDAO.insert(tipdoc))
         {
             reloadProceptList();
             clearForm();
@@ -128,11 +128,11 @@ public class formatoController implements  Initializable{
 
     private void updateProcedencia()
     {
-        formato form=new formato(
-                Integer.valueOf(txtIdForm.getText()),
-                txtNombreForm.getText());
+        tipoDocumento tipdoc=new tipoDocumento(
+                Integer.valueOf(txtIdTipoDoc.getText()),
+                txtNombreTipoDoc.getText());
 
-        if(formatoDAO.update(form)){
+        if(tipoDocumentoDAO.update(tipdoc)){
             reloadProceptList();
             clearForm();
         }
@@ -140,14 +140,13 @@ public class formatoController implements  Initializable{
 
     private void reloadProceptList()
     {
-        tblFormato.getItems().clear();
-        tblFormato.setItems(formatoDAO.fetchAll());
+        tbTipoDoc.getItems().clear();
+        tbTipoDoc.setItems(tipoDocumentoDAO.fetchAll());
     }
 
     private void clearForm()
     {
-        txtIdForm.setText("");
-        txtNombreForm.setText("");
+        txtIdTipoDoc.setText("");
+        txtNombreTipoDoc.setText("");
     }
-
 }

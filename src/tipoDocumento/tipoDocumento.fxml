@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="tipoDocumento.tipoDocumentoController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <top>
+        <Button  fx:id="btnReturn" text="Return" contentDisplay="TOP" styleClass="btn, btn-default">
+            <graphic>
+            </graphic>
+        </Button>
+    </top>
+    <left>
+        <VBox spacing="5">
+
+            <padding>
+                <Insets topRightBottomLeft="3"/>
+            </padding>
+
+            <GridPane vgap="10" hgap="5">
+                <padding>
+                    <Insets topRightBottomLeft="7"/>
+                </padding>
+                <Label text="Id Tipo Documento" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="txtIdTipoDoc" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Tipo Documento" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="txtNombreTipoDoc" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            </GridPane>
+
+            <HBox GridPane.columnIndex="0" GridPane.rowIndex="6">
+                <padding>
+                    <Insets topRightBottomLeft="3"/>
+                </padding>
+                <Button fx:id="btnNew" text="New"  styleClass="btn, btn-lg, btn-success">
+                    <graphic>
+
+                    </graphic>
+                </Button>
+                <Button fx:id="btnSave" text="Save"  styleClass="btn, btn-lg, btn-primary">
+                    <graphic>
+
+                    </graphic>
+                </Button>
+                <Button fx:id="btnDelete" text="Delete"  styleClass="btn, btn-lg, btn-danger">
+                    <graphic>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </left>
+
+    <center>
+
+
+        <TableView fx:id="tblFormato" />
+    </center>
+
+
+</BorderPane>
+
+
