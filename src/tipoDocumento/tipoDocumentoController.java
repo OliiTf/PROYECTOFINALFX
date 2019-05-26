@@ -27,7 +27,7 @@ public class tipoDocumentoController implements  Initializable{
     TextField txtIdTipoDoc, txtNombreTipoDoc;
 
     @FXML
-    TableView<tipoDocumento> tbTipoDoc;
+    TableView<tipoDocumento> tblFormato;
 
     tipoDocumentoDAO tipoDocumentoDAO = new tipoDocumentoDAO(MySQLConnection.getConnection());
     private boolean insertMode=false;
@@ -41,19 +41,19 @@ public class tipoDocumentoController implements  Initializable{
     private void initComponents()
     {
         TableColumn col1 = new TableColumn("Id Tipo Documento");
-        TableColumn col2 = new TableColumn("Nombre Tipo Docuemnto");
+        TableColumn col2 = new TableColumn("Nombre Tipo Documento");
 
 
 
-        col1.setCellValueFactory(new PropertyValueFactory<>("idFormato"));
-        col2.setCellValueFactory(new PropertyValueFactory<>("nombreFormato"));
+        col1.setCellValueFactory(new PropertyValueFactory<>("idTipoDocumento"));
+        col2.setCellValueFactory(new PropertyValueFactory<>("nombreTipoDoc"));
 
-        tbTipoDoc.getColumns().addAll(col1, col2);
-        tbTipoDoc.setItems(tipoDocumentoDAO.fetchAll());
-        tbTipoDoc.refresh();
+        tblFormato.getColumns().addAll(col1, col2);
+        tblFormato.setItems(tipoDocumentoDAO.fetchAll());
+        tblFormato.refresh();
 
         btnNew.setOnAction(handlerNew);
-        tbTipoDoc.setOnMouseClicked(handlerTable);
+        tblFormato.setOnMouseClicked(handlerTable);
         btnSave.setOnAction(handlerSave);
         btnDelete.setOnAction(handlerDelete);
 
@@ -75,7 +75,7 @@ public class tipoDocumentoController implements  Initializable{
             if (event.getClickCount() == 2) {
                 updateMode = true;
                 insertMode = false;
-                tipoDocumento tipdoc = tbTipoDoc.getSelectionModel().getSelectedItem();
+                tipoDocumento tipdoc = tblFormato.getSelectionModel().getSelectedItem();
                 txtIdTipoDoc.setText(String.valueOf(tipdoc.getIdTipoDocumento()));
                 txtNombreTipoDoc.setText(tipdoc.getNombreTipoDoc());
             }
@@ -102,7 +102,7 @@ public class tipoDocumentoController implements  Initializable{
             Optional<ButtonType> result = alert.showAndWait();
             if(result.get()==ButtonType.OK)
             {
-                tipoDocumento tipdoc=tbTipoDoc.getSelectionModel().getSelectedItem();
+                tipoDocumento tipdoc=tblFormato.getSelectionModel().getSelectedItem();
                 tipoDocumentoDAO.delete(tipdoc.getIdTipoDocumento());
                 clearForm();
                 reloadProceptList();
@@ -141,8 +141,8 @@ public class tipoDocumentoController implements  Initializable{
 
     private void reloadProceptList()
     {
-        tbTipoDoc.getItems().clear();
-        tbTipoDoc.setItems(tipoDocumentoDAO.fetchAll());
+        tblFormato.getItems().clear();
+        tblFormato.setItems(tipoDocumentoDAO.fetchAll());
     }
 
     private void clearForm()
