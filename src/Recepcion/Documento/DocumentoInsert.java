@@ -70,7 +70,7 @@ public class DocumentoInsert {
         return iddocumento;
     }
 
-    public void setIddocumento(int iddocumento) {
+    public void getiddocumento(int iddocumento) {
         this.iddocumento = iddocumento;
     }
 }

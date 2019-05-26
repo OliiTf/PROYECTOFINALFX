@@ -11,7 +11,7 @@ public class DocumentoDAO {
     public Boolean insert(DocumentoInsert Document) {
         try {
             String query = "insert into detalledocumento(idDocumento, numDocumento, fechaRecepcion, " +
-                    "fechaDocumento, idFormato, idTipoDocumento, numFolio) values (?,?,?,?,?,?,?);\n";
+                    "fechaDocumento, idFormato, idTipoDocumento, numFolio) values (?,?,?,?,?,?,?);";
             PreparedStatement st = conn.prepareStatement(query);
             st.setInt(1, Document.getIddocumento());
             st.setInt(2, Document.getTxtnodoc());

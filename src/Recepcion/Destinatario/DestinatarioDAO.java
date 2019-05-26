@@ -12,19 +12,18 @@ public class DestinatarioDAO{
 
 
 
-    public Boolean insert(DocumentoInsert Document) {
+    public Boolean insert(DestinatarioInsert Document) {
         try {
-            String query = "insert into detalledocumento(idDocumento, numDocumento, fechaRecepcion, " +
-                    "fechaDocumento, idFormato, idTipoDocumento, numFolio) values (?,?,?,?,?,?,?);\n";
+            String query = "insert into informaciondestinatario(idDestinatario, fechaLimite, fechaEntrega," +
+                    " quienRecibe, idArea, idInstruccion, idPrioridad) values (?,?,?,?,?,?,?)";
             PreparedStatement st = conn.prepareStatement(query);
-            st.setInt(1, Document.getIddocumento());
-            st.setInt(2, Document.getTxtnodoc());
-            st.setDate(3, Document.getDpfechasrecep());
-            st.setDate(4, Document.getDpfechadoc());
-            st.setInt(5,Document.getCmbformato() );
-            st.setInt(6, Document.getCmbtipo());
-            st.setInt(7, Document.getTxtfolio());
-
+            st.setInt(1, Document.getIdDestinatario());
+            st.setDate(2, Document.getFechaLimite());
+            st.setDate(3, Document.getFechaEntrega());
+            st.setString(4,Document.getQuienRecibe() );
+            st.setInt(5, Document.getIdArea());
+            st.setInt(6, Document.getIdInstruccion());
+            st.setInt(7,Document.getIdPrioridad());
 
             st.execute();
             return true;

@@ -1,6 +1,7 @@
 package sample;
 
 import Recepcion.Destinatario.DestinatarioDAO;
+import Recepcion.Destinatario.DestinatarioInsert;
 import Recepcion.Destinatario.Instruccion;
 import Recepcion.Destinatario.Prioridad;
 import Recepcion.Documento.DocumentoDAO;
@@ -21,9 +22,9 @@ import java.util.ResourceBundle;
 public class recepcionController implements Initializable {
 
     @FXML
-    TextField txtFolio, txtNoDoc,txtIdDoc;
+    TextField txtFolio, txtNoDoc,txtIdDoc,txtIdDestinatario,txtQuienRecibe,txtareaayuntamiento;
     @FXML
-    DatePicker dpFechaDoc, dpFechaRecep;
+    DatePicker dpFechaDoc, dpFechaRecep,dpfechalimite,dpfechaentrega;
     @FXML
     ComboBox<Formato> cmbFormato;
     @FXML
@@ -37,7 +38,7 @@ public class recepcionController implements Initializable {
 
     DocumentoDAO Documento = new DocumentoDAO(MySQLConnection.getConnection());
     DestinatarioDAO Destinatario = new DestinatarioDAO(MySQLConnection.getConnection());
-    private boolean insertMode = true;
+
 
 
     @Override
@@ -64,7 +65,8 @@ public class recepcionController implements Initializable {
         @Override
         public void handle(ActionEvent event) {
 
-                insertEmployee();
+            insertDocumento();
+
 
             System.out.println("p");
         }
@@ -73,7 +75,7 @@ public class recepcionController implements Initializable {
 
 
     };
-    private void insertEmployee() {
+    private void insertDocumento() {
         DocumentoInsert doc = new DocumentoInsert(
                 Integer.valueOf(txtNoDoc.getText()),
                 Integer.valueOf(txtFolio.getText()),
@@ -83,7 +85,21 @@ public class recepcionController implements Initializable {
                 Date.valueOf(dpFechaRecep.getValue()),
                 Date.valueOf(dpFechaDoc.getValue())
                 );
+        DestinatarioInsert des = new DestinatarioInsert(
+                Integer.valueOf(txtIdDestinatario.getText()),
+                Integer.valueOf(txtareaayuntamiento.getText()),
+                String.valueOf(txtQuienRecibe.getText()),
+                cmbinstruccion.getSelectionModel().getSelectedItem().getIdInstruccion(),
+                cmbprioridad.getSelectionModel().getSelectedItem().getIdPrioridad(),
+                Date.valueOf(dpfechalimite.getValue()),
+                Date.valueOf(dpfechaentrega.getValue())
+
+
+        );
+
         Documento.insert(doc);
+        Destinatario.insert(des);
+
     }
 }
 
