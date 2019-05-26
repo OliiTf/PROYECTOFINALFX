@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.MySQLConnection;
-
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -28,6 +28,13 @@ public class procedenciaController implements Initializable {
     @FXML
     TableView<InstitucionProcedencia> tblProcedencia;
 
+    @FXML
+    MenuItem SignOff;
+
+    @FXML
+    MenuItem RProced;
+
+
     ProcedenciaDAO procedenciaDAO = new ProcedenciaDAO(MySQLConnection.getConnection());
     private boolean insertMode=false;
     private boolean updateMode=false;
@@ -36,6 +43,7 @@ public class procedenciaController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initComponents();
+        RProced.setOnAction(handlerPDFProced);
     }
 
     private void initComponents()
@@ -58,6 +66,29 @@ public class procedenciaController implements Initializable {
         btnDelete.setOnAction(handlerDelete);
 
     }
+    public static final String DEST1 = "C:/Users/Lizeth R/reports/InstitucionesProcedencia.pdf";
+
+    EventHandler<ActionEvent> handlerPDFProced = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            if (event.getSource()==RProced)
+            {
+                File file = new File(DEST1);
+                file.getParentFile().mkdirs();
+                try {
+                    new ReportProcedencia().createPdfProcedencia(DEST1,procedenciaDAO.fetchAll());
+                    Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("REPORT 1");
+                    alert.setContentText("Reporte Creado");
+                    alert.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    };
+
+
 
     EventHandler<ActionEvent> handlerNew = new EventHandler<ActionEvent>() {
         @Override
