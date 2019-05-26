@@ -1,4 +1,4 @@
-package sample;
+package AreasAyuntamiento;
 
 public class AreasAyuntamiento {
 
