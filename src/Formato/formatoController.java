@@ -35,6 +35,7 @@ public class formatoController implements  Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        initComponents();
         }
 
     private void initComponents()

@@ -12,13 +12,13 @@ public class tipoDocumentoDAO {
     public ObservableList<tipoDocumento> fetchAll() {
         ObservableList<tipoDocumento> procedencias = FXCollections.observableArrayList();
         try {
-            String query = "SELECT * FROM institucionProcedencia";
+            String query = "SELECT * FROM tipoDocumento";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             tipoDocumento td = null;
             while(rs.next()) {
                 td = new tipoDocumento(
-                        rs.getInt("idInstitucion"), rs.getString("nombreInstitucion")
+                        rs.getInt("idTipoDocumento"), rs.getString("nombreTipoDoc")
                 );
                 procedencias.add(td);
             }
@@ -34,7 +34,7 @@ public class tipoDocumentoDAO {
 
     public Boolean delete(int id_proce) {
         try {
-            String query = "delete from institucionProcedencia where idInstitucion = ?";
+            String query = "delete from tipoDocumento where idTipoDocumento = ?";
             PreparedStatement st = conn.prepareStatement(query);
             st.setInt(1, id_proce);
             st.execute();
@@ -47,8 +47,8 @@ public class tipoDocumentoDAO {
 
     public Boolean insert(tipoDocumento td) {
         try {
-            String query = "insert into institucionProcedencia"
-                    + " (idInstitucion, nombreInstitucion)"
+            String query = "insert into tipoDocumento"
+                    + " (idTipoDocumento, nombreTipoDoc)"
                     + " values (?, ?)";
             PreparedStatement st =  conn.prepareStatement(query);
             st.setInt(   1, td.getIdTipoDocumento());
@@ -65,9 +65,9 @@ public class tipoDocumentoDAO {
 
     public Boolean update(tipoDocumento td) {
         try {
-            String query = "update institucionProcedencia "
-                    + " set nombreInstitucion = ?"
-                    + " where idInstitucion=?";
+            String query = "update tipoDocumento"
+                    + " set nombreTipoDoc = ?"
+                    + " where idTipoDocumento=?";
             PreparedStatement st =  conn.prepareStatement(query);
 
             st.setString(  1, td.getNombreTipoDoc());
