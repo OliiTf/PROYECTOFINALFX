@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="700.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionController">
+<BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionController">
     <top>
         <VBox spacing="0">
             <padding>
@@ -145,8 +145,12 @@
 
                 <Label alignment="CENTER_LEFT" text="DESTINATARIO" GridPane.columnIndex="0" GridPane.rowIndex="8" />
 
-                <Label text="QuienRecibe" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-                <TextField fx:id="txtQuienRecibe" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                <Label text="Quien Recibe" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <TextField fx:id="txtQuienRecibe" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+
+                <Label text="Id Destinatario" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                <TextField fx:id="txtIdDestinatario" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+
 
                 <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />
                 <TextField fx:id="txtareaayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="12" />
@@ -190,8 +194,8 @@
                 <Label text="Institucion" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <ComboBox fx:id="cmbinstitucion" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
-                <Label text="Otra" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="txtotra" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label text="Proedencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtprocedencia" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
 
                 <Label text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
@@ -208,6 +212,16 @@
 
                 <Label text="Observaciones" GridPane.columnIndex="0" GridPane.rowIndex="10" />
                 <TextField fx:id="txtobservaciones" prefHeight="100" prefWidth="250" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+
+
+
+
+
+
+
+
+
+
 
 
                 <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
