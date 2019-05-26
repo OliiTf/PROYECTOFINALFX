@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.*;
 
-public class formatoDAO {
+public class formatoDAO{
     Connection conn;
     public formatoDAO( Connection conn){this.conn=conn;}
 
