@@ -1,79 +1,90 @@
-
 package sample;
 
-
-import Recepcion.*;
+import Recepcion.Destinatario.DestinatarioDAO;
+import Recepcion.Destinatario.Instruccion;
+import Recepcion.Destinatario.Prioridad;
+import Recepcion.Documento.DocumentoDAO;
+import Recepcion.Documento.DocumentoInsert;
+import Recepcion.Documento.Formato;
+import Recepcion.Documento.Tipo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 
 
 public class recepcionController implements Initializable {
 
-    /*
     @FXML
-    Button BtnReportes, BtnConsultas, BtnGuardar, BtnEliminar, BtnNuevo;
+    TextField txtFolio, txtNoDoc,txtIdDoc;
     @FXML
-    TextField txtFolio, txtNoDoc, txtQuienRecibe,txtareaayuntamiento,
-            txtfirma, txtpuesto, txtdirigido, txtasunto, txtobservaciones;
+    DatePicker dpFechaDoc, dpFechaRecep;
     @FXML
-    DatePicker dpFechaDoc, dpFechaRecep, dpfechalimite, dpfechaentrega;
-    @FXML
-    Label lblFormato, lblTipo, lblFolio, lblNumeroDoc, lblFechaDoc, lblFechaRecep;
-    @FXML
-    ComboBox<Formato>cmbFormato;
+    ComboBox<Formato> cmbFormato;
     @FXML
     ComboBox<Tipo> cmbTipo;
     @FXML
-    ComboBox<Institucion> cmbinstitucion;
+    Button BtnRecepcion;
+    @FXML
+    ComboBox<Instruccion>  cmbinstruccion;
     @FXML
     ComboBox<Prioridad> cmbprioridad;
-    @FXML
-    ComboBox<Instruccion> cmbinstruccion;
 
-    @FXML
-    CheckBox checkentregado;
+    DocumentoDAO Documento = new DocumentoDAO(MySQLConnection.getConnection());
+    DestinatarioDAO Destinatario = new DestinatarioDAO(MySQLConnection.getConnection());
+    private boolean insertMode = true;
 
 
-    RecepcionDAO recepcionDAO = new RecepcionDAO(MySQLConnection.getConnection());
-*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-/*
-        cmbFormato.setItems(recepcionDAO.fetchFormato());
-        cmbTipo.setItems(recepcionDAO.fetchTipo());
-        //  cmbinstitucion.setItems(recepcionDAO.fetchInstitucion());
-        //  cmbinstruccion.setItems(recepcionDAO.fetchInstruccion());
-        //  cmbprioridad.setItems(recepcionDAO.fetchPrioridad());
+        initLogin();
 
-        cmbFormato.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                Formato formato = cmbFormato.getSelectionModel().getSelectedItem();
-                lblFormato.setText(formato.getNombreFormato());
-
-            }
-        });
-        */
     }
 
+    private void initLogin() {
+        cmbFormato.setItems(Documento.fetchFormato());
+
+        cmbTipo.setItems(Documento.fetchTipo());
+
+        cmbinstruccion.setItems(Destinatario.fetchInstruccion());
+
+        cmbprioridad.setItems(Destinatario.fetchPrioridad());
+
+        BtnRecepcion.setOnAction(handlerinsert);
 
 
+    }
 
+    EventHandler<ActionEvent> handlerinsert = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+
+                insertEmployee();
+
+            System.out.println("p");
         }
 
 
 
 
-
+    };
+    private void insertEmployee() {
+        DocumentoInsert doc = new DocumentoInsert(
+                Integer.valueOf(txtNoDoc.getText()),
+                Integer.valueOf(txtFolio.getText()),
+                cmbFormato.getSelectionModel().getSelectedItem().getIdFomato(),
+                cmbTipo.getSelectionModel().getSelectedItem().getIdTipoDocumento(),
+                Integer.valueOf(txtIdDoc.getText()),
+                Date.valueOf(dpFechaRecep.getValue()),
+                Date.valueOf(dpFechaDoc.getValue())
+                );
+        Documento.insert(doc);
+    }
+}
 
 

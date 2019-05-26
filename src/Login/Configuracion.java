@@ -4,14 +4,16 @@ public class Configuracion {
 
     String nombreJefe, direccion,telefono, horarioInicio, horarioSalida;
     int idMunicipio;
+    String nombreEstado;
 
-    public Configuracion(String nombreJefe, String direccion, String telefono, String horarioInicio, String horarioSalida, int idMunicipio) {
+    public Configuracion(String nombreJefe, String direccion, String telefono, String horarioInicio, String horarioSalida, int idMunicipio,String nombreEstado) {
         this.nombreJefe = nombreJefe;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horarioInicio = horarioInicio;
         this.horarioSalida = horarioSalida;
         this.idMunicipio = idMunicipio;
+        this.nombreEstado = nombreEstado;
     }
 
     public Configuracion(int idMunicipio) {
@@ -21,12 +23,13 @@ public class Configuracion {
     public Configuracion() {
     }
 
-    public Configuracion(String nombreJefe, String direccion, String telefono, String horarioInicio, String horarioSalida) {
+    public Configuracion(String nombreJefe, String direccion, String telefono, String horarioInicio, String horarioSalida, String nombreEstado) {
         this.nombreJefe = nombreJefe;
         this.direccion = direccion;
         this.telefono = telefono;
         this.horarioInicio = horarioInicio;
         this.horarioSalida = horarioSalida;
+        this.nombreEstado = nombreEstado;
     }
 
     public String getNombreJefe() {
@@ -80,7 +83,8 @@ public class Configuracion {
     @Override
     public String toString() {
         String conf = "Nombre Jefe: " + nombreJefe + "\n\nTel: " + telefono +
-                "\n\nDireccion: "+direccion+"\n\nHorario Inicio: " +horarioInicio +"\n\nHorario Salida: " +horarioSalida;
+                "\n\nDireccion: "+direccion+"\n\nHorario Inicio: " +horarioInicio +"\n\nHorario Salida: " +horarioSalida +
+                "\n\nEstado: " + nombreEstado;
         return  conf;
     }
 

@@ -1,4 +1,4 @@
-package Recepcion;
+package Recepcion.Documento;
 
 public class Formato {
     int idFormato;
@@ -7,8 +7,17 @@ public class Formato {
     public Formato(int idFormato, String nombreFormato) {
         this.idFormato = idFormato;
         this.nombreFormato = nombreFormato;
+
     }
 
+
+    public Formato(int idFormato) {
+        this.idFormato = idFormato;
+    }
+
+    public Formato(String nombreFormato) {
+        this.nombreFormato = nombreFormato;
+    }
 
     public int getIdFomato() {
         return idFormato;
@@ -24,5 +33,10 @@ public class Formato {
 
     public void setNombreFormato(String nombreFormato) {
         this.nombreFormato = nombreFormato;
+    }
+
+    @Override
+    public String toString() {
+        return nombreFormato;
     }
 }

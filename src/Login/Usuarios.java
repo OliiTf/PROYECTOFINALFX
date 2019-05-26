@@ -14,6 +14,18 @@ public class Usuarios {
         this.idMunicipio = idMunicipio;
     }
 
+
+    public Usuarios(int idRol) {
+        this.idRol = idRol;
+    }
+
+
+
+    public Usuarios() {
+    }
+
+
+
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -52,5 +64,10 @@ public class Usuarios {
 
     public void setIdMunicipio(int idMunicipio) {
         this.idMunicipio = idMunicipio;
+    }
+
+    @Override
+    public String toString() {
+        return Integer.toString(idRol);
     }
 }

@@ -16,6 +16,12 @@ public class Municipio {
         this.nombreMunicipio = nombreMunicipio;
     }
 
+    public Municipio(int idMunicipio) {
+        this.idMunicipio = idMunicipio;
+    }
+
+    public Municipio() {
+    }
 
     public int getIdMunicipio() {
         return idMunicipio;

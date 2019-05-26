@@ -1,12 +1,16 @@
-package Recepcion;
+package Procedencia;
 
-public class Institucion {
+public class InstitucionProcedencia {
+
     int idInstitucion;
     String nombreInstitucion;
 
-    public Institucion(int idInstitucion, String nombreInstitucion) {
+    public InstitucionProcedencia(int idInstitucion, String nombreInstitucion) {
         this.idInstitucion = idInstitucion;
         this.nombreInstitucion = nombreInstitucion;
+    }
+
+    public InstitucionProcedencia() {
     }
 
     public int getIdInstitucion() {

@@ -42,28 +42,6 @@ public class LoginDAO {
         return rols;
     }
 
-    public ObservableList<Estados> fetchEstados() {
-        ObservableList<Estados> estados = FXCollections.observableArrayList();
-        try {
-            String query = "select nombreEstado from estados";
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(query);
-            Estados p = null;
-            while(rs.next()) {
-                p = new Estados(
-                        rs.getString("nombreEstado")
-                );
-                estados.add(p);
-            }
-            rs.close();
-            st.close();
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            System.out.println("Error al recuperar información...");
-        }
-        return estados;
-    }
 
     public ObservableList<Municipio> fetchMunicipios() {
         ObservableList<Municipio> municipios = FXCollections.observableArrayList();
@@ -92,7 +70,7 @@ public class LoginDAO {
     public List<Configuracion> findConfig(int  id_mun) {
         List<Configuracion> configList = new ArrayList<Configuracion>();
         try {
-            String query = "select c.nombreJefe, c.direccion, c.telefono, c.horarioInicio, c.horarioSalida" +
+            String query = "select c.nombreJefe, c.direccion, c.telefono, c.horarioInicio, c.horarioSalida, m.nombreEstado" +
                     " from configuracion c inner join municipio m on c.idMunicipio = m.idMunicipio where c.idMunicipio = '" + id_mun + "'";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
@@ -101,7 +79,7 @@ public class LoginDAO {
                 p = new Configuracion(
                         rs.getString("c.nombreJefe"), rs.getString("c.direccion"),
                         rs.getString("c.telefono"), rs.getString("c.horarioInicio"),
-                        rs.getString("c.horarioSalida")
+                        rs.getString("c.horarioSalida"), rs.getString("m.nombreEstado")
                 );
                 configList.add(p);
             }
@@ -113,6 +91,78 @@ public class LoginDAO {
             System.out.println("Error al recuperar información...");
         }
         return configList;
+
+    }
+
+    public Usuarios finIdRol(String  nom_user) {
+        Usuarios p = new Usuarios();
+        try {
+            String query = "select u.idRol from usuario u" +
+                    " inner join roles r on u.idRol = r.idRol where u.nombre='" + nom_user + "'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                p = new Usuarios(
+                        rs.getInt("u.idRol")
+                );
+
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return p;
+
+    }
+
+    public UsuarioByMun findIdMunicipioUser(String  nom_user) {
+        UsuarioByMun p = new UsuarioByMun();
+        try {
+            String query = "select u.idMunicipio from usuario u" +
+                    " inner join municipio m on u.idMunicipio = m.idMunicipio where u.nombre='" + nom_user + "'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                p = new UsuarioByMun(
+                        rs.getInt("u.idMunicipio")
+                );
+
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return p;
+
+    }
+
+    public Municipio findIdMunicipio(int  mun) {
+        Municipio p = new Municipio();
+        try {
+            String query = "select idMunicipio from municipio" +
+                    " where idMunicipio='" + mun + "'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                p = new Municipio(
+                        rs.getInt("idMunicipio")
+                );
+
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return p;
 
     }
 
@@ -140,6 +190,7 @@ public class LoginDAO {
         return configList;
 
     }
+
 
     public Boolean validUser(String username, String password) {
         ResultSet rs = null;

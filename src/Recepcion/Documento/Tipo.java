@@ -1,4 +1,4 @@
-package Recepcion;
+package Recepcion.Documento;
 
 public class Tipo {
     int idTipoDocumento;
@@ -10,7 +10,13 @@ public class Tipo {
         this.nombreTipoDoc = nombreTipoDoc;
     }
 
+    public Tipo(int idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
+    }
 
+    public Tipo(String nombreTipoDoc) {
+        this.nombreTipoDoc = nombreTipoDoc;
+    }
 
     public int getIdTipoDocumento() {
         return idTipoDocumento;
@@ -26,5 +32,9 @@ public class Tipo {
 
     public void setNombreTipoDoc(String nombreTipoDoc) {
         this.nombreTipoDoc = nombreTipoDoc;
+    }
+    @Override
+    public String toString() {
+        return nombreTipoDoc;
     }
 }
