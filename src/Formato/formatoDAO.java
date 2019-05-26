@@ -4,20 +4,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.sql.*;
 
-public class formatoDAO {
+public class formatoDAO{
     Connection conn;
     public formatoDAO( Connection conn){this.conn=conn;}
 
     public ObservableList<formato> fetchAll() {
         ObservableList<formato> procedencias = FXCollections.observableArrayList();
         try {
-            String query = "SELECT * FROM institucionProcedencia";
+            String query = "SELECT * FROM formato";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             formato f = null;
             while(rs.next()) {
                 f = new formato(
-                        rs.getInt("idInstitucion"), rs.getString("nombreInstitucion")
+                        rs.getInt("idFormato"), rs.getString("nombreFormato")
                 );
                 procedencias.add(f);
             }
@@ -33,7 +33,7 @@ public class formatoDAO {
 
     public Boolean delete(int id_proce) {
         try {
-            String query = "delete from institucionProcedencia where idInstitucion = ?";
+            String query = "delete from formato where idFormato = ?";
             PreparedStatement st = conn.prepareStatement(query);
             st.setInt(1, id_proce);
             st.execute();
@@ -46,8 +46,8 @@ public class formatoDAO {
 
     public Boolean insert(formato form) {
         try {
-            String query = "insert into institucionProcedencia"
-                    + " (idInstitucion, nombreInstitucion)"
+            String query = "insert into formato"
+                    + " (idFormato, nombreFormato)"
                     + " values (?, ?)";
             PreparedStatement st =  conn.prepareStatement(query);
             st.setInt(   1, form.getIdFormato());
@@ -64,9 +64,9 @@ public class formatoDAO {
 
     public Boolean update(formato form) {
         try {
-            String query = "update institucionProcedencia "
-                    + " set nombreInstitucion = ?"
-                    + " where idInstitucion=?";
+            String query = "update formato"
+                    + " set nombreFormato = ?"
+                    + " where idFormato=?";
             PreparedStatement st =  conn.prepareStatement(query);
 
             st.setString(  1, form.getNombreFormato());
