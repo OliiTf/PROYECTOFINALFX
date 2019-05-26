@@ -147,7 +147,7 @@
 
 
 
-    <rightOl
+    <right>
         <VBox prefWidth="321.0">
             <ToolBar>
                 <GridPane hgap="4" vgap="1">
