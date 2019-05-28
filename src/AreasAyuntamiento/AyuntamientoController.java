@@ -33,12 +33,12 @@ public class AyuntamientoController implements Initializable {
     }
 
     private void initComponents() {
-        TableColumn col1 = new TableColumn("Id Institucion");
-        TableColumn col2 = new TableColumn("Nombre Institucion");
+        TableColumn col1 = new TableColumn("Id Area");
+        TableColumn col2 = new TableColumn("Nombre Area");
 
 
-        col1.setCellValueFactory(new PropertyValueFactory<>("idInstitucion"));
-        col2.setCellValueFactory(new PropertyValueFactory<>("nombreInstitucion"));
+        col1.setCellValueFactory(new PropertyValueFactory<>("idArea"));
+        col2.setCellValueFactory(new PropertyValueFactory<>("nombreArea"));
 
         tblAreasAyuntamiento.getColumns().addAll(col1, col2);
         tblAreasAyuntamiento.setItems(ayuntamientoDAO.fetchAll());
