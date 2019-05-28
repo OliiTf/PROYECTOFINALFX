@@ -1,5 +1,6 @@
 package sample;
 
+import Login.Usuarios;
 import Recepcion.Destinatario.DestinatarioDAO;
 import Recepcion.Destinatario.DestinatarioInsert;
 import Recepcion.Destinatario.Instruccion;
@@ -22,7 +23,7 @@ import java.sql.Date;
 import java.util.ResourceBundle;
 
 
-public class recepcionController implements Initializable {
+public class recepcionAdminController implements Initializable {
 
     @FXML
     TextField txtFolio, txtNoDoc,txtIdDoc,txtIdDestinatario,txtQuienRecibe,txtareaayuntamiento,txtprocedencia,txtfirma,txtpuesto,txtdirigido,txtasunto,txtobservaciones;
@@ -40,6 +41,8 @@ public class recepcionController implements Initializable {
     ComboBox<Prioridad> cmbprioridad;
     @FXML
     ComboBox<Institucion> cmbinstitucion;
+    @FXML
+    Menu menuCatalogos;
 
     DocumentoDAO Documento = new DocumentoDAO(MySQLConnection.getConnection());
     DestinatarioDAO Destinatario = new DestinatarioDAO(MySQLConnection.getConnection());
@@ -53,6 +56,7 @@ public class recepcionController implements Initializable {
     }
 
     private void initLogin() {
+
         cmbFormato.setItems(Documento.fetchFormato());
 
         cmbTipo.setItems(Documento.fetchTipo());
