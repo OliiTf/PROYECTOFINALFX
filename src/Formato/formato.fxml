@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Formato.formatoController"
@@ -15,6 +16,7 @@
     <top>
         <Button  fx:id="btnReturn" text="Return" contentDisplay="TOP" styleClass="btn, btn-default">
             <graphic>
+                <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
             </graphic>
         </Button>
     </top>
@@ -41,16 +43,17 @@
                 </padding>
                 <Button fx:id="btnNew" text="New"  styleClass="btn, btn-lg, btn-success">
                     <graphic>
-
+                        <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
                     </graphic>
                 </Button>
                 <Button fx:id="btnSave" text="Save"  styleClass="btn, btn-lg, btn-primary">
                     <graphic>
-
+                        <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
                     </graphic>
                 </Button>
                 <Button fx:id="btnDelete" text="Delete"  styleClass="btn, btn-lg, btn-danger">
                     <graphic>
+                        <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
                     </graphic>
                 </Button>
             </HBox>
