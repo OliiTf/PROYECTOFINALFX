@@ -16,8 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import java.lang.String?>
-<BorderPane prefHeight="532.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="AreasAyuntamiento.AyuntamientoController">
+<BorderPane prefHeight="532.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AreasAyuntamiento.AreasAyuntamiento">
 
     <left>
         <VBox spacing="5">
@@ -69,7 +68,7 @@
 
 
     <bottom>
-        <TableView fx:id="tblAreasAyuntamiento" prefHeight="351.0" prefWidth="195.0">
+        <TableView fx:id="tableAreasAyuntamiento" prefHeight="351.0" prefWidth="195.0">
             <columnResizePolicy >
 
             </columnResizePolicy>
