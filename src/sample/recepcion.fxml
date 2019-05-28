@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,11 +18,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<BorderPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionController">
+
+<BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionController">
     <top>
         <VBox spacing="0">
             <padding>
@@ -29,14 +29,14 @@
                 <menus>
                     <Menu text="FILE">
                         <graphic>
-                            <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
+                            <FontAwesomeIconView fill="black" glyphName="FILE" glyphSize="30" />
                         </graphic>
 
                         <items>
 
-                            <MenuItem text="Cerrar Sesion" fx:id="SignOff">
+                            <MenuItem fx:id="SignOff" text="Cerrar Sesion">
                                 <graphic>
-                                    <FontAwesomeIconView glyphName="USER_TIMES" glyphSize="10" fill="brown"/>
+                                    <FontAwesomeIconView fill="brown" glyphName="USER_TIMES" glyphSize="10" />
                                 </graphic>
 
 
@@ -47,13 +47,13 @@
                     </Menu>
                     <Menu text="Catalogos">
                         <graphic>
-                            <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
+                            <FontAwesomeIconView fill="black" glyphName="FILE" glyphSize="30" />
                         </graphic>
 
                         <items>
-                            <MenuItem text="Instituciones de prodencia" fx:id="instituciones">
+                            <MenuItem fx:id="instituciones" text="Instituciones de prodencia">
                                 <graphic>
-                                    <FontAwesomeIconView glyphName="USER_TIMES" glyphSize="10" fill="brown"/>
+                                    <FontAwesomeIconView fill="brown" glyphName="USER_TIMES" glyphSize="10" />
                                 </graphic>
 
 
@@ -71,7 +71,7 @@
 
                     <HBox spacing="10">
 
-                        <Button fx:id="BtnRecepcion" text="RECEPCIÓN"/>
+                        <Button fx:id="BtnRecepcion" text="Prueba" />
                         <Button fx:id="BtnReportes" text="REPORTES" />
                         <Button fx:id="BtnConsultas" text="CONSULTAS" />
 
@@ -82,18 +82,17 @@
 
                 <items>
 
-                    <Button fx:id="BtnGuardar" contentDisplay="TOP" styleClass="btn, btn-lg, btn-default" text="Guardar">
+                    <Button fx:id="BtnGuardar" contentDisplay="TOP"  text="Guardar">
                         <graphic>
                             <FontAwesomeIconView fill="black" glyphName="SAVE" glyphSize="10" />
                         </graphic>
                     </Button>
-                    <Button  fx:id="BtnEliminar" contentDisplay="TOP" styleClass="btn, btn-lg, btn-primary" text="Eliminar">
+                    <Button fx:id="BtnEliminar" contentDisplay="TOP"  text="Eliminar">
                         <graphic>
                             <FontAwesomeIconView fill="black" glyphName="DELETE" glyphSize="10" />
                         </graphic>
                     </Button>
-                    <Button fx:id="BtnNuevo" contentDisplay="TOP" styleClass="
-                    btn, btn-lg, btn-success" text="Nuevo">
+                    <Button fx:id="BtnNuevo" contentDisplay="TOP"  text="Nuevo">
                         <graphic>
                             <FontAwesomeIconView fill="black" glyphName="BOLT" glyphSize="10" />
                         </graphic>
@@ -108,113 +107,95 @@
         </VBox>
     </top>
     <left>
-        <ToolBar>
+
             <GridPane hgap="4" vgap="7">
                 <padding>
                     <Insets topRightBottomLeft="3" />
                 </padding>
-                <ToolBar>
+
                     <Label alignment="CENTER_LEFT" text="DOCUMENTO" />
 
-                </ToolBar>
+
+                <Label  text="Id Doc" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtIdDoc" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
 
+                <Label  text="Folio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtFolio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
+                <Label  text="Numero Doc" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <TextField fx:id="txtNoDoc" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
-                <Label fx:id="lblFolio" text="Folio" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="txtFolio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-                <Label fx:id="lblNumeroDoc" text="Numero Doc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="txtNoDoc" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-                <Label fx:id="lblFechaDoc" text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label  text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-                <Label fx:id="lblFechaRecep" text="Fecha Recep" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                <Label fx:id="lblFormato" text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                <ComboBox fx:id="cmbFormato" GridPane.columnIndex="0" GridPane.rowIndex="7" prefWidth="140"/>
+                <Label  text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <ComboBox fx:id="cmbFormato" prefWidth="140" GridPane.columnIndex="0" GridPane.rowIndex="7" />
 
-                <Label fx:id="lblTipo" text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <ComboBox fx:id="cmbTipo" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="140" />
+                <Label  text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <ComboBox fx:id="cmbTipo" prefWidth="140" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+
+
+
+
+
+                <Label alignment="CENTER_LEFT" text="DESTINATARIO" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+
+                <Label text="Quien Recibe" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <TextField fx:id="txtQuienRecibe" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+
+                <Label text="Id Destinatario" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                <TextField fx:id="txtIdDestinatario" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+
+
+                <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                <TextField fx:id="txtareaayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+
+
+                <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                <ComboBox fx:id="cmbinstruccion" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+
+                <Label text="Prioridad" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                <ComboBox fx:id="cmbprioridad" prefWidth="120" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+
+                <Label text="Fecha Limite" GridPane.columnIndex="0" GridPane.rowIndex="17" />
+                <DatePicker fx:id="dpfechalimite" GridPane.columnIndex="0" GridPane.rowIndex="18" />
+
+                <Label text="Fecha Entrega" GridPane.columnIndex="0" GridPane.rowIndex="19" />
+                <DatePicker fx:id="dpfechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="20" />
+
+
+
+
 
 
 
             </GridPane>
-        </ToolBar>
+
     </left>
-
-
-
-    <rightOl
-        <VBox prefWidth="321.0">
-            <ToolBar>
-                <GridPane hgap="4" vgap="1">
-                    <padding>
-                        <Insets topRightBottomLeft="3" />
-                    </padding>
-                    <ToolBar>
-                        <Label alignment="CENTER_LEFT" text="DESTINATARIO" />
-
-                    </ToolBar>
-
-
-
-
-                    <Label text="QuienRecibe" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <TextField fx:id="txtQuienRecibe" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-                    <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                    <TextField fx:id="txtareaayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-
-
-                    <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                    <ComboBox fx:id="cmbinstruccion" GridPane.columnIndex="1" GridPane.rowIndex="7" prefWidth="70"/>
-
-                    <Label text="Prioridad" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                    <ComboBox fx:id="cmbprioridad" GridPane.columnIndex="0" GridPane.rowIndex="7" prefWidth="120"/>
-
-                    <Label text="Fecha Limite" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                    <DatePicker fx:id="dpfechalimite" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-
-                    <Label text="Fecha Entrega" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-                    <DatePicker fx:id="dpfechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-
-
-                    <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="13" />
-                    <CheckBox fx:id="checkentregado" GridPane.columnIndex="0" GridPane.rowIndex="14"  />
-
-                    <Button fx:id="btnagregar" text="Agregar" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-                    <Button fx:id="btncancelar" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="14" />
-
-
-
-
-                </GridPane>
-            </ToolBar>
-        </VBox>
-    </right>
-
     <center>
-        <ToolBar>
+
             <GridPane hgap="5" vgap="1">
                 <padding>
                     <Insets topRightBottomLeft="3" />
                 </padding>
-                <ToolBar>
+
                     <Label alignment="CENTER_LEFT" text="PROCEDENCIA" />
 
-                </ToolBar>
+
 
 
 
 
                 <Label text="Institucion" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <ComboBox fx:id="cmbinstitucion" GridPane.columnIndex="0" GridPane.rowIndex="3" prefWidth="240" />
+                <ComboBox fx:id="cmbinstitucion" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
-                <Label text="Otra" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="txtotra" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="150" />
+                <Label text="Proedencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="txtprocedencia" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
 
                 <Label text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
@@ -230,40 +211,39 @@
                 <TextField fx:id="txtasunto" GridPane.columnIndex="0" GridPane.rowIndex="9" />
 
                 <Label text="Observaciones" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-                <TextField fx:id="txtobservaciones" GridPane.columnIndex="0" GridPane.rowIndex="11" prefWidth="250" prefHeight="100" />
+                <TextField fx:id="txtobservaciones" prefHeight="100" prefWidth="250" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+
+
+
+
+
+
+
+
+
+
+
+
+                <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+
+
+                <Label text="Seleccionar: " GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                <Button fx:id="Examinar" text="Examinar" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+
+
+
+                <Button fx:id="enviar" text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+
+
+                <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="18" />
+                <CheckBox fx:id="checkentregado" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+
+                <Button fx:id="btnagregar" text="Agregar" GridPane.columnIndex="0" GridPane.rowIndex="19" />
+                <Button fx:id="btncancelar" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="19" />
 
             </GridPane>
-        </ToolBar>
+
     </center>
-
-
-<bottom>
-    <ToolBar>
-        <GridPane hgap="5" vgap="1">
-            <padding>
-                <Insets topRightBottomLeft="3" />
-            </padding>
-            <ToolBar>
-                <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" />
-
-            </ToolBar>
-
-
-
-
-            <Label text="Seleccionar: " GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Button fx:id="Examinar" text="Examinar" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-
-
-            <Button fx:id="enviar" text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-
-
-        </GridPane>
-    </ToolBar>
-</bottom>
-
 
 
 </BorderPane>

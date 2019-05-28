@@ -1,4 +1,4 @@
-package sample;
+package Recepcion.Procedencia;
 
 public class Institucion {
     int idInstitucion;
@@ -6,6 +6,10 @@ public class Institucion {
 
     public Institucion(int idInstitucion, String nombreInstitucion) {
         this.idInstitucion = idInstitucion;
+        this.nombreInstitucion = nombreInstitucion;
+    }
+
+    public Institucion(String nombreInstitucion) {
         this.nombreInstitucion = nombreInstitucion;
     }
 
@@ -23,5 +27,9 @@ public class Institucion {
 
     public void setNombreInstitucion(String nombreInstitucion) {
         this.nombreInstitucion = nombreInstitucion;
+    }
+    @Override
+    public String toString() {
+        return nombreInstitucion;
     }
 }
