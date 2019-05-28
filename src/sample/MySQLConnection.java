@@ -19,7 +19,7 @@ public class MySQLConnection {
     private static String hostname   = "localhost";
     private static String dbname = "oficialia";
     private static String dbuser = "root";
-    private static String dbpass = "17030499L";
+    private static String dbpass = "basededatos";
     
 
     public static void Connect() {
