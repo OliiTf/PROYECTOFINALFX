@@ -1,16 +1,12 @@
 package sample;
 
+import Recepcion.Destinatario.Destinatario;
 import Recepcion.Destinatario.DestinatarioDAO;
-import Recepcion.Destinatario.DestinatarioInsert;
 import Recepcion.Destinatario.Instruccion;
 import Recepcion.Destinatario.Prioridad;
-import Recepcion.Documento.DocumentoDAO;
-import Recepcion.Documento.DocumentoInsert;
-import Recepcion.Documento.Formato;
-import Recepcion.Documento.Tipo;
+import Recepcion.Documento.*;
 import Recepcion.Procedencia.Institucion;
 import Recepcion.Procedencia.ProcedenciaDAO;
-import Recepcion.Procedencia.ProcedenciaInsert;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -42,42 +38,60 @@ public class recepcionCapturistaController implements Initializable {
     ComboBox<Institucion> cmbinstitucion;
 
 
-    DocumentoDAO Documento = new DocumentoDAO(MySQLConnection.getConnection());
-    DestinatarioDAO Destinatario = new DestinatarioDAO(MySQLConnection.getConnection());
-    ProcedenciaDAO Procedencia= new ProcedenciaDAO(MySQLConnection.getConnection());
+    DetalleDocumentoDAO detalleDocumentoDAO = new DetalleDocumentoDAO(MySQLConnection.getConnection());
+    DocumentoDAO DocumentoDAO = new DocumentoDAO(MySQLConnection.getConnection());
+    DestinatarioDAO DestinatarioDAO = new DestinatarioDAO(MySQLConnection.getConnection());
+    ProcedenciaDAO ProcedenciaDAO= new ProcedenciaDAO(MySQLConnection.getConnection());
+    private boolean insertMode=false;
+    private boolean updateMode=false;
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        initLogin();
+        initComponents();
+        BtnRecepcion.setOnAction(handlerNew);
+
 
     }
 
-    private void initLogin() {
+    private void initComponents() {
 
-        cmbFormato.setItems(Documento.fetchFormato());
+        txtIdDoc.setText(String.valueOf(resetCount()));
+        cmbFormato.setItems(DocumentoDAO.fetchFormato());
+        cmbTipo.setItems(DocumentoDAO.fetchTipo());
+        cmbinstitucion.setItems(ProcedenciaDAO.fetchInstituccion());
+        txtIdDestinatario.setText(String.valueOf(resetCountDest()));
 
-        cmbTipo.setItems(Documento.fetchTipo());
 
-        cmbinstruccion.setItems(Destinatario.fetchInstruccion());
+        //detalleDocumentoDAO.findIdFormato()
+
+
+
+
+        /*cmbinstruccion.setItems(Destinatario.fetchInstruccion());
 
         cmbprioridad.setItems(Destinatario.fetchPrioridad());
 
         BtnRecepcion.setOnAction(handlerinsert);
 
-        cmbinstitucion.setItems(Procedencia.fetchInstituccion());
+        cmbinstitucion.setItems(Procedencia.fetchInstituccion());*/
+
+
 
 
     }
 
-    EventHandler<ActionEvent> handlerinsert = new EventHandler<ActionEvent>() {
+
+
+    EventHandler<ActionEvent> handlerNew = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-
+            insertMode=true;
+            updateMode=false;
             insertDocumento();
+            insertDestinatario();
 
-
-            System.out.println("p");
         }
 
 
@@ -85,43 +99,63 @@ public class recepcionCapturistaController implements Initializable {
 
     };
     private void insertDocumento() {
-        DocumentoInsert doc = new DocumentoInsert(
-                Integer.valueOf(txtNoDoc.getText()),
+        Documento doc = new Documento(
                 Integer.valueOf(txtFolio.getText()),
-                cmbFormato.getSelectionModel().getSelectedIndex(),
-                cmbTipo.getSelectionModel().getSelectedIndex(),
-                Integer.valueOf(txtIdDoc.getText()),
+                2,5,2,false);
+
+
+        DocumentoDAO.insert(doc);
+        DetalleDocumento detaildoc = new DetalleDocumento(
+                    resetCount(),
+                Integer.valueOf(txtNoDoc.getText()),
                 Date.valueOf(dpFechaRecep.getValue()),
-                Date.valueOf(dpFechaDoc.getValue())
-                );
-        DestinatarioInsert des = new DestinatarioInsert(
-                Integer.valueOf(txtIdDestinatario.getText()),
-                Integer.valueOf(txtareaayuntamiento.getText()),
-                String.valueOf(txtQuienRecibe.getText()),
-                cmbinstruccion.getSelectionModel().getSelectedIndex(),
-                cmbprioridad.getSelectionModel().getSelectedIndex(),
+                Date.valueOf(dpFechaDoc.getValue()),
+                detalleDocumentoDAO.findIdFormato(cmbFormato.getSelectionModel().getSelectedItem().getNombreFormato()).getIdFormato(),
+                detalleDocumentoDAO.findIfTipoDoc(cmbTipo.getSelectionModel().getSelectedItem().getNombreTipoDoc()).getIdTipoDocumento(),
+                Integer.valueOf(txtFolio.getText())
+        );
+        if(detalleDocumentoDAO.insert(detaildoc))
+        {
+            clearFormDetailDoc();
+        }
+
+        /*Destinatario.insert(des);
+        Procedencia.insert(pro);*/
+    }
+
+    private void insertDestinatario()
+    {
+        Destinatario destinatario = new Destinatario(
+                resetCountDest()+1,
                 Date.valueOf(dpfechalimite.getValue()),
-                Date.valueOf(dpfechaentrega.getValue())
-
-
+                Date.valueOf(dpfechaentrega.getValue()),
+                txtQuienRecibe.getText(),
+                10,5,2
         );
-        ProcedenciaInsert pro = new ProcedenciaInsert(
-                Integer.valueOf(txtprocedencia.getText()),
-                cmbinstitucion.getSelectionModel().getSelectedItem().getIdInstitucion(),
-                String.valueOf(txtfirma.getText()),
-                String.valueOf(txtpuesto.getText()),
-                String.valueOf(txtdirigido.getText()),
-                String.valueOf(txtasunto.getText()),
-                String.valueOf(txtobservaciones.getText())
+    }
 
+    private int resetCount()
+    {
+        int contDoc = detalleDocumentoDAO.countDoc().getIdDocumento();
+        return contDoc+1;
+    }
 
-        );
+    private int resetCountDest()
+    {
+        int contDest = DestinatarioDAO.countDestinat().getIdDestinataario();
+        return contDest+1;
+    }
 
+    private void clearFormDetailDoc()
+    {
+        txtIdDoc.setText(String.valueOf(resetCount()));
+        txtFolio.setText("");
+        txtNoDoc.setText("");
+        dpFechaRecep.setValue(null);
+        dpFechaDoc.setValue(null);
+        cmbFormato.valueProperty().setValue(null);
+        cmbTipo.valueProperty().setValue(null);
 
-
-        Documento.insert(doc);
-        Destinatario.insert(des);
-        Procedencia.insert(pro);
     }
 }
 

@@ -5,21 +5,19 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 
+
 public class DocumentoDAO {
 
 
-    public Boolean insert(DocumentoInsert Document) {
+    public Boolean insert(Documento Document) {
         try {
-            String query = "insert into detalledocumento(idDocumento, numDocumento, fechaRecepcion, " +
-                    "fechaDocumento, idFormato, idTipoDocumento, numFolio) values (?,?,?,?,?,?,?);";
+            String query = "insert into documento(numFolio, idUsuario, idDestinatario, idProcedencia, adjuntar) values (?,?,?,?,?);";
             PreparedStatement st = conn.prepareStatement(query);
-            st.setInt(1, Document.getIddocumento());
-            st.setInt(2, Document.getTxtnodoc());
-            st.setDate(3, Document.getDpfechasrecep());
-            st.setDate(4, Document.getDpfechadoc());
-            st.setInt(5,Document.getCmbformato() );
-            st.setInt(6, Document.getCmbtipo());
-            st.setInt(7, Document.getTxtfolio());
+            st.setInt(1, Document.getNumFolio());
+            st.setInt(2, Document.getIdUsuario());
+            st.setInt(3, Document.getIdDestinatario());
+            st.setInt(4, Document.getIdProcedencia());
+            st.setBoolean(5,Document.isAdjuntar());
 
 
             st.execute();
@@ -61,9 +59,6 @@ public class DocumentoDAO {
         }
         return Formato;
     }
-
-
-
 
     public ObservableList<Tipo> fetchTipo() {
         ObservableList<Tipo> Tipo = FXCollections.observableArrayList();

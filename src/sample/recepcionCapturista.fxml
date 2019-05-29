@@ -101,7 +101,7 @@
 
 
                 <Label  text="Id Doc" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="txtIdDoc" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="txtIdDoc" GridPane.columnIndex="0" GridPane.rowIndex="3" editable="false" disable="true"/>
 
 
                 <Label  text="Folio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -133,7 +133,7 @@
                 <TextField fx:id="txtQuienRecibe" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
                 <Label text="Id Destinatario" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-                <TextField fx:id="txtIdDestinatario" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                <TextField fx:id="txtIdDestinatario" GridPane.columnIndex="0" GridPane.rowIndex="10" editable="false" disable="true"/>
 
 
                 <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />

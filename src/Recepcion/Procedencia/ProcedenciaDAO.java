@@ -1,6 +1,6 @@
 package Recepcion.Procedencia;
 
-import Recepcion.Destinatario.DestinatarioInsert;
+
 import Recepcion.Destinatario.Instruccion;
 import Recepcion.Destinatario.Prioridad;
 import javafx.collections.FXCollections;

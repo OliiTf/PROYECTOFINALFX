@@ -10,6 +10,13 @@ public class tipoDocumento {
         this.nombreTipoDoc = nombreTipoDoc;
     }
 
+    public tipoDocumento() {
+    }
+
+    public tipoDocumento(int idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
+    }
+
     public int getIdTipoDocumento() {
         return idTipoDocumento;
     }
@@ -24,5 +31,10 @@ public class tipoDocumento {
 
     public void setNombreTipoDoc(String nombreTipoDoc) {
         this.nombreTipoDoc = nombreTipoDoc;
+    }
+
+    @Override
+    public String toString() {
+        return Integer.toString(idTipoDocumento);
     }
 }
