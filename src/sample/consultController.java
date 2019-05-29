@@ -1,11 +1,19 @@
 package sample;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,6 +21,8 @@ public class consultController implements Initializable {
 
     @FXML
     TableView tblConsulta;
+    @FXML
+    Button btnReturn;
 
 
     @Override
@@ -25,7 +35,6 @@ public class consultController implements Initializable {
         TableColumn col5 = new TableColumn("OBSERVACIONES");
 
 
-
         col1.setCellValueFactory(new PropertyValueFactory<>("noFolio"));
         col2.setCellValueFactory(new PropertyValueFactory<>("fechaRecepcion"));
         col3.setCellValueFactory(new PropertyValueFactory<>("procedencia"));
@@ -35,5 +44,32 @@ public class consultController implements Initializable {
 
         tblConsulta.getColumns().addAll(col1, col2, col3, col4, col5);
 
+
+        btnReturn.setOnAction(handlerReturn);
     }
+
+    public void Return() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("recepcionCapturista.fxml"));
+        Stage st= new Stage();
+        st.setTitle("Recepcion Capturista");
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
+        st.setScene(scene);
+
+
+        st.show();
+    }
+    EventHandler<ActionEvent> handlerReturn = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            try {
+                Return();
+                ((Stage)(btnReturn.getScene().getWindow())).hide();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    };
 }
