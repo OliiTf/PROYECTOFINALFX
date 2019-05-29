@@ -13,6 +13,14 @@ public class InstitucionProcedencia {
     public InstitucionProcedencia() {
     }
 
+    public InstitucionProcedencia(int idInstitucion) {
+        this.idInstitucion = idInstitucion;
+    }
+
+    public InstitucionProcedencia(String nombreInstitucion) {
+        this.nombreInstitucion = nombreInstitucion;
+    }
+
     public int getIdInstitucion() {
         return idInstitucion;
     }
@@ -27,5 +35,10 @@ public class InstitucionProcedencia {
 
     public void setNombreInstitucion(String nombreInstitucion) {
         this.nombreInstitucion = nombreInstitucion;
+    }
+
+    @Override
+    public String toString() {
+        return nombreInstitucion;
     }
 }

@@ -11,15 +11,14 @@ public class DocumentoDAO {
 
     public Boolean insert(Documento Document) {
         try {
-            String query = "insert into documento(numFolio, idUsuario, idDestinatario, idProcedencia, adjuntar) values (?,?,?,?,?);";
+            String query = "insert into documento(numFolio, idRol, idDestinatario, idProcedencia, adjuntar,entregado) values (?,?,?,?,?,?);";
             PreparedStatement st = conn.prepareStatement(query);
             st.setInt(1, Document.getNumFolio());
-            st.setInt(2, Document.getIdUsuario());
+            st.setInt(2, Document.getIdRol());
             st.setInt(3, Document.getIdDestinatario());
             st.setInt(4, Document.getIdProcedencia());
             st.setBoolean(5,Document.isAdjuntar());
-
-
+            st.setBoolean(6,Document.isEntregado());
             st.execute();
             return true;
         } catch (Exception e) {

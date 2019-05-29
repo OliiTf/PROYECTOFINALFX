@@ -110,10 +110,10 @@
                 <Label  text="Numero Doc" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 <TextField fx:id="txtNoDoc" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
-                <Label  text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label  text="Fecha Documento" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-                <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Fecha Recepcion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                 <Label  text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
@@ -137,7 +137,7 @@
 
 
                 <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-                <TextField fx:id="txtareaayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                <ComboBox fx:id="cmbAreaAyun" GridPane.columnIndex="0" GridPane.rowIndex="12" />
 
 
                 <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="13" />
@@ -168,18 +168,17 @@
                     <Insets topRightBottomLeft="3" />
                 </padding>
 
-                    <Label alignment="CENTER_LEFT" text="PROCEDENCIA" />
+                    <Label alignment="CENTER_LEFT" text="INFO PROCEDENCIA" />
+
+
+                <Label text="Procedencia" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtprocedencia" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" editable="false" disable="true"/>
 
 
 
+                <Label text="Institucion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <ComboBox fx:id="cmbinstitucion" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-
-
-                <Label text="Institucion" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <ComboBox fx:id="cmbinstitucion" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-                <Label text="Proedencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="txtprocedencia" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
 
                 <Label text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
@@ -209,9 +208,7 @@
 
 
                 <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-
-
-                <Label text="Seleccionar: " GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                <CheckBox fx:id="chkAdjuntar" GridPane.columnIndex="1" GridPane.rowIndex="12" />
                 <Button fx:id="Examinar" text="Examinar" GridPane.columnIndex="0" GridPane.rowIndex="14" />
 
 

@@ -10,6 +10,17 @@ public class AreasAyuntamiento {
         this.nombreArea = nombreArea;
     }
 
+    public AreasAyuntamiento(String nombreArea) {
+        this.nombreArea = nombreArea;
+    }
+
+    public AreasAyuntamiento() {
+    }
+
+    public AreasAyuntamiento(int idArea) {
+        this.idArea = idArea;
+    }
+
     public int getIdArea() {
         return idArea;
     }
@@ -24,5 +35,10 @@ public class AreasAyuntamiento {
 
     public void setNombreArea(String nombreArea) {
         this.nombreArea = nombreArea;
+    }
+
+    @Override
+    public String toString() {
+        return nombreArea;
     }
 }

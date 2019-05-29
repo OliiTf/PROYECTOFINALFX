@@ -9,6 +9,13 @@ public class Instruccion {
         this.descInstruccion = descInstruccion;
     }
 
+    public Instruccion() {
+    }
+
+    public Instruccion(int idInstruccion) {
+        this.idInstruccion = idInstruccion;
+    }
+
     public Instruccion(String descInstruccion) {
         this.descInstruccion = descInstruccion;
     }

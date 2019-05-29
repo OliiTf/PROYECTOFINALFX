@@ -36,6 +36,51 @@ public class AyuntamientoDAO {
         }
         return ayuntamiento;
     }
+    public AreasAyuntamiento findIdArea(String  nom_area) {
+        AreasAyuntamiento p = new AreasAyuntamiento();
+        try {
+            String query = "select idArea from areasAyuntamiento where nombreArea='" + nom_area + "'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                p = new AreasAyuntamiento(
+                        rs.getInt("idArea")
+                );
+
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return p;
+
+    }
+
+    public ObservableList<AreasAyuntamiento> findnombreAreas() {
+        ObservableList<AreasAyuntamiento> ayuntamiento = FXCollections.observableArrayList();
+        try {
+            String query = "SELECT nombreArea FROM areasAyuntamiento";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            AreasAyuntamiento p = null;
+            while (rs.next()) {
+                p = new AreasAyuntamiento(
+                        rs.getString("nombreArea")
+                );
+                ayuntamiento.add(p);
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return ayuntamiento;
+    }
 
     public Boolean delete(int id_area) {
         try {

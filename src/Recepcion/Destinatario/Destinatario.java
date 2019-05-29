@@ -28,12 +28,12 @@ public class Destinatario {
         this.idPrioridad = idPrioridad;
     }
 
-    public int getIdDestinataario() {
+    public int getIdDestinatario() {
         return idDestinatario;
     }
 
-    public void setIdDestinataario(int idDestinataario) {
-        this.idDestinatario = idDestinataario;
+    public void setIdDestinatario(int idDestinatario) {
+        this.idDestinatario = idDestinatario;
     }
 
     public Date getFechaLimite() {
