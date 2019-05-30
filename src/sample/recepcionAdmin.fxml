@@ -59,6 +59,28 @@
 
                             </MenuItem>
 
+                            <MenuItem fx:id="areas" text="Areas de Ayuntammiento">
+                            <graphic>
+                                <FontAwesomeIconView fill="brown" glyphName="BANK" glyphSize="10" />
+                            </graphic>
+
+
+                        </MenuItem>
+                        <MenuItem fx:id="tipodoc" text="Tipo de Documento">
+                            <graphic>
+                                <FontAwesomeIconView fill="brown" glyphName="FILE_ALT" glyphSize="10" />
+                            </graphic>
+
+
+                        </MenuItem>
+                        <MenuItem fx:id="tipoforma" text="Tipo de Formato">
+                            <graphic>
+                                <FontAwesomeIconView fill="brown" glyphName="FILE" glyphSize="10" />
+                            </graphic>
+
+
+                        </MenuItem>
+
                         </items>
                     </Menu>
                 </menus>

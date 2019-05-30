@@ -22,6 +22,17 @@ import java.util.ResourceBundle;
 public class recepcionAdminController implements Initializable {
 
     @FXML
+    MenuItem SignOff;
+    @FXML
+    MenuItem instituciones;
+    @FXML
+    MenuItem areas;
+    @FXML
+    MenuItem tipodoc;
+    @FXML
+    MenuItem tipoforma;
+
+    @FXML
     TextField txtFolio, txtNoDoc,txtIdDoc,txtIdDestinatario,txtQuienRecibe,txtareaayuntamiento,txtprocedencia,txtfirma,txtpuesto,txtdirigido,txtasunto,txtobservaciones;
     @FXML
     DatePicker dpFechaDoc, dpFechaRecep,dpfechalimite,dpfechaentrega;
@@ -32,6 +43,10 @@ public class recepcionAdminController implements Initializable {
     @FXML
     Button BtnRecepcion;
     @FXML
+    Button BtnReportes;
+    @FXML
+    Button BtnConsultas;
+    @FXML
     ComboBox<Instruccion>  cmbinstruccion;
     @FXML
     ComboBox<Prioridad> cmbprioridad;
@@ -39,6 +54,7 @@ public class recepcionAdminController implements Initializable {
     ComboBox<Institucion> cmbinstitucion;
     @FXML
     Menu menuCatalogos;
+
 
     DocumentoDAO Documento = new DocumentoDAO(MySQLConnection.getConnection());
     //DestinatarioDAO Destinatario = new DestinatarioDAO(MySQLConnection.getConnection());
