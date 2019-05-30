@@ -45,13 +45,13 @@
                         </items>
 
                     </Menu>
-                    <Menu text="Catalogos" fx:id="menuCatalogos">
+                    <Menu text="Catalogos">
                         <graphic>
                             <FontAwesomeIconView fill="black" glyphName="FILE" glyphSize="30" />
                         </graphic>
 
                         <items>
-                            <MenuItem fx:id="instituciones" text="Instituciones de prodencia">
+                            <MenuItem fx:id="instituciones" text="Instituciones de procedencia">
                                 <graphic>
                                     <FontAwesomeIconView fill="brown" glyphName="USER_TIMES" glyphSize="10" />
                                 </graphic>
