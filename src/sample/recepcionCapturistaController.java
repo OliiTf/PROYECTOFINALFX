@@ -239,7 +239,7 @@ public class recepcionCapturistaController implements Initializable {
             {
                 try {
                     Login();
-                    BtnReportes.getGraphic().getScene().getWindow().hide();
+                    BtnConsultas.getGraphic().getScene().getWindow().hide();
 
 
                 } catch (IOException e) {
