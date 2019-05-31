@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableView?>
@@ -10,38 +11,38 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.reportes">
+<?import javafx.scene.control.CheckBox?>
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReportesController">
    <top>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
             <Label text="Reporte Entrega y Recepcin" BorderPane.alignment="CENTER" />
          </top>
          <left>
-             <VBox prefHeight="183.0" prefWidth="113.0" BorderPane.alignment="CENTER">
-                 <GridPane hgap="5" vgap="10">
-                     <RadioButton fx:id="fecha" text="Fecha" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                     <RadioButton fx:id="puesto" text="Puesto" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                     <RadioButton fx:id="fechaypuesto" text="Fecha Y Puesto" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                     <RadioButton fx:id="folio" text="Folio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+             <VBox prefHeight="183.0" prefWidth="183.0" BorderPane.alignment="CENTER">
+                 <GridPane hgap="10.0" vgap="10">
+                     <CheckBox fx:id="fecha" text="Fecha" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                      <DatePicker GridPane.rowIndex="3"  fx:id="date"/>
+                     <CheckBox fx:id="documentos" mnemonicParsing="false" text="Solo Documentos Entregados" BorderPane.alignment="CENTER" GridPane.rowIndex="1" />
+
+
                  </GridPane>
              </VBox>
          </left>
          <center>
-            <Button mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" />
+            <Button mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar"  />
          </center>
          <bottom>
             <BorderPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <right>
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Generar Reporte" BorderPane.alignment="CENTER" />
                </right>
-               <left>
-                  <RadioButton mnemonicParsing="false" text="Solo Documentos Entregados" BorderPane.alignment="CENTER" />
-               </left>
+
             </BorderPane>
          </bottom>
       </BorderPane>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" fx:id="tablereportes" />
    </center>
 </BorderPane>
