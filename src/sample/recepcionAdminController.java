@@ -53,6 +53,12 @@ public class recepcionAdminController implements Initializable {
     @FXML
     Button BtnConsultas;
     @FXML
+    Button BtnNuevo;
+    @FXML
+    Button BtnGuardar;
+    @FXML
+    Button BtnEliminar;
+    @FXML
     ComboBox<Instruccion> cmbinstruccion;
     @FXML
     ComboBox<Prioridad> cmbprioridad;
@@ -65,6 +71,8 @@ public class recepcionAdminController implements Initializable {
     DocumentoDAO Documento = new DocumentoDAO(MySQLConnection.getConnection());
     DestinatarioDAO Destinatario = new DestinatarioDAO(MySQLConnection.getConnection());
     ProcedenciaDAO Procedencia = new ProcedenciaDAO(MySQLConnection.getConnection());
+    private boolean insertMode=false;
+    private boolean updateMode=false;
 
     public void showStageAreas() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("areasAyuntamiento.fxml"));
@@ -116,13 +124,26 @@ public class recepcionAdminController implements Initializable {
         //initLogin();
         SignOff.setOnAction(CerrarSesion);
         instituciones.setOnAction(Instituciones);
+        BtnNuevo.setOnAction(handlerNew);
         //areas.setOnAction(AreasAyuntamiento);
         //tipodoc.setOnAction(TipodeDocumento);
         //tipoforma.setOnAction(TipoFormato);
 
 
     }
+    EventHandler<ActionEvent> handlerNew = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            insertMode=true;
+            updateMode=false;
 
+
+        }
+
+
+
+
+    };
 
     private void initLogin() {
 
@@ -169,7 +190,7 @@ public class recepcionAdminController implements Initializable {
     EventHandler<ActionEvent> Instituciones = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-            if (event.getSource() == instituciones) {
+            if ((MenuItem) event.getSource() == instituciones) {
                 try {
                     showStageInstitucionProcedencia();
 
@@ -179,6 +200,7 @@ public class recepcionAdminController implements Initializable {
             }
         }
     };
+
 }
   /* EventHandler<ActionEvent> AreasAyuntamiento= new EventHandler<ActionEvent>() {
         @Override
