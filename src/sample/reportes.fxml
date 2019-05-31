@@ -12,14 +12,21 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.CheckBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ReportesController">
    <top>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
+
             <Label text="Reporte Entrega y Recepcin" BorderPane.alignment="CENTER" />
          </top>
          <left>
              <VBox prefHeight="183.0" prefWidth="183.0" BorderPane.alignment="CENTER">
+                 <Button fx:id="BtnReturn" contentDisplay="TOP"  >
+                     <graphic>
+                         <FontAwesomeIconView fill="black" glyphName="ARROW_LEFT" glyphSize="20" />
+                     </graphic>
+                 </Button>
                  <GridPane hgap="10.0" vgap="10">
                      <CheckBox fx:id="fecha" text="Fecha" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                       <DatePicker GridPane.rowIndex="3"  fx:id="date"/>
@@ -34,7 +41,9 @@
          </center>
          <bottom>
             <BorderPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+
                <right>
+
                   <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Generar Reporte" BorderPane.alignment="CENTER" />
                </right>
 
@@ -45,4 +54,5 @@
    <center>
       <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" fx:id="tablereportes" />
    </center>
+
 </BorderPane>
