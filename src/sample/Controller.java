@@ -182,7 +182,7 @@ public class Controller implements Initializable {
     }
 
     public void showStageCapturista() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("recepcionAdminController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("recepcionCapturistaController.fxml"));
         Stage st= new Stage();
         st.setTitle("Reportes");
 
