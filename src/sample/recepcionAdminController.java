@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -53,6 +54,12 @@ public class recepcionAdminController implements Initializable {
     @FXML
     Button BtnConsultas;
     @FXML
+    Button BtnNuevo;
+    @FXML
+    Button BtnGuardar;
+    @FXML
+    Button BtnEliminar;
+    @FXML
     ComboBox<Instruccion> cmbinstruccion;
     @FXML
     ComboBox<Prioridad> cmbprioridad;
@@ -65,6 +72,8 @@ public class recepcionAdminController implements Initializable {
     DocumentoDAO Documento = new DocumentoDAO(MySQLConnection.getConnection());
     DestinatarioDAO Destinatario = new DestinatarioDAO(MySQLConnection.getConnection());
     ProcedenciaDAO Procedencia = new ProcedenciaDAO(MySQLConnection.getConnection());
+    private boolean insertMode=false;
+    private boolean updateMode=false;
 
     public void showStageAreas() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("areasAyuntamiento.fxml"));
@@ -77,16 +86,6 @@ public class recepcionAdminController implements Initializable {
         st.show();
     }
 
-    public void showStageInstitucionProcedencia() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("procedencia.fxml"));
-        Stage st = new Stage();
-        st.setTitle("Consultas");
-
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
-        st.setScene(scene);
-        st.show();
-    }
 
     public void showStageTipoDoc() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("tipoDocumento.fxml"));
@@ -115,14 +114,28 @@ public class recepcionAdminController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //initLogin();
         SignOff.setOnAction(CerrarSesion);
-        instituciones.setOnAction(Instituciones);
+        instituciones.setOnAction(handlerinstituciones);
+        areas.setOnAction(handlerinstituciones);
+        BtnNuevo.setOnAction(handlerNew);
         //areas.setOnAction(AreasAyuntamiento);
         //tipodoc.setOnAction(TipodeDocumento);
         //tipoforma.setOnAction(TipoFormato);
 
 
     }
+    EventHandler<ActionEvent> handlerNew = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            insertMode=true;
+            updateMode=false;
 
+
+        }
+
+
+
+
+    };
 
     private void initLogin() {
 
@@ -149,6 +162,16 @@ public class recepcionAdminController implements Initializable {
         st.setResizable(false);
         st.show();
     }
+    public void showStageInstitucionProcedencia() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("procedencia.fxml"));
+        Stage st = new Stage();
+        st.setTitle("Consultas");
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
+        st.setScene(scene);
+        st.show();
+    }
 
     EventHandler<ActionEvent> CerrarSesion = new EventHandler<ActionEvent>() {
         @Override
@@ -156,7 +179,7 @@ public class recepcionAdminController implements Initializable {
             if (event.getSource() == SignOff) {
                 try {
                     Login();
-                    BtnReportes.getGraphic().getScene().getWindow().hide();
+                    BtnNuevo.getGraphic().getScene().getWindow().hide();
 
 
                 } catch (IOException e) {
@@ -166,19 +189,47 @@ public class recepcionAdminController implements Initializable {
         }
     };
 
-    EventHandler<ActionEvent> Instituciones = new EventHandler<ActionEvent>() {
+    EventHandler<ActionEvent> handlerinstituciones = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-            if (event.getSource() == instituciones) {
-                try {
-                    showStageInstitucionProcedencia();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+            Parent root = null;
+            try {
+                if (event.getSource() == instituciones) {
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("procedencia.fxml"));
                 }
+                    else if (event.getSource()==areas){
+                        root = FXMLLoader.load(getClass().getClassLoader().getResource("areas/procedencia.fxml"));
+                }
+                } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        };
+
+    EventHandler<ActionEvent> handlerinsti = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            try {
+                showStageInstitucionProcedencia();
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     };
+
+    EventHandler<ActionEvent> handlerinstituc = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            try {
+                showStageInstitucionProcedencia();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
 }
   /* EventHandler<ActionEvent> AreasAyuntamiento= new EventHandler<ActionEvent>() {
         @Override

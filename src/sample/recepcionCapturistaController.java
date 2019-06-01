@@ -48,6 +48,12 @@ public class recepcionCapturistaController implements Initializable {
     @FXML
     Button BtnConsultas;
     @FXML
+    Button BtnNuevo;
+    @FXML
+    Button BtnGuardar;
+    @FXML
+    Button BtnEliminar;
+    @FXML
     ComboBox<Instruccion>  cmbinstruccion;
     @FXML
     ComboBox<Prioridad> cmbprioridad;
@@ -95,7 +101,7 @@ public class recepcionCapturistaController implements Initializable {
         SignOff.setOnAction(CerrarSesion);
         BtnReportes.setOnAction(handlerReportes);
         BtnConsultas.setOnAction(handlerConsultas);
-
+        BtnNuevo.setOnAction(handlerNew);
 
 
     }
@@ -296,7 +302,7 @@ public class recepcionCapturistaController implements Initializable {
             {
                 try {
                     Login();
-                    BtnReportes.getGraphic().getScene().getWindow().hide();
+                    BtnNuevo.getGraphic().getScene().getWindow().hide();
 
 
                 } catch (IOException e) {
