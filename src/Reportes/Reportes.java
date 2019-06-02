@@ -1,4 +1,4 @@
-package sample;
+package Reportes;
 
 import java.sql.Date;
 
