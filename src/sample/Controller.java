@@ -170,7 +170,7 @@ public class Controller implements Initializable {
     }
 
     public void showStageAdmin() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("recepcionAdmin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("reportes.fxml"));
         Stage st= new Stage();
         st.setTitle("Reportes");
 
