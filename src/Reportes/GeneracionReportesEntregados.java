@@ -1,5 +1,4 @@
-package sample;
-
+package Reportes;
 import Reportes.Reportes;
 import com.itextpdf.io.font.FontConstants;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -19,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class GeneracionReporte {
+public class GeneracionReportesEntregados {
     public static final String DATA = "src/resources/united_states.csv";
     public static final String Logo = "src/Logos/Logo.png";
 
@@ -44,7 +43,7 @@ public class GeneracionReporte {
 
         PdfFont font = PdfFontFactory.createFont(FontConstants.HELVETICA);
         PdfFont bold = PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD);
-        Table table = new Table(new float[]{4, 1, 3, 4, 3});
+        Table table = new Table(new float[]{4, 1, 3, 4});
         //table.setWidthPercent(100);
         Image logo = new Image(ImageDataFactory.create(Logo));
 
@@ -69,7 +68,7 @@ public class GeneracionReporte {
             table.addHeaderCell(new Cell().add(new Paragraph("Nombre de la institucion").setFont(font)));
             table.addHeaderCell(new Cell().add(new Paragraph("Quien Recibe").setFont(font)));
             table.addHeaderCell(new Cell().add(new Paragraph("Fecha de Recepcion").setFont(font)));
-            table.addHeaderCell(new Cell().add(new Paragraph("Firma de Persona").setFont(font)));
+
 
 
 
@@ -78,7 +77,7 @@ public class GeneracionReporte {
             table.addCell(new Cell().add(new Paragraph(""+employee.getNombreInstitucion()).setFont(font)));
             table.addCell(new Cell().add(new Paragraph(""+employee.getQuienRecibe()).setFont(font)));
             table.addCell(new Cell().add(new Paragraph(""+employee.getFechaRecepcion()).setFont(font)));
-            table.addCell(new Cell().add(new Paragraph("")));
+
 
 
         }

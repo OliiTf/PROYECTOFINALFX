@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReportesDAO {
 
@@ -82,7 +84,46 @@ public class ReportesDAO {
         }
         return Reportes3;
     }
+    public List<ReporteEntregaD> fetchAll2(String nombre) {
+        List<ReporteEntregaD> reportes = new ArrayList<ReporteEntregaD>();
+        try {
+            String query = "select d2.numFolio,i3.nombreInstitucion,i5.quienRecibe,t.nombreTipoDoc,p.descPrioridad,f.nombreFormato,i.observaciones,d2.fechaRecepcion\n" +
+                    "from documento d inner join informacionprocedencia i on d.idProcedencia = i.idProcedencia\n" +
+                    "                 inner join institucionprocedencia i4 on i.idInstitucion = i4.idInstitucion\n" +
+                    "                 inner join informaciondestinatario i5 on d.idDestinatario = i5.idDestinatario\n" +
+                    "                 inner join detalledocumento d2 on d.numFolio = d2.numFolio\n" +
+                    "                 inner join informaciondestinatario i2 on d.idDestinatario = i2.idDestinatario\n" +
+                    "                 inner join institucionprocedencia i3 on i.idInstitucion = i3.idInstitucion\n" +
+                    "                 inner join tipodocumento t on d2.idTipoDocumento = t.idTipoDocumento\n"+
+                    "                 inner join prioridad p on i5.idPrioridad = p.idPrioridad\n"+
+                    "                 inner join formato f on d2.idFormato = f.idFormato\n"+
+                    "where i3.nombreInstitucion='"+nombre+"'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            ReporteEntregaD p = null;
+            while (rs.next()) {
+                p = new ReporteEntregaD(
+                        rs.getInt("numfolio"),
+                        rs.getString("nombreInstitucion"),
+                        rs.getString("quienRecibe"),
+                        rs.getString("nombreTipoDoc"),
+                        rs.getString("descPrioridad"),
+                        rs.getString("nombreFormato"),
+                        rs.getString("observaciones"),
+                        rs.getDate("fechaRecepcion")
+                );
+                reportes.add(p);
+            }
+            rs.close();
+            st.close();
 
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return reportes;
+
+    }
 
 
     public ObservableList<Reportes> fetchAll() {
@@ -115,6 +156,7 @@ public class ReportesDAO {
             System.out.println("Error al recuperar información...");
         }
         return reportes;
+
     }
     public ObservableList<Reportes> fech3(String dates) {
         ObservableList<Reportes> Reportes2 = FXCollections.observableArrayList();
@@ -148,5 +190,6 @@ public class ReportesDAO {
         }
         return Reportes2;
     }
+
 
 }

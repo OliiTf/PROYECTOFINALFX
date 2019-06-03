@@ -3,14 +3,12 @@ package Procedencia;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
+import GeneracionReporte;
+import sample.GeneracionReporteProcedencia;
 import sample.MySQLConnection;
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +30,7 @@ public class procedenciaController implements Initializable {
     MenuItem SignOff;
 
     @FXML
-    MenuItem RProced;
+    MenuItem RProced,Proced;
 
 
     ProcedenciaDAO procedenciaDAO = new ProcedenciaDAO(MySQLConnection.getConnection());
@@ -44,6 +42,7 @@ public class procedenciaController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initComponents();
         RProced.setOnAction(handlerPDFProced);
+        Proced.setOnAction(handlerPDFProced2);
     }
 
     private void initComponents()
@@ -66,7 +65,9 @@ public class procedenciaController implements Initializable {
         btnDelete.setOnAction(handlerDelete);
 
     }
-    public static final String DEST1 = "C:/Users/Lizeth R/reports/InstitucionesProcedencia.pdf";
+    public static final String DEST1 = "reports/InstitucionesProcedencia.pdf";
+    public static final String DEST4 = "results/Reportes/ReporteEntregados.pdf";
+
 
     EventHandler<ActionEvent> handlerPDFProced = new EventHandler<ActionEvent>() {
         @Override
@@ -87,6 +88,23 @@ public class procedenciaController implements Initializable {
             }
         }
     };
+    EventHandler<ActionEvent> handlerPDFProced2 = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            if (event.getSource()==Proced)
+            {
+                File file = new File(DEST4);
+                file.getParentFile().mkdirs();
+                try {
+                    new GeneracionReporteProcedencia().createPdf(DEST4);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    };
+
 
 
 
@@ -182,28 +200,5 @@ public class procedenciaController implements Initializable {
         txtNombreIns.setText("");
     }
 
-    /*public void Return() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Table.fxml"));
-        Stage st= new Stage();
-        st.setTitle("Employees");
 
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
-        st.setScene(scene);
-
-        st.setMaximized(true);
-        st.show();
-    }
-
-    EventHandler<ActionEvent> handlerRet = new EventHandler<ActionEvent>() {
-        @Override
-        public void handle(ActionEvent event) {
-            try {
-                Return();
-                ((Stage)(btnReturn.getScene().getWindow())).hide();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    };*/
 }
