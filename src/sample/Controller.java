@@ -182,7 +182,7 @@ public class Controller implements Initializable {
         st.setMaximized(true);
         st.show();
     }
-
+//
     public void showStageCapturista() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("recepcionCapturista.fxml"));
         Stage st= new Stage();
