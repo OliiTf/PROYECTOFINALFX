@@ -9,6 +9,13 @@ public class Prioridad {
         this.descPrioridad = descPrioridad;
     }
 
+    public Prioridad() {
+    }
+
+    public Prioridad(int idPrioridad) {
+        this.idPrioridad = idPrioridad;
+    }
+
     public Prioridad(String descPrioridad) {
         this.descPrioridad = descPrioridad;
     }

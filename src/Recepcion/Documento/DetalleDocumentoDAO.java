@@ -46,8 +46,6 @@ public class DetalleDocumentoDAO {
             st.setInt(6, detDoc.getIdTipoDocumento());
             st.setInt(7, detDoc.getNumFolio());
 
-
-
             st.execute();
             return true;
         } catch (Exception e) {

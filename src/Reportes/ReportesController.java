@@ -6,8 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import GeneracionReporte;
-import GeneracionReportesEntregados;
+import sample.GeneracionReporte;
 import sample.MySQLConnection;
 
 import java.io.File;
@@ -108,7 +107,7 @@ private void reporte(){
             try {
                 ReportesDAO reporte = new ReportesDAO(MySQLConnection.getConnection());
                 String dates = date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-                new GeneracionReportesEntregados().createPdf(DEST2,reporte.fech3(dates));
+                new GeneracionReporte().createPdf(DEST2,reporte.fech3(dates));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -132,7 +131,7 @@ private void reporte(){
             try {
                 ReportesDAO reporte = new ReportesDAO(MySQLConnection.getConnection());
 
-                new GeneracionReportesEntregados().createPdf(DEST4,reporte.fech2());
+                new GeneracionReporte().createPdf(DEST4,reporte.fech2());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -144,7 +143,7 @@ private void reporte(){
             file.getParentFile().mkdirs();
             try {
                 ReportesDAO reporte = new ReportesDAO(MySQLConnection.getConnection());
-                new GeneracionReportesEntregados().createPdf(DEST3,reporte.fetchAll());
+                new GeneracionReporte().createPdf(DEST3,reporte.fetchAll());
             } catch (IOException e) {
                 e.printStackTrace();
             }

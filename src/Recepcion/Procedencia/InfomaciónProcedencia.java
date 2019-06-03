@@ -1,35 +1,34 @@
 package Recepcion.Procedencia;
 
-import java.sql.Date;
+public class InfomaciónProcedencia {
 
-public class ProcedenciaInsert {
-    int idProcedencia,idInstitucion;
+    int idProcedencia;
     String quienFirma,puesto,dirigidaA,asunto,observaciones;
+    int idInstitucion;
 
-    public ProcedenciaInsert(int idProcedencia, int idInstitucion, String quienFirma, String puesto, String dirigidaA, String asunto, String observaciones) {
+    public InfomaciónProcedencia(int idProcedencia, String quienFirma, String puesto, String dirigidaA, String asunto, String observaciones, int idInstitucion) {
         this.idProcedencia = idProcedencia;
-        this.idInstitucion = idInstitucion;
         this.quienFirma = quienFirma;
         this.puesto = puesto;
         this.dirigidaA = dirigidaA;
         this.asunto = asunto;
         this.observaciones = observaciones;
+        this.idInstitucion = idInstitucion;
+    }
+
+    public InfomaciónProcedencia() {
     }
 
     public int getIdProcedencia() {
         return idProcedencia;
     }
 
-    public void setIdProcedencia(int idProcedencia) {
+    public InfomaciónProcedencia(int idProcedencia) {
         this.idProcedencia = idProcedencia;
     }
 
-    public int getIdInstitucion() {
-        return idInstitucion;
-    }
-
-    public void setIdInstitucion(int idInstitucion) {
-        this.idInstitucion = idInstitucion;
+    public void setIdProcedencia(int idProcedencia) {
+        this.idProcedencia = idProcedencia;
     }
 
     public String getQuienFirma() {
@@ -71,4 +70,15 @@ public class ProcedenciaInsert {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
+
+    public int getIdInstitucion() {
+        return idInstitucion;
+    }
+
+    public void setIdInstitucion(int idInstitucion) {
+        this.idInstitucion = idInstitucion;
+    }
+
+
+
 }

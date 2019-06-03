@@ -10,6 +10,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
@@ -18,6 +19,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionCapturistaController">
     <top>
@@ -55,30 +57,31 @@
 
                     <HBox spacing="10">
 
-                        <Button fx:id="BtnRecepcion" text="Prueba" />
+                        <Button fx:id="BtnRecepcion" text="RECEPCION" />
                         <Button fx:id="BtnReportes" text="REPORTES" />
                         <Button fx:id="BtnConsultas" text="CONSULTAS" />
 
                     </HBox>
                 </VBox>
             </ToolBar>
-            <ToolBar>
+            <ToolBar style="-fx-background-color: #c1d4f3;">
 
                 <items>
 
-                    <Button fx:id="BtnGuardar" contentDisplay="TOP"  text="Guardar">
+                    <Button fx:id="BtnNuevo" contentDisplay="TOP" styleClass="btn, btn-success" text="Nuevo">
                         <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="SAVE" glyphSize="10" />
+                            <FontAwesomeIconView fill="darkgreen" glyphName="CLOUD_UPLOAD" glyphSize="20" />
                         </graphic>
                     </Button>
-                    <Button fx:id="BtnEliminar" contentDisplay="TOP"  text="Eliminar">
+                    <Button fx:id="BtnEliminar" contentDisplay="TOP" styleClass="btn, btn-danger" text="Eliminar">
                         <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="DELETE" glyphSize="10" />
+                            <FontAwesomeIconView fill="darkred" glyphName="TRASH" glyphSize="20" />
                         </graphic>
                     </Button>
-                    <Button fx:id="BtnNuevo" contentDisplay="TOP"  text="Nuevo">
+
+                    <Button fx:id="BtnGuardar" contentDisplay="TOP" styleClass="btn, btn-primary" text="Guardar" visible="false">
                         <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="BOLT" glyphSize="10" />
+                            <FontAwesomeIconView fill="darkblue" glyphName="SAVE" glyphSize="20" />
                         </graphic>
                     </Button>
 
@@ -97,29 +100,32 @@
                     <Insets topRightBottomLeft="3" />
                 </padding>
 
-                    <Label alignment="CENTER_LEFT" text="DOCUMENTO" />
+                    <Label alignment="CENTER_LEFT" text="DOCUMENTO">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="14.0" />
+            </font></Label>
 
 
-                <Label  text="Id Doc" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="txtIdDoc" GridPane.columnIndex="0" GridPane.rowIndex="3" editable="false" disable="true"/>
+                <Label text="Id Doc" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtIdDoc" disable="true" editable="false" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
 
-                <Label  text="Folio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Folio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="txtFolio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label  text="Numero Doc" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label text="Numero Doc" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 <TextField fx:id="txtNoDoc" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
-                <Label  text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-                <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label text="Fecha Recepcion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                <Label  text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <Label text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                 <ComboBox fx:id="cmbFormato" prefWidth="140" GridPane.columnIndex="0" GridPane.rowIndex="7" />
 
-                <Label  text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                 <ComboBox fx:id="cmbTipo" prefWidth="140" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
 
@@ -127,17 +133,20 @@
 
 
 
-                <Label alignment="CENTER_LEFT" text="DESTINATARIO" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                <Label alignment="CENTER_LEFT" text="DESTINATARIO" GridPane.columnIndex="0" GridPane.rowIndex="8">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="13.0" />
+            </font></Label>
 
                 <Label text="Quien Recibe" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                 <TextField fx:id="txtQuienRecibe" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
                 <Label text="Id Destinatario" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-                <TextField fx:id="txtIdDestinatario" GridPane.columnIndex="0" GridPane.rowIndex="10" editable="false" disable="true"/>
+                <TextField fx:id="txtIdDestinatario" disable="true" editable="false" GridPane.columnIndex="0" GridPane.rowIndex="10" />
 
 
                 <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-                <TextField fx:id="txtareaayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                <ComboBox fx:id="cmbAreaAyun" GridPane.columnIndex="0" GridPane.rowIndex="12" />
 
 
                 <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="13" />
@@ -151,6 +160,34 @@
 
                 <Label text="Fecha Entrega" GridPane.columnIndex="0" GridPane.rowIndex="19" />
                 <DatePicker fx:id="dpfechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="20" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
 
 
 
@@ -168,18 +205,20 @@
                     <Insets topRightBottomLeft="3" />
                 </padding>
 
-                    <Label alignment="CENTER_LEFT" text="PROCEDENCIA" />
+                    <Label alignment="CENTER_LEFT" prefHeight="16.0" prefWidth="151.0" text="PROCEDENCIA">
+            <font>
+               <Font name="Arial Rounded MT Bold" size="13.0" />
+            </font></Label>
+
+
+                <Label text="Procedencia" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="txtprocedencia" disable="true" editable="false" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
 
 
+                <Label text="Institucion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <ComboBox fx:id="cmbinstitucion" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-
-
-                <Label text="Institucion" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <ComboBox fx:id="cmbinstitucion" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-                <Label text="Proedencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="txtprocedencia" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
 
                 <Label text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
@@ -209,25 +248,57 @@
 
 
                 <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-
-
-                <Label text="Seleccionar: " GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                <CheckBox fx:id="chkAdjuntar" GridPane.columnIndex="1" GridPane.rowIndex="12" />
                 <Button fx:id="Examinar" text="Examinar" GridPane.columnIndex="0" GridPane.rowIndex="14" />
-
-
-
-                <Button fx:id="enviar" text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-
-
                 <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="18" />
                 <CheckBox fx:id="checkentregado" GridPane.columnIndex="1" GridPane.rowIndex="18" />
 
-                <Button fx:id="btnagregar" text="Agregar" GridPane.columnIndex="0" GridPane.rowIndex="19" />
-                <Button fx:id="btncancelar" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+
+
+
+
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
 
             </GridPane>
 
+
     </center>
+
+    <bottom>
+
+        <TableView fx:id="tblDocuments" maxHeight="100">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy></TableView>
+
+
+    </bottom>
 
 
 </BorderPane>

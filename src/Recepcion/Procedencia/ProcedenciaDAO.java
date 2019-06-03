@@ -1,26 +1,35 @@
 package Recepcion.Procedencia;
 
 
-import Recepcion.Destinatario.Instruccion;
-import Recepcion.Destinatario.Prioridad;
+
+
+import Procedencia.InstitucionProcedencia;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
 
 public class ProcedenciaDAO {
-    public Boolean insert(ProcedenciaInsert Document) {
+
+
+    Connection conn;
+
+    public ProcedenciaDAO(Connection conn) {
+        this.conn = conn;
+    }
+
+    public Boolean insert(InfomaciónProcedencia infomaciónProcedencia) {
         try {
-            String query = "insert into informacionprocedencia(idProcedencia, quienFirma, puesto, dirigidaA," +
+            String query = "insert into informacionProcedencia(idProcedencia, quienFirma, puesto,dirigidaA," +
                     " asunto, observaciones, idInstitucion) values (?,?,?,?,?,?,?)";
             PreparedStatement st = conn.prepareStatement(query);
-            st.setInt(1, Document.getIdProcedencia());
-            st.setString(2,Document.getQuienFirma());
-            st.setString(3,Document.getPuesto());
-            st.setString(4,Document.getDirigidaA());
-            st.setString(5,Document.getAsunto());
-            st.setString(6,Document.getObservaciones());
-            st.setInt(7,Document.getIdInstitucion());
+            st.setInt(1, infomaciónProcedencia.getIdProcedencia());
+            st.setString(2, infomaciónProcedencia.getQuienFirma());
+            st.setString(3, infomaciónProcedencia.getPuesto());
+            st.setString(4,infomaciónProcedencia.getDirigidaA() );
+            st.setString(5, infomaciónProcedencia.getAsunto());
+            st.setString(6, infomaciónProcedencia.getObservaciones());
+            st.setInt(7,infomaciónProcedencia.getIdInstitucion());
 
             st.execute();
             return true;
@@ -32,22 +41,40 @@ public class ProcedenciaDAO {
         return false;
     }
 
-    Connection conn;
 
-    public ProcedenciaDAO(Connection conn) {
-        this.conn = conn;
+    public InfomaciónProcedencia countProc() {
+        InfomaciónProcedencia p = new InfomaciónProcedencia();
+        try {
+            String query = "select count(*) as idProcedencia from informacionProcedencia;";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                p = new InfomaciónProcedencia(
+                        rs.getInt("idProcedencia")
+                );
+
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return p;
+
     }
 
 
-    public ObservableList<Institucion> fetchInstituccion() {
-        ObservableList<Institucion> Institucion = FXCollections.observableArrayList();
+    public ObservableList<InstitucionProcedencia> fetchInstituccion() {
+        ObservableList<InstitucionProcedencia> Institucion = FXCollections.observableArrayList();
         try {
             String query = "select institucionprocedencia.nombreInstitucion from institucionprocedencia";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
-            Institucion p = null;
+            InstitucionProcedencia p = null;
             while (rs.next()) {
-                p = new Institucion(
+                p = new InstitucionProcedencia(
                         rs.getString("nombreInstitucion")
                 );
                 Institucion.add(p);
@@ -60,6 +87,29 @@ public class ProcedenciaDAO {
             System.out.println("Error al recuperar información...");
         }
         return Institucion;
+    }
+
+    public InstitucionProcedencia findIdInst(String  nom_inst) {
+        InstitucionProcedencia p = new InstitucionProcedencia();
+        try {
+            String query = "select idInstitucion from institucionProcedencia where nombreInstitucion='" + nom_inst + "'";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                p = new InstitucionProcedencia(
+                        rs.getInt("idInstitucion")
+                );
+
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return p;
+
     }
 
 

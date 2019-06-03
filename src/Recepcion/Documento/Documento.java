@@ -2,19 +2,28 @@ package Recepcion.Documento;
 
 public class Documento {
 
-    int numFolio,idUsuario,idDestinatario,idProcedencia;
-    boolean adjuntar;
+    int numFolio,idRol,idDestinatario,idProcedencia;
+    boolean adjuntar, entregado;
 
     public Documento(int numFolio) {
         this.numFolio = numFolio;
     }
 
-    public Documento(int numFolio, int idUsuario, int idDestinatario, int idProcedencia, boolean adjuntar) {
+    public Documento(int numFolio, int idRol, int idDestinatario, int idProcedencia, boolean adjuntar, boolean entregado) {
         this.numFolio = numFolio;
-        this.idUsuario = idUsuario;
+        this.idRol = idRol;
         this.idDestinatario = idDestinatario;
         this.idProcedencia = idProcedencia;
         this.adjuntar = adjuntar;
+        this.entregado =entregado;
+    }
+
+    public boolean isEntregado() {
+        return entregado;
+    }
+
+    public void setEntregado(boolean entregado) {
+        this.entregado = entregado;
     }
 
     public int getNumFolio() {
@@ -25,13 +34,10 @@ public class Documento {
         this.numFolio = numFolio;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdRol() {
+        return idRol;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     public int getIdDestinatario() {
         return idDestinatario;
@@ -57,5 +63,8 @@ public class Documento {
         this.adjuntar = adjuntar;
     }
 
-
+    @Override
+    public String toString() {
+        return Integer.toString(numFolio);
+    }
 }

@@ -21,21 +21,7 @@
 
         <MenuBar>
             <menus>
-                <Menu text="FILE">
-                    <graphic>
-                        <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
-                    </graphic>
 
-                    <items>
-                        <MenuItem text="Cerrar Sesion" fx:id="SignOff">
-                            <graphic>
-                                <FontAwesomeIconView glyphName="USER_TIMES" glyphSize="10" fill="brown"/>
-                            </graphic>
-                        </MenuItem>
-
-                    </items>
-
-                </Menu>
 
                 <Menu text="REPORTS">
                     <graphic>
