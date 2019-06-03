@@ -7,6 +7,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -41,11 +42,13 @@
                 <padding>
                     <Insets topRightBottomLeft="5" />
                 </padding>
-                <CheckBox fx:id="chkFolios" contentDisplay="LEFT" text="Rango de folios" />
+                <CheckBox fx:id="chkFolios" contentDisplay="LEFT" text="Folios" />
                 <CheckBox fx:id="chkProcedencia" contentDisplay="RIGHT" text="Institucion de procedencia" />
             </HBox>
-            <HBox alignment="CENTER">
-                <ComboBox fx:id="cmbProcedencia" promptText="Seleccione Procedencia" />
+            <HBox alignment="TOP_LEFT" spacing="100">
+                <TextField fx:id="txtFolio" alignment="TOP_LEFT" promptText="No de Folio" visible="false" />
+
+                <ComboBox fx:id="cmbProcedencia" promptText="Seleccione Procedencia" visible="false" />
 
 
             </HBox>
@@ -61,9 +64,13 @@
             </padding>
 
             <HBox alignment="CENTER">
-                <Button alignment="TOP_CENTER" text="FILTRAR">
+                <Button fx:id="btnFiltrarProc" alignment="TOP_CENTER" text="FILTRAR" visible="false">
 
                 </Button>
+                <Button fx:id="btnFiltrarFol" alignment="TOP_CENTER" text="FILTRAR" visible="false">
+
+                </Button>
+
             </HBox>
 
 

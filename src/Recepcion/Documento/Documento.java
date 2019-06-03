@@ -63,5 +63,8 @@ public class Documento {
         this.adjuntar = adjuntar;
     }
 
-
+    @Override
+    public String toString() {
+        return Integer.toString(numFolio);
+    }
 }

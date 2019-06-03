@@ -37,6 +37,8 @@ public class Controller implements Initializable {
     Usuarios users;
 
 
+
+
     LoginDAO loginDAO = new LoginDAO(MySQLConnection.getConnection());
 
     @Override
@@ -170,7 +172,7 @@ public class Controller implements Initializable {
     }
 
     public void showStageAdmin() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("reportes.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("recepcionAdmin.fxml"));
         Stage st= new Stage();
         st.setTitle("Reportes");
 
@@ -182,7 +184,7 @@ public class Controller implements Initializable {
     }
 
     public void showStageCapturista() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("recepcionCapturistaController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("recepcionCapturista.fxml"));
         Stage st= new Stage();
         st.setTitle("Reportes");
 

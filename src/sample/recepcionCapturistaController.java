@@ -19,11 +19,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -46,7 +49,7 @@ public class recepcionCapturistaController implements Initializable {
     @FXML
     Button BtnReportes;
     @FXML
-    Button BtnConsultas;
+    Button BtnConsultas,BtnEliminar,BtnNuevo;
     @FXML
     ComboBox<Instruccion>  cmbinstruccion;
     @FXML
@@ -55,6 +58,9 @@ public class recepcionCapturistaController implements Initializable {
     ComboBox<InstitucionProcedencia> cmbinstitucion;
     @FXML
     CheckBox chkAdjuntar,checkentregado;
+
+    @FXML
+     TableView<ConsultaDocumentos> tblDocuments;
 
 
     DetalleDocumentoDAO detalleDocumentoDAO = new DetalleDocumentoDAO(MySQLConnection.getConnection());
@@ -69,9 +75,9 @@ public class recepcionCapturistaController implements Initializable {
     public void showStageReportes() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("reportes.fxml"));
         Stage st= new Stage();
-        st.setTitle("Procedencia");
+        st.setTitle("REPORTES");
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,900,500);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
         st.show();
@@ -79,9 +85,9 @@ public class recepcionCapturistaController implements Initializable {
     public void showStageConsultas() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("consultas.fxml"));
         Stage st= new Stage();
-        st.setTitle("Consultas");
+        st.setTitle("CONSULTA DOCUMENTOS");
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,900,500);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
         st.show();
@@ -91,11 +97,11 @@ public class recepcionCapturistaController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initComponents();
-        BtnRecepcion.setOnAction(handlerNew);
+        BtnNuevo.setOnAction(handlerNew);
         SignOff.setOnAction(CerrarSesion);
         BtnReportes.setOnAction(handlerReportes);
         BtnConsultas.setOnAction(handlerConsultas);
-
+        BtnEliminar.setOnAction(handlerDeleteDoc);
 
 
     }
@@ -112,18 +118,30 @@ public class recepcionCapturistaController implements Initializable {
         txtIdDestinatario.setText(String.valueOf(resetCountDest()));
         txtprocedencia.setText(String.valueOf(resetCountProc()));
 
+        TableColumn col6 = new TableColumn("ID DOC");
+        TableColumn col7 = new TableColumn("ID DESTINATARIO");
+        TableColumn col8 = new TableColumn("ID PROCEDENCIA");
+        TableColumn col1 = new TableColumn("FOLIO");
+        TableColumn col2 = new TableColumn("NO. DOCUMENTO");
+        TableColumn col3 = new TableColumn("PROCEDENCIA");
+        TableColumn col4 = new TableColumn("FECHA DE RECEPCION");
+        TableColumn col5 = new TableColumn("OBSERVACIONES");
 
 
 
-        /*cmbinstruccion.setItems(Destinatario.fetchInstruccion());
 
-        cmbprioridad.setItems(Destinatario.fetchPrioridad());
+        col6.setCellValueFactory(new PropertyValueFactory<>("idDocumento"));
+        col7.setCellValueFactory(new PropertyValueFactory<>("idDestinatario"));
+        col8.setCellValueFactory(new PropertyValueFactory<>("idProcedencia"));
+        col1.setCellValueFactory(new PropertyValueFactory<>("numFolio"));
+        col2.setCellValueFactory(new PropertyValueFactory<>("numDocumento"));
+        col3.setCellValueFactory(new PropertyValueFactory<>("nombreInstitucion"));
+        col4.setCellValueFactory(new PropertyValueFactory<>("fechaRecepcion"));
+        col5.setCellValueFactory(new PropertyValueFactory<>("observaciones"));
+        tblDocuments.getColumns().addAll(col6,col7,col8,col1, col2, col3, col4, col5);
 
-        BtnRecepcion.setOnAction(handlerinsert);
 
-        cmbinstitucion.setItems(Procedencia.fetchInstituccion());*/
-
-
+        tblDocuments.setItems(DocumentoDAO.AllDocs());
 
 
     }
@@ -196,9 +214,39 @@ public class recepcionCapturistaController implements Initializable {
         if(detalleDocumentoDAO.insert(detaildoc))
         {
             clearFormDoc();
+            reloadDocumentList();
         }
 
 
+    }
+
+
+
+
+    EventHandler<ActionEvent> handlerDeleteDoc = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmación de borrado");
+            alert.setContentText("Estas seguro de eliminar este documento");
+            Optional<ButtonType> result = alert.showAndWait();
+            if(result.get()==ButtonType.OK)
+            {
+                ConsultaDocumentos consultaDocumentos =tblDocuments.getSelectionModel().getSelectedItem();
+                DocumentoDAO.delete(consultaDocumentos.getIdDocumento(),consultaDocumentos.getNumFolio(),
+                        consultaDocumentos.getIdDestinatario(),consultaDocumentos.getIdProcedencia());
+                clearFormDoc();
+                reloadDocumentList();
+            }
+            else{
+                alert.close();
+            }
+        }
+    };
+    private void  reloadDocumentList()
+    {
+        tblDocuments.getItems().clear();
+        tblDocuments.setItems(DocumentoDAO.AllDocs());
     }
 
 
@@ -296,7 +344,7 @@ public class recepcionCapturistaController implements Initializable {
             {
                 try {
                     Login();
-                    BtnConsultas.getGraphic().getScene().getWindow().hide();
+                    BtnNuevo.getGraphic().getScene().getWindow().hide();
 
 
                 } catch (IOException e) {

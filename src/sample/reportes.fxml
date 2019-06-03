@@ -12,11 +12,32 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.CheckBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Reportes.ReportesController">
    <top>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
-            <Label text="Reporte Entrega y Recepcin" BorderPane.alignment="CENTER" />
+             <VBox>
+                 <Button fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
+                     <graphic>
+                         <FontAwesomeIconView fill="black" glyphName="CHEVRON_LEFT" glyphSize="20" />
+                     </graphic>
+                 </Button>
+                 <padding>
+                     <Insets topRightBottomLeft="10" />
+                 </padding>
+                 <HBox alignment="TOP_CENTER">
+                     <Label BorderPane.alignment="CENTER"  prefHeight="23.0" prefWidth="600.0" styleClass="lbl, lbl-info" text="REPORTE ENTREGA - RECEPCION">
+                         <font>
+                             <Font name="Arial Bold" size="30.0" />
+                         </font>
+                     </Label>
+                 </HBox>
+
+             </VBox>
          </top>
          <left>
              <VBox prefHeight="183.0" prefWidth="183.0" BorderPane.alignment="CENTER">

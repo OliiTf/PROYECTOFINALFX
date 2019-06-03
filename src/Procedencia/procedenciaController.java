@@ -28,8 +28,6 @@ public class procedenciaController implements Initializable {
     @FXML
     TableView<InstitucionProcedencia> tblProcedencia;
 
-    @FXML
-    MenuItem SignOff;
 
     @FXML
     MenuItem RProced;
@@ -64,6 +62,7 @@ public class procedenciaController implements Initializable {
         tblProcedencia.setOnMouseClicked(handlerTable);
         btnSave.setOnAction(handlerSave);
         btnDelete.setOnAction(handlerDelete);
+        btnReturn.setOnAction(handlerRet);
 
     }
     public static final String DEST1 = "C:/Users/Lizeth R/reports/InstitucionesProcedencia.pdf";
@@ -182,10 +181,10 @@ public class procedenciaController implements Initializable {
         txtNombreIns.setText("");
     }
 
-    /*public void Return() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Table.fxml"));
+    public void Return() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/recepcionAdmin.fxml"));
         Stage st= new Stage();
-        st.setTitle("Employees");
+        st.setTitle("ADMINISTRADOR");
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
@@ -205,5 +204,5 @@ public class procedenciaController implements Initializable {
                 e.printStackTrace();
             }
         }
-    };*/
+    };
 }

@@ -93,9 +93,8 @@
 
                     <HBox spacing="10">
 
-                        <Button fx:id="BtnRecepcion" text="Prueba" />
-                        <Button fx:id="BtnReportes" text="REPORTES" />
-                        <Button fx:id="BtnConsultas" text="CONSULTAS" />
+                        <Button fx:id="btnUsuarios" text="USUARIOS" />
+
 
                     </HBox>
                 </VBox>
@@ -128,144 +127,7 @@
 
         </VBox>
     </top>
-    <left>
 
-            <GridPane hgap="4" vgap="7">
-                <padding>
-                    <Insets topRightBottomLeft="3" />
-                </padding>
-
-                    <Label alignment="CENTER_LEFT" text="DOCUMENTO" />
-
-
-                <Label  text="Id Doc" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="txtIdDoc" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-
-                <Label  text="Folio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="txtFolio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-                <Label  text="Numero Doc" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <TextField fx:id="txtNoDoc" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-
-                <Label  text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                <DatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-
-                <Label GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <DatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-
-                <Label  text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                <ComboBox fx:id="cmbFormato" prefWidth="140" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-
-                <Label  text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <ComboBox fx:id="cmbTipo" prefWidth="140" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-
-
-
-
-
-
-                <Label alignment="CENTER_LEFT" text="DESTINATARIO" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-
-                <Label text="Quien Recibe" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                <TextField fx:id="txtQuienRecibe" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-
-                <Label text="Id Destinatario" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-                <TextField fx:id="txtIdDestinatario" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-
-
-                <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-                <TextField fx:id="txtareaayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-
-
-                <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-                <ComboBox fx:id="cmbinstruccion" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-
-                <Label text="Prioridad" GridPane.columnIndex="0" GridPane.rowIndex="13" />
-                <ComboBox fx:id="cmbprioridad" prefWidth="120" GridPane.columnIndex="0" GridPane.rowIndex="14" />
-
-                <Label text="Fecha Limite" GridPane.columnIndex="0" GridPane.rowIndex="17" />
-                <DatePicker fx:id="dpfechalimite" GridPane.columnIndex="0" GridPane.rowIndex="18" />
-
-                <Label text="Fecha Entrega" GridPane.columnIndex="0" GridPane.rowIndex="19" />
-                <DatePicker fx:id="dpfechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="20" />
-
-
-
-
-
-
-
-            </GridPane>
-
-    </left>
-    <center>
-
-            <GridPane hgap="5" vgap="1">
-                <padding>
-                    <Insets topRightBottomLeft="3" />
-                </padding>
-
-                    <Label alignment="CENTER_LEFT" text="PROCEDENCIA" />
-
-
-
-
-
-
-                <Label text="Institucion" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <ComboBox fx:id="cmbinstitucion" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-
-                <Label text="Proedencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="txtprocedencia" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-
-                <Label text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                <TextField fx:id="txtfirma" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-
-                <Label text="Puesto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <TextField fx:id="txtpuesto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-
-                <Label text="Dirigido a" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                <TextField fx:id="txtdirigido" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-
-                <Label text="Asunto" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                <TextField fx:id="txtasunto" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-
-                <Label text="Observaciones" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-                <TextField fx:id="txtobservaciones" prefHeight="100" prefWidth="250" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-
-
-
-
-
-
-
-
-
-
-
-
-                <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-
-
-                <Label text="Seleccionar: " GridPane.columnIndex="0" GridPane.rowIndex="13" />
-                <Button fx:id="Examinar" text="Examinar" GridPane.columnIndex="0" GridPane.rowIndex="14" />
-
-
-
-                <Button fx:id="enviar" text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-
-
-                <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="18" />
-                <CheckBox fx:id="checkentregado" GridPane.columnIndex="1" GridPane.rowIndex="18" />
-
-                <Button fx:id="btnagregar" text="Agregar" GridPane.columnIndex="0" GridPane.rowIndex="19" />
-                <Button fx:id="btncancelar" text="Cancelar" GridPane.columnIndex="1" GridPane.rowIndex="19" />
-
-            </GridPane>
-
-    </center>
 
 
 </BorderPane>
