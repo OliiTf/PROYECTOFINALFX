@@ -1,4 +1,4 @@
-package Recepcion.Procedencia;
+package Procedencia;
 import Recepcion.Procedencia.Institucion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
