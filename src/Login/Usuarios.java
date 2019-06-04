@@ -5,6 +5,7 @@ public class Usuarios {
     int idUsuario;
     String nombre, contraseña;
     int idRol, idMunicipio;
+    String tipoRol, nombreMunicupio;
 
     public Usuarios(int idUsuario, String nombre, String contraseña, int idRol, int idMunicipio) {
         this.idUsuario = idUsuario;
@@ -14,6 +15,29 @@ public class Usuarios {
         this.idMunicipio = idMunicipio;
     }
 
+    public Usuarios(int idUsuario, String nombre, String tipoRol, String nombreMunicupio) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.tipoRol = tipoRol;
+        this.nombreMunicupio = nombreMunicupio;
+    }
+
+
+    public String getTipoRol() {
+        return tipoRol;
+    }
+
+    public void setTipoRol(String tipoRol) {
+        this.tipoRol = tipoRol;
+    }
+
+    public String getNombreMunicupio() {
+        return nombreMunicupio;
+    }
+
+    public void setNombreMunicupio(String nombreMunicupio) {
+        this.nombreMunicupio = nombreMunicupio;
+    }
 
     public Usuarios(int idRol) {
         this.idRol = idRol;

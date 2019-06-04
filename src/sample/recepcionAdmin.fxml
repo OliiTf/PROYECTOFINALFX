@@ -19,6 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.TableView?>
 <BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionAdminController">
     <top>
         <VBox spacing="0">
@@ -99,31 +100,7 @@
                     </HBox>
                 </VBox>
             </ToolBar>
-            <ToolBar>
 
-                <items>
-
-                    <Button fx:id="BtnGuardar" contentDisplay="TOP"  text="Guardar">
-                        <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="SAVE" glyphSize="10" />
-                        </graphic>
-                    </Button>
-                    <Button fx:id="BtnEliminar" contentDisplay="TOP"  text="Eliminar">
-                        <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="DELETE" glyphSize="10" />
-                        </graphic>
-                    </Button>
-                    <Button fx:id="BtnNuevo" contentDisplay="TOP"  text="Nuevo">
-                        <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="BOLT" glyphSize="10" />
-                        </graphic>
-                    </Button>
-
-
-                </items>
-
-
-            </ToolBar>
 
         </VBox>
     </top>
@@ -142,10 +119,10 @@
                 <TextField fx:id="txtUser" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
                 <Label text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
                 <TextField fx:id="txtContraseña" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                <Label text="Rol" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <ComboBox promptText="Selecciona Rol" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                <Label text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <ComboBox promptText="Selecciona Rol" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label text="Rol" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <ComboBox promptText="Selecciona Rol" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <ComboBox promptText="Selecciona Municipio" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
             </GridPane>
 
             <HBox GridPane.columnIndex="0" GridPane.rowIndex="6">
@@ -170,6 +147,9 @@
             </HBox>
         </VBox>
     </left>
+    <center>
+        <TableView fx:id="tblUsuarios"/>
+    </center>
 
 
 

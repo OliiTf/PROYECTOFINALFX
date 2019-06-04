@@ -1,5 +1,6 @@
-package Recepcion.Procedencia;
+package Procedencia;
 import Procedencia.InstitucionProcedencia;
+import Procedencia.ProcedenciaDAOReporte;
 import Reportes.ReportesDAO;
 import Reportes.ReporteEntregaD;
 import com.itextpdf.io.font.FontConstants;

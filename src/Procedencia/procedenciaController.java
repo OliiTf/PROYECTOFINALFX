@@ -32,7 +32,7 @@ public class procedenciaController implements Initializable {
     MenuItem SignOff;
 
     @FXML
-    MenuItem RProced;
+    MenuItem RProced,RDocProced;
 
 
     ProcedenciaDAO procedenciaDAO = new ProcedenciaDAO(MySQLConnection.getConnection());
@@ -44,6 +44,7 @@ public class procedenciaController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         initComponents();
         RProced.setOnAction(handlerPDFProced);
+        RDocProced.setOnAction(handlerPDFProced2);
     }
 
     private void initComponents()
@@ -67,6 +68,7 @@ public class procedenciaController implements Initializable {
 
     }
     public static final String DEST1 = "C:/Users/Lizeth R/reports/InstitucionesProcedencia.pdf";
+    public static final String DEST4 = "C:/Users/Lizeth R/reports/DocumentosProcedencia.pdf";
 
     EventHandler<ActionEvent> handlerPDFProced = new EventHandler<ActionEvent>() {
         @Override
@@ -81,6 +83,23 @@ public class procedenciaController implements Initializable {
                     alert.setTitle("REPORT 1");
                     alert.setContentText("Reporte Creado");
                     alert.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    };
+
+    EventHandler<ActionEvent> handlerPDFProced2 = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            if (event.getSource()==RDocProced)
+            {
+                File file = new File(DEST4);
+                file.getParentFile().mkdirs();
+                try {
+                    new GeneracionReporteProcedencia().createPdf(DEST4);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

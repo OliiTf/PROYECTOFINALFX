@@ -33,7 +33,7 @@
                                 <FontAwesomeIconView glyphName="FILE_PDF_ALT" glyphSize="10" fill="red"/>
                             </graphic>
                         </MenuItem>
-                        <MenuItem text="REPORT 2. Reportes de Procedencia" fx:id="Proced">
+                        <MenuItem text="REPORT 2. Documentos por Procedencia" fx:id="RDocProced">
                             <graphic>
                                 <FontAwesomeIconView glyphName="FILE_PDF_ALT" glyphSize="10" fill="red"/>
                             </graphic>

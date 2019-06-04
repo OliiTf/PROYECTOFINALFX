@@ -10,6 +10,14 @@ public class InstitucionProcedencia {
         this.nombreInstitucion = nombreInstitucion;
     }
 
+    public InstitucionProcedencia(String nombreInstitucion) {
+        this.nombreInstitucion = nombreInstitucion;
+    }
+
+    public InstitucionProcedencia(int idInstitucion) {
+        this.idInstitucion = idInstitucion;
+    }
+
     public InstitucionProcedencia() {
     }
 
