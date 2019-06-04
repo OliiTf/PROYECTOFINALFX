@@ -1,6 +1,5 @@
-package sample;
+package Recepcion.Procedencia;
 import Procedencia.InstitucionProcedencia;
-import Reportes.Reportes;
 import Reportes.ReportesDAO;
 import Reportes.ReporteEntregaD;
 import com.itextpdf.io.font.FontConstants;
@@ -15,11 +14,10 @@ import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import sample.MySQLConnection;
+
 import java.io.IOException;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class GeneracionReporteProcedencia {
 
@@ -27,9 +25,9 @@ public class GeneracionReporteProcedencia {
 
 
     public void createPdf(String dest) throws IOException {
-        ProcedenciaDAO procedenciaDAO= new ProcedenciaDAO(MySQLConnection.getConnection());
+        ProcedenciaDAOReporte procedenciaDAOReporte = new ProcedenciaDAOReporte(MySQLConnection.getConnection());
         ReportesDAO reportesDAO= new ReportesDAO(MySQLConnection.getConnection());
-        List<InstitucionProcedencia> institucionProcedencias =procedenciaDAO.findAll();
+        List<InstitucionProcedencia> institucionProcedencias = procedenciaDAOReporte.findAll();
 
         //Initialize PDF writer
         PdfWriter writer = new PdfWriter(dest);

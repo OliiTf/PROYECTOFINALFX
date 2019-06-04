@@ -1,4 +1,4 @@
-package sample;
+package Recepcion.Procedencia;
 import Recepcion.Procedencia.Institucion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,11 +6,11 @@ import Procedencia.InstitucionProcedencia;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-public class ProcedenciaDAO {
+public class ProcedenciaDAOReporte {
 
     Connection conn;
 
-    public ProcedenciaDAO(Connection conn) {
+    public ProcedenciaDAOReporte(Connection conn) {
         this.conn = conn;
     }
 
