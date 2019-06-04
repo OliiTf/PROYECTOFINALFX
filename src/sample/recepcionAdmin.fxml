@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -19,8 +19,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.PasswordField?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXToolbar?>
 <BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionAdminController">
     <top>
         <VBox spacing="0">
@@ -40,6 +40,7 @@
                                 <graphic>
                                     <FontAwesomeIconView fill="brown" glyphName="USER_TIMES" glyphSize="10" />
                                 </graphic>
+
 
 
                             </MenuItem>
@@ -89,18 +90,18 @@
 
             </MenuBar>
 
-            <ToolBar>
+            <JFXToolbar>
                 <VBox spacing="10">
 
 
                     <HBox spacing="10">
 
-                        <Button fx:id="btnUsuarios" text="USUARIOS" />
+                        <JFXButton fx:id="btnUsuarios" buttonType="RAISED" text="USUARIOS" />
 
 
                     </HBox>
                 </VBox>
-            </ToolBar>
+            </JFXToolbar>
 
 
         </VBox>
@@ -109,47 +110,50 @@
         <VBox spacing="5">
 
             <padding>
-                <Insets topRightBottomLeft="3"/>
+                <Insets topRightBottomLeft="3" />
             </padding>
 
-            <GridPane vgap="10" hgap="5">
+            <GridPane hgap="5" vgap="10">
                 <padding>
-                    <Insets topRightBottomLeft="7"/>
+                    <Insets topRightBottomLeft="7" />
                 </padding>
-                <Label text="Id Usuario" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                <TextField fx:id="txtIdUser" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                <Label text="Nombre Usuario" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                <Label fx:id="lblPass" text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                <PasswordField fx:id="txtContraseña" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                <Label text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-                <ComboBox fx:id="cmbMunicipio" promptText="Selecciona Municipio" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="Id Usuario" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <JFXTextField fx:id="txtIdUser" promptText="ID Usuario" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label text="Nombre Usuario" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <JFXTextField fx:id="txtNombre" promptText="Nombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="lblPass" text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <JFXPasswordField fx:id="txtContraseña" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <JFXComboBox fx:id="cmbMunicipio" promptText="Selecciona Municipio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+
             </GridPane>
 
             <HBox GridPane.columnIndex="0" GridPane.rowIndex="6">
                 <padding>
-                    <Insets topRightBottomLeft="3"/>
+                    <Insets topRightBottomLeft="3" />
                 </padding>
-                <Button fx:id="btnNuevo" text="New"  styleClass="btn, btn-lg, btn-success">
+
+                <JFXButton fx:id="btnNuevo" buttonType="RAISED" ripplerFill="#5e2b2b" styleClass="btn, btn-lg, btn-success" text="New">
                     <graphic>
-                        <FontAwesomeIconView glyphName="CLOUD_UPLOAD" glyphSize="30" fill="darkgreen"/>
+                        <FontAwesomeIconView fill="darkgreen" glyphName="CLOUD_UPLOAD" glyphSize="30" />
                     </graphic>
-                </Button>
-                <Button fx:id="btnGuardar" text="Save"  styleClass="btn, btn-lg, btn-primary">
+                </JFXButton>
+                <JFXButton fx:id="btnGuardar" buttonType="RAISED" ripplerFill="#1a12bf" styleClass="btn, btn-lg, btn-primary" text="Save">
                     <graphic>
-                        <FontAwesomeIconView glyphName="SAVE" glyphSize="30" fill="darkblue"/>
+                        <FontAwesomeIconView fill="darkblue" glyphName="SAVE" glyphSize="30" />
                     </graphic>
-                </Button>
-                <Button fx:id="btnBorrar" text="Delete"  styleClass="btn, btn-lg, btn-danger">
+                </JFXButton>
+                <JFXButton fx:id="btnBorrar" buttonType="RAISED" ripplerFill="#bf1212" styleClass="btn, btn-lg, btn-danger" text="Delete">
                     <graphic>
-                        <FontAwesomeIconView glyphName="TRASH" glyphSize="30" fill="darkred"/>
+                        <FontAwesomeIconView fill="darkred" glyphName="TRASH" glyphSize="30" />
                     </graphic>
-                </Button>
+                </JFXButton>
             </HBox>
         </VBox>
     </left>
     <center>
-        <TableView fx:id="tblUsuarios"/>
+        <TableView fx:id="tblUsuarios" />
     </center>
 
 

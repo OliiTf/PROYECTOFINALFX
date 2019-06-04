@@ -13,6 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.consultController">
     <padding>
         <Insets topRightBottomLeft="5" />
@@ -21,11 +24,11 @@
 
 
         <VBox spacing="5">
-            <Button fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
+            <JFXButton fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
                 <graphic>
                     <FontAwesomeIconView fill="black" glyphName="CHEVRON_LEFT" glyphSize="20" />
                 </graphic>
-            </Button>
+            </JFXButton>
 
 
             <HBox alignment="TOP_CENTER">
@@ -42,13 +45,13 @@
                 <padding>
                     <Insets topRightBottomLeft="5" />
                 </padding>
-                <CheckBox fx:id="chkFolios" contentDisplay="LEFT" text="Folios" />
-                <CheckBox fx:id="chkProcedencia" contentDisplay="RIGHT" text="Institucion de procedencia" />
+                <JFXCheckBox fx:id="chkFolios" contentDisplay="LEFT" text="Folios" />
+                <JFXCheckBox fx:id="chkProcedencia" contentDisplay="RIGHT" text="Institucion de procedencia" />
             </HBox>
             <HBox alignment="TOP_LEFT" spacing="100">
                 <TextField fx:id="txtFolio" alignment="TOP_LEFT" promptText="No de Folio" visible="false" />
 
-                <ComboBox fx:id="cmbProcedencia" promptText="Seleccione Procedencia" visible="false" />
+                <JFXComboBox fx:id="cmbProcedencia" promptText="Seleccione Procedencia" visible="false" />
 
 
             </HBox>
@@ -64,12 +67,12 @@
             </padding>
 
             <HBox alignment="CENTER">
-                <Button fx:id="btnFiltrarProc" alignment="TOP_CENTER" text="FILTRAR" visible="false">
+                <JFXButton fx:id="btnFiltrarProc" alignment="TOP_CENTER" text="FILTRAR" visible="false">
 
-                </Button>
-                <Button fx:id="btnFiltrarFol" alignment="TOP_CENTER" text="FILTRAR" visible="false">
+                </JFXButton>
+                <JFXButton fx:id="btnFiltrarFol" alignment="TOP_CENTER" text="FILTRAR" visible="false">
 
-                </Button>
+                </JFXButton>
 
             </HBox>
 

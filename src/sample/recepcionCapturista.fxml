@@ -21,6 +21,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionCapturistaController">
     <top>
         <VBox spacing="0">
@@ -57,9 +62,9 @@
 
                     <HBox spacing="10">
 
-                        <Button fx:id="BtnRecepcion" text="RECEPCION" />
-                        <Button fx:id="BtnReportes" text="REPORTES" />
-                        <Button fx:id="BtnConsultas" text="CONSULTAS" />
+                        <JFXButton fx:id="BtnRecepcion" text="RECEPCION" />
+                        <JFXButton fx:id="BtnReportes" text="REPORTES" />
+                        <JFXButton fx:id="BtnConsultas" text="CONSULTAS" />
 
                     </HBox>
                 </VBox>
@@ -68,22 +73,22 @@
 
                 <items>
 
-                    <Button fx:id="BtnNuevo" contentDisplay="TOP" styleClass="btn, btn-success" text="Nuevo">
+                    <JFXButton fx:id="BtnNuevo" contentDisplay="TOP" styleClass="btn, btn-success" text="Nuevo">
                         <graphic>
                             <FontAwesomeIconView fill="darkgreen" glyphName="CLOUD_UPLOAD" glyphSize="20" />
                         </graphic>
-                    </Button>
-                    <Button fx:id="BtnEliminar" contentDisplay="TOP" styleClass="btn, btn-danger" text="Eliminar">
+                    </JFXButton>
+                    <JFXButton fx:id="BtnEliminar" contentDisplay="TOP" styleClass="btn, btn-danger" text="Eliminar">
                         <graphic>
                             <FontAwesomeIconView fill="darkred" glyphName="TRASH" glyphSize="20" />
                         </graphic>
-                    </Button>
+                    </JFXButton>
 
-                    <Button fx:id="BtnGuardar" contentDisplay="TOP" styleClass="btn, btn-primary" text="Guardar" visible="false">
+                    <JFXButton fx:id="BtnGuardar" contentDisplay="TOP" styleClass="btn, btn-primary" text="Guardar" visible="false">
                         <graphic>
                             <FontAwesomeIconView fill="darkblue" glyphName="SAVE" glyphSize="20" />
                         </graphic>
-                    </Button>
+                    </JFXButton>
 
 
                 </items>
@@ -107,26 +112,26 @@
 
 
                 <Label text="Id Doc" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="txtIdDoc" disable="true" editable="false" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <JFXTextField fx:id="txtIdDoc" disable="true" editable="false" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
 
                 <Label text="Folio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="txtFolio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <JFXTextField fx:id="txtFolio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                 <Label text="Numero Doc" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <TextField fx:id="txtNoDoc" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <JFXTextField fx:id="txtNoDoc" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
                 <Label text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                <DatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <JFXDatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
                 <Label text="Fecha Recepcion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <DatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <JFXDatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                 <Label text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                <ComboBox fx:id="cmbFormato" prefWidth="140" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                <JFXComboBox fx:id="cmbFormato" prefWidth="140" GridPane.columnIndex="0" GridPane.rowIndex="7" />
 
                 <Label text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <ComboBox fx:id="cmbTipo" prefWidth="140" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <JFXComboBox fx:id="cmbTipo" prefWidth="140" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
 
 
@@ -150,50 +155,16 @@
 
 
                 <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-                <ComboBox fx:id="cmbinstruccion" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                <JFXComboBox fx:id="cmbinstruccion" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="14" />
 
                 <Label text="Prioridad" GridPane.columnIndex="0" GridPane.rowIndex="13" />
-                <ComboBox fx:id="cmbprioridad" prefWidth="120" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                <JFXComboBox fx:id="cmbprioridad" prefWidth="120" GridPane.columnIndex="0" GridPane.rowIndex="14" />
 
                 <Label text="Fecha Limite" GridPane.columnIndex="0" GridPane.rowIndex="17" />
-                <DatePicker fx:id="dpfechalimite" GridPane.columnIndex="0" GridPane.rowIndex="18" />
+                <JFXDatePicker fx:id="dpfechalimite" GridPane.columnIndex="0" GridPane.rowIndex="18" />
 
                 <Label text="Fecha Entrega" GridPane.columnIndex="0" GridPane.rowIndex="19" />
-                <DatePicker fx:id="dpfechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="20" />
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
-
-
-
-
-
-
+                <JFXDatePicker fx:id="dpfechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="20" />
 
             </GridPane>
 
@@ -212,29 +183,29 @@
 
 
                 <Label text="Procedencia" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <TextField fx:id="txtprocedencia" disable="true" editable="false" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <JFXTextField fx:id="txtprocedencia" disable="true" editable="false" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
 
 
                 <Label text="Institucion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <ComboBox fx:id="cmbinstitucion" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <JFXComboBox fx:id="cmbinstitucion" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
 
 
                 <Label text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                <TextField fx:id="txtfirma" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <JFXTextField fx:id="txtfirma" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
                 <Label text="Puesto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <TextField fx:id="txtpuesto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <JFXTextField fx:id="txtpuesto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                 <Label text="Dirigido a" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                <TextField fx:id="txtdirigido" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                <JFXTextField fx:id="txtdirigido" GridPane.columnIndex="0" GridPane.rowIndex="7" />
 
                 <Label text="Asunto" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                <TextField fx:id="txtasunto" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                <JFXTextField fx:id="txtasunto" GridPane.columnIndex="0" GridPane.rowIndex="9" />
 
                 <Label text="Observaciones" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-                <TextField fx:id="txtobservaciones" prefHeight="100" prefWidth="250" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                <JFXTextField fx:id="txtobservaciones" prefHeight="100" prefWidth="250" GridPane.columnIndex="0" GridPane.rowIndex="11" />
 
 
 
@@ -248,41 +219,11 @@
 
 
                 <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-                <CheckBox fx:id="chkAdjuntar" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-                <Button fx:id="Examinar" text="Examinar" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                <JFXCheckBox fx:id="chkAdjuntar" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                <JFXButton fx:id="Examinar" text="Examinar" GridPane.columnIndex="0" GridPane.rowIndex="14" />
                 <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="18" />
-                <CheckBox fx:id="checkentregado" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                <JFXCheckBox fx:id="checkentregado" GridPane.columnIndex="1" GridPane.rowIndex="18" />
 
-
-
-
-
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
 
 
             </GridPane>
