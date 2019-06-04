@@ -20,6 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.PasswordField?>
 <BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionAdminController">
     <top>
         <VBox spacing="0">
@@ -60,21 +61,21 @@
 
                             </MenuItem>
 
-                            <MenuItem fx:id="areas" text="Areas de Ayuntammiento">
+                            <MenuItem fx:id="menuAreas" text="Areas de Ayuntammiento">
                             <graphic>
                                 <FontAwesomeIconView fill="brown" glyphName="BANK" glyphSize="10" />
                             </graphic>
 
 
                         </MenuItem>
-                        <MenuItem fx:id="tipodoc" text="Tipo de Documento">
+                        <MenuItem fx:id="menuTipodoc" text="Tipo de Documento">
                             <graphic>
                                 <FontAwesomeIconView fill="brown" glyphName="FILE_ALT" glyphSize="10" />
                             </graphic>
 
 
                         </MenuItem>
-                        <MenuItem fx:id="tipoforma" text="Tipo de Formato">
+                        <MenuItem fx:id="menuTipoforma" text="Tipo de Formato">
                             <graphic>
                                 <FontAwesomeIconView fill="brown" glyphName="FILE" glyphSize="10" />
                             </graphic>
@@ -116,30 +117,30 @@
                     <Insets topRightBottomLeft="7"/>
                 </padding>
                 <Label text="Id Usuario" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                <TextField fx:id="txtUser" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                <Label text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <TextField fx:id="txtContraseña" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                <Label text="Rol" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-                <ComboBox promptText="Selecciona Rol" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <TextField fx:id="txtIdUser" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Nombre Usuario" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label fx:id="lblPass" text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <PasswordField fx:id="txtContraseña" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
                 <Label text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-                <ComboBox promptText="Selecciona Municipio" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="cmbMunicipio" promptText="Selecciona Municipio" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
             </GridPane>
 
             <HBox GridPane.columnIndex="0" GridPane.rowIndex="6">
                 <padding>
                     <Insets topRightBottomLeft="3"/>
                 </padding>
-                <Button fx:id="btnNew" text="New"  styleClass="btn, btn-lg, btn-success">
+                <Button fx:id="btnNuevo" text="New"  styleClass="btn, btn-lg, btn-success">
                     <graphic>
                         <FontAwesomeIconView glyphName="CLOUD_UPLOAD" glyphSize="30" fill="darkgreen"/>
                     </graphic>
                 </Button>
-                <Button fx:id="btnSave" text="Save"  styleClass="btn, btn-lg, btn-primary">
+                <Button fx:id="btnGuardar" text="Save"  styleClass="btn, btn-lg, btn-primary">
                     <graphic>
                         <FontAwesomeIconView glyphName="SAVE" glyphSize="30" fill="darkblue"/>
                     </graphic>
                 </Button>
-                <Button fx:id="btnDelete" text="Delete"  styleClass="btn, btn-lg, btn-danger">
+                <Button fx:id="btnBorrar" text="Delete"  styleClass="btn, btn-lg, btn-danger">
                     <graphic>
                         <FontAwesomeIconView glyphName="TRASH" glyphSize="30" fill="darkred"/>
                     </graphic>

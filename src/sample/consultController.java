@@ -15,12 +15,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -140,12 +143,12 @@ public class consultController implements Initializable {
                     if (event.getClickCount()==2) {
                         File file = new File(DEST1);
                         file.getParentFile().mkdirs();
-                        System.out.println("Archivo creado");
                         try {
                             ConsultaDocumentos consultaDocumentos = tblConsulta.getSelectionModel().getSelectedItem();
                             new ReporteConsultaDocumentos().PDFdocuments(DEST1,consultasDAO.reportDocumento(consultaDocumentos.getNumFolio(),consultaDocumentos.getNumDocumento()),
                                     consultasDAO.reportDestinat(consultaDocumentos.getNumFolio(),consultaDocumentos.getNumDocumento()),
                                     consultasDAO.reportProc(consultaDocumentos.getNumFolio(),consultaDocumentos.getNumDocumento()));
+                            Desktop.getDesktop().open(new File(DEST1));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

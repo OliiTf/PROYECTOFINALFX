@@ -1,6 +1,7 @@
 package AreasAyuntamiento;
 
 import com.itextpdf.io.font.FontConstants;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
@@ -8,6 +9,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 
@@ -16,7 +18,9 @@ import java.util.List;
 
 public class ReportAreas {
 
-    public void createPdfProcedencia(String dest, List<AreasAyuntamiento> areas) throws IOException {
+    public static final String OP = "src/styles/OP.png";
+
+    public void createPdfAreas(String dest, List<AreasAyuntamiento> areas) throws IOException {
         //Initialize PDF writer
         PdfWriter writer = new PdfWriter(dest);
 
@@ -26,6 +30,8 @@ public class ReportAreas {
         // Initialize document
         Document document = new Document(pdf, PageSize.A4.rotate());
         document.setMargins(20, 20, 20, 20);
+        Image op = new Image(ImageDataFactory.create(OP));
+        document.add(op);
         document.add(new Paragraph("REPORTE AREAS DE AYUNTAMIENTO"));
         document.add(new Paragraph(""));
 

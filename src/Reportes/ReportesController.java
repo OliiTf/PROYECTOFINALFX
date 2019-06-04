@@ -3,12 +3,18 @@ package Reportes;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javafx.stage.Stage;
 import sample.MySQLConnection;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -22,7 +28,7 @@ public class ReportesController implements Initializable {
 
 
     @FXML
-    Button filtrar,generarreporte ;
+    Button filtrar,generarreporte,btnReturn ;
 
    @FXML
    CheckBox documentos,fecha;
@@ -64,6 +70,7 @@ public class ReportesController implements Initializable {
 
         filtrar.setOnAction(handlerHabilitar);
         generarreporte.setOnAction(handlergenerarReporte);
+        btnReturn.setOnAction(handlerReturn);
 
 
 
@@ -108,6 +115,7 @@ private void reporte(){
                 ReportesDAO reporte = new ReportesDAO(MySQLConnection.getConnection());
                 String dates = date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 new GeneracionReporte().createPdf(DEST2,reporte.fech3(dates));
+                Desktop.getDesktop().open(new File(DEST2));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -120,6 +128,7 @@ private void reporte(){
                 ReportesDAO reporte = new ReportesDAO(MySQLConnection.getConnection());
                 String dates = date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 new GeneracionReporte().createPdf(DEST1,reporte.fech(dates));
+                Desktop.getDesktop().open(new File(DEST1));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -132,6 +141,7 @@ private void reporte(){
                 ReportesDAO reporte = new ReportesDAO(MySQLConnection.getConnection());
 
                 new GeneracionReporte().createPdf(DEST4,reporte.fech2());
+                Desktop.getDesktop().open(new File(DEST4));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -144,6 +154,7 @@ private void reporte(){
             try {
                 ReportesDAO reporte = new ReportesDAO(MySQLConnection.getConnection());
                 new GeneracionReporte().createPdf(DEST3,reporte.fetchAll());
+                Desktop.getDesktop().open(new File(DEST3));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -169,6 +180,31 @@ private void reporte(){
             reporte();
 
         }
+    };
+
+    public void Return() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/recepcionCapturista.fxml"));
+        Stage st= new Stage();
+        st.setTitle("CAPTURISTA");
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
+        st.setScene(scene);
+        st.setMaximized(true);
+
+        st.show();
+    }
+    EventHandler<ActionEvent> handlerReturn = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            try {
+                Return();
+                ((Stage)(btnReturn.getScene().getWindow())).hide();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     };
 
 

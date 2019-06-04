@@ -8,10 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.MySQLConnection;
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -65,6 +70,7 @@ public class procedenciaController implements Initializable {
         tblProcedencia.setOnMouseClicked(handlerTable);
         btnSave.setOnAction(handlerSave);
         btnDelete.setOnAction(handlerDelete);
+        btnReturn.setOnAction(handlerRet);
 
     }
     public static final String DEST1 = "C:/Users/Lizeth R/reports/InstitucionesProcedencia.pdf";
@@ -79,10 +85,7 @@ public class procedenciaController implements Initializable {
                 file.getParentFile().mkdirs();
                 try {
                     new ReportProcedencia().createPdfProcedencia(DEST1,procedenciaDAO.fetchAll());
-                    Alert alert=new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("REPORT 1");
-                    alert.setContentText("Reporte Creado");
-                    alert.show();
+                    Desktop.getDesktop().open(new File(DEST1));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -99,7 +102,7 @@ public class procedenciaController implements Initializable {
                 file.getParentFile().mkdirs();
                 try {
                     new GeneracionReporteProcedencia().createPdf(DEST4);
-
+                    Desktop.getDesktop().open(new File(DEST4));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -201,10 +204,10 @@ public class procedenciaController implements Initializable {
         txtNombreIns.setText("");
     }
 
-    /*public void Return() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Table.fxml"));
+    public void Return() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/recepcionAdmin.fxml"));
         Stage st= new Stage();
-        st.setTitle("Employees");
+        st.setTitle("ADMINISTRADOR");
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
@@ -224,5 +227,5 @@ public class procedenciaController implements Initializable {
                 e.printStackTrace();
             }
         }
-    };*/
+    };
 }

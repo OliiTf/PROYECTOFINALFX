@@ -56,6 +56,7 @@ public class tipoDocumentoController implements  Initializable{
         tblFormato.setOnMouseClicked(handlerTable);
         btnSave.setOnAction(handlerSave);
         btnDelete.setOnAction(handlerDelete);
+        btnReturn.setOnAction(handlerReturn);
 
     }
 
@@ -150,4 +151,28 @@ public class tipoDocumentoController implements  Initializable{
         txtIdTipoDoc.setText("");
         txtNombreTipoDoc.setText("");
     }
+    public void Return() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/recepcionAdmin.fxml"));
+        Stage st= new Stage();
+        st.setTitle("ADMINISTRADOR");
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
+        st.setScene(scene);
+        st.setMaximized(true);
+
+        st.show();
+    }
+    EventHandler<ActionEvent> handlerReturn = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            try {
+                Return();
+                ((Stage)(btnReturn.getScene().getWindow())).hide();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    };
 }

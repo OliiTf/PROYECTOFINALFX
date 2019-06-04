@@ -11,6 +11,8 @@ import Recepcion.Documento.*;
 import Recepcion.Procedencia.InfomaciónProcedencia;
 import Recepcion.Procedencia.Institucion;
 import Recepcion.Procedencia.ProcedenciaDAO;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -104,7 +106,9 @@ public class recepcionCapturistaController implements Initializable {
         BtnEliminar.setOnAction(handlerDeleteDoc);
 
 
+
     }
+
 
     private void initComponents() {
 
@@ -138,13 +142,39 @@ public class recepcionCapturistaController implements Initializable {
         col3.setCellValueFactory(new PropertyValueFactory<>("nombreInstitucion"));
         col4.setCellValueFactory(new PropertyValueFactory<>("fechaRecepcion"));
         col5.setCellValueFactory(new PropertyValueFactory<>("observaciones"));
+
         tblDocuments.getColumns().addAll(col6,col7,col8,col1, col2, col3, col4, col5);
 
 
         tblDocuments.setItems(DocumentoDAO.AllDocs());
 
+        if (!checkentregado.isSelected())
+        {
+
+            dpfechaentrega.setVisible(false);
+        }
+
+        checkentregado.selectedProperty().addListener(listenerCheckEntregado);
 
     }
+
+    ChangeListener<Boolean>listenerCheckEntregado = new ChangeListener<Boolean>() {
+        @Override
+        public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+            if (newValue)
+            {
+                dpfechaentrega.setVisible(true);
+
+            }
+
+            if (!checkentregado.isSelected())
+            {
+
+                dpfechaentrega.setVisible(false);
+            }
+
+        }
+    };
 
 
 
@@ -163,8 +193,6 @@ public class recepcionCapturistaController implements Initializable {
 
     };
     private void insertDocumento() {
-
-
 
         Destinatario destinatario = new Destinatario(
                 resetCountDest(),

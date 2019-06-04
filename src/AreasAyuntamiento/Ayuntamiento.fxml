@@ -14,11 +14,35 @@
             prefHeight="400.0" prefWidth="600.0">
 
     <top>
-        <Button  fx:id="btnReturn" text="Return" contentDisplay="TOP" styleClass="btn, btn-default">
-            <graphic>
-                <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
-            </graphic>
-        </Button>
+        <VBox spacing="5">
+            <padding>
+                <Insets topRightBottomLeft="3"/>
+            </padding>
+            <Button  fx:id="btnReturn" text="Return" contentDisplay="TOP" styleClass="btn, btn-default">
+                <graphic>
+                    <FontAwesomeIconView glyphName="FILE" glyphSize="30" fill="black"/>
+                </graphic>
+            </Button>
+            <MenuBar>
+                <menus>
+                    <Menu text="REPORTS">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="FILE_PDF_ALT" glyphSize="30" fill="red"/>
+                        </graphic>
+
+
+                        <items>
+                            <MenuItem text="REPORT 1. AREAS DE AYUNTAMIENTO" fx:id="RAreas">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="FILE_PDF_ALT" glyphSize="10" fill="red"/>
+                                </graphic>
+                            </MenuItem>
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+        </VBox>
+
     </top>
     <left>
         <VBox spacing="5">

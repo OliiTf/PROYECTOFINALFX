@@ -119,7 +119,7 @@ public class Controller implements Initializable {
         Alert alertUser= new Alert(Alert.AlertType.INFORMATION);
         Alert alertMun= new Alert(Alert.AlertType.INFORMATION);
 
-      users = loginDAO.finIdRol(txtUsuario.getText());
+       users = loginDAO.finIdRol(txtUsuario.getText());
 
 
        UsuarioByMun idMunByUser = loginDAO.findIdMunicipioUser(txtUsuario.getText());

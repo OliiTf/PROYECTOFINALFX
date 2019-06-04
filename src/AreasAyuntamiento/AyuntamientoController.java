@@ -1,21 +1,35 @@
 package AreasAyuntamiento;
 
+import Procedencia.ReportProcedencia;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import sample.MySQLConnection;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AyuntamientoController implements Initializable {
     @FXML
-    Button btnNew, btnSave, btnDelete;
+    Button btnNew, btnSave, btnDelete,btnReturn;
+
+    @FXML
+    MenuItem RAreas;
 
     @FXML
     TextField txtIdArea, txtNombreArea;
@@ -48,6 +62,8 @@ public class AyuntamientoController implements Initializable {
         tblAreasAyuntamiento.setOnMouseClicked(handlerTable);
         btnSave.setOnAction(handlerSave);
         btnDelete.setOnAction(handlerDelete);
+        btnReturn.setOnAction(handlerReturn);
+        RAreas.setOnAction(handlerPDFAreas);
 
     }
 
@@ -80,6 +96,24 @@ public class AyuntamientoController implements Initializable {
         public void handle(ActionEvent event) {
             if (updateMode) {
                 updateArea();
+            }
+        }
+    };
+
+    public static final String DEST = "C:/Users/Lizeth R/reports/AreasAyuntamiento.pdf";
+    EventHandler<ActionEvent> handlerPDFAreas = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            if (event.getSource()==RAreas)
+            {
+                File file = new File(DEST);
+                file.getParentFile().mkdirs();
+                try {
+                    new ReportAreas().createPdfAreas(DEST,ayuntamientoDAO.fetchAll());
+                    Desktop.getDesktop().open(new File(DEST));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     };
@@ -134,4 +168,29 @@ public class AyuntamientoController implements Initializable {
         txtIdArea.setText("");
         txtNombreArea.setText("");
     }
+
+    public void Return() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/recepcionAdmin.fxml"));
+        Stage st= new Stage();
+        st.setTitle("ADMINISTRADOR");
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
+        st.setScene(scene);
+        st.setMaximized(true);
+
+        st.show();
+    }
+    EventHandler<ActionEvent> handlerReturn = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            try {
+                Return();
+                ((Stage)(btnReturn.getScene().getWindow())).hide();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    };
 }
