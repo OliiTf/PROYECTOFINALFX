@@ -17,6 +17,12 @@ public class Reportes {
           this.fechaRecepcion = fechaRecepcion;
      }
 
+     public Reportes(int numfolio, String nombreInstitucion, String quienRecibe) {
+          this.numfolio = numfolio;
+          this.nombreInstitucion = nombreInstitucion;
+          this.quienRecibe = quienRecibe;
+     }
+
      public int getNumfolio() {
           return numfolio;
      }
@@ -47,6 +53,10 @@ public class Reportes {
 
      public void setFechaRecepcion(Date fechaRecepcion) {
           this.fechaRecepcion = fechaRecepcion;
+     }
+     @Override
+     public String toString() {
+          return nombreInstitucion;
      }
 
 }
