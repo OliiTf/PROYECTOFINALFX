@@ -127,6 +127,49 @@
 
         </VBox>
     </top>
+    <left>
+        <VBox spacing="5">
+
+            <padding>
+                <Insets topRightBottomLeft="3"/>
+            </padding>
+
+            <GridPane vgap="10" hgap="5">
+                <padding>
+                    <Insets topRightBottomLeft="7"/>
+                </padding>
+                <Label text="Id Usuario" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="txtUser" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="txtContraseña" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                <Label text="Rol" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <ComboBox promptText="Selecciona Rol" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <Label text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <ComboBox promptText="Selecciona Rol" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            </GridPane>
+
+            <HBox GridPane.columnIndex="0" GridPane.rowIndex="6">
+                <padding>
+                    <Insets topRightBottomLeft="3"/>
+                </padding>
+                <Button fx:id="btnNew" text="New"  styleClass="btn, btn-lg, btn-success">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="CLOUD_UPLOAD" glyphSize="30" fill="darkgreen"/>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnSave" text="Save"  styleClass="btn, btn-lg, btn-primary">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="SAVE" glyphSize="30" fill="darkblue"/>
+                    </graphic>
+                </Button>
+                <Button fx:id="btnDelete" text="Delete"  styleClass="btn, btn-lg, btn-danger">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="TRASH" glyphSize="30" fill="darkred"/>
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </left>
 
 
 

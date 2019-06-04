@@ -21,8 +21,6 @@
 
         <MenuBar>
             <menus>
-
-
                 <Menu text="REPORTS">
                     <graphic>
                         <FontAwesomeIconView glyphName="FILE_PDF_ALT" glyphSize="30" fill="red"/>
