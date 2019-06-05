@@ -100,7 +100,7 @@ public class AyuntamientoController implements Initializable {
         }
     };
 
-    public static final String DEST = "C:/Users/Lizeth R/reports/AreasAyuntamiento.pdf";
+    public static final String DEST = "/results/Reportes/AreasAyuntamiento.pdf";
     EventHandler<ActionEvent> handlerPDFAreas = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {

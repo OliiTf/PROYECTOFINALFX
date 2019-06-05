@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class GeneracionReportesEntregados {
-    public static final String DATA = "src/resources/united_states.csv";
     public static final String Logo = "src/Logos/Logo.png";
 
     /*public static final String DEST = "results/chapter01/united_states.pdf";

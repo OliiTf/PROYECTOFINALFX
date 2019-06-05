@@ -92,14 +92,7 @@
 
             <JFXToolbar>
                 <VBox spacing="10">
-
-
-                    <HBox spacing="10">
-
-                        <JFXButton fx:id="btnUsuarios" buttonType="RAISED" text="USUARIOS" />
-
-
-                    </HBox>
+                        <JFXButton fx:id="btnUsuarios" buttonType="RAISED" ripplerFill="#6e3030" text="USUARIOS" />
                 </VBox>
             </JFXToolbar>
 
