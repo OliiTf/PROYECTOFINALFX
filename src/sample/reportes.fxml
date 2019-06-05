@@ -16,16 +16,19 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXButton?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Reportes.ReportesController">
    <top>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
              <VBox>
-                 <Button fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
+                 <JFXButton fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
                      <graphic>
                          <FontAwesomeIconView fill="black" glyphName="CHEVRON_LEFT" glyphSize="20" />
                      </graphic>
-                 </Button>
+                 </JFXButton>
                  <padding>
                      <Insets topRightBottomLeft="10" />
                  </padding>
@@ -42,16 +45,16 @@
          <left>
              <VBox prefHeight="183.0" prefWidth="183.0" BorderPane.alignment="CENTER">
                  <GridPane hgap="10.0" vgap="10">
-                     <CheckBox fx:id="fecha" text="Fecha" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                      <DatePicker GridPane.rowIndex="3"  fx:id="date"/>
-                     <CheckBox fx:id="documentos" mnemonicParsing="false" text="Solo Documentos Entregados" BorderPane.alignment="CENTER" GridPane.rowIndex="1" />
+                     <JFXCheckBox fx:id="fecha" text="Fecha" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                      <JFXDatePicker GridPane.rowIndex="3"  fx:id="date"/>
+                     <JFXCheckBox fx:id="documentos" mnemonicParsing="false" text="Solo Documentos Entregados" BorderPane.alignment="CENTER" GridPane.rowIndex="1" />
 
 
                  </GridPane>
              </VBox>
          </left>
          <center>
-            <Button mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar"  />
+            <JFXButton mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar"  />
          </center>
          <bottom>
             <BorderPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
