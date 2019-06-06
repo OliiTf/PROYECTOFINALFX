@@ -37,7 +37,7 @@
                 <menus>
                     <Menu text="FILE">
                         <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="FILE" glyphSize="30" />
+                            <FontAwesomeIconView fill="black" glyphName="FOLDER_ALT" glyphSize="30" />
                         </graphic>
 
                         <items>

@@ -28,7 +28,7 @@
                 </graphic>
             </JFXButton>
             <padding>
-                <Insets topRightBottomLeft="10" />
+                <Insets topRightBottomLeft="10"  />
             </padding>
 
             <HBox alignment="TOP_CENTER" spacing="5">
@@ -51,7 +51,7 @@
                     <JFXTextField fx:id="txtQuienR" visible="false"/>
                 </HBox>
                 <HBox alignment="CENTER">
-                    <JFXButton fx:id="btnGuardar" text="Guardar" alignment="CENTER"/>
+                    <JFXButton fx:id="btnGuardar" text="Guardar" alignment="CENTER" styleClass="btn, btn-default"/>
                 </HBox>
 
             </VBox>
