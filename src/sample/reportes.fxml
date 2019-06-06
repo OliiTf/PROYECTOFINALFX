@@ -39,7 +39,7 @@
                          </graphic>
                      </JFXButton>
 
-                     <JFXButton  textFill="white" fx:id="btnEntregados" contentDisplay="TOP"  text="PENDIENTES">
+                     <JFXButton  textFill="white" fx:id="btnEntregados" contentDisplay="TOP"  text="PENDIENTES" buttonType="RAISED" ripplerFill="#bf1212" styleClass="btn, btn-lg, btn-danger">
                          <graphic>
                              <FontAwesomeIconView fill="black" glyphName="CLOCK_ALT" glyphSize="20"/>
                          </graphic>
@@ -70,7 +70,7 @@
              </VBox>
          </left>
          <center>
-            <JFXButton  textFill="white" mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar" >
+            <JFXButton  textFill="white" mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar"  buttonType="RAISED" ripplerFill="#1a12bf" styleClass="btn, btn-lg, btn-primary"  >
                 <graphic>
                     <FontAwesomeIconView fill="black" glyphName="FILTER" glyphSize="30" />
                 </graphic>
@@ -79,7 +79,7 @@
          <bottom>
             <BorderPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <right>
-                  <JFXButton textFill="white" fx:id="generarreporte" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Generar Reporte"  BorderPane.alignment="CENTER">
+                  <JFXButton textFill="white" fx:id="generarreporte"  prefHeight="25.0" prefWidth="115.0" text="Generar Reporte"  BorderPane.alignment="CENTER" buttonType="RAISED" ripplerFill="#5e2b2b" styleClass="btn, btn-lg, btn-success">
                       <graphic>
                           <FontAwesomeIconView fill="black" glyphName="FILE_PDF_ALT" glyphSize="30" />
                       </graphic>

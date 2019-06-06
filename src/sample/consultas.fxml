@@ -16,6 +16,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <BorderPane stylesheets="/styles/Fondo4.css" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.consultController">
     <padding>
         <Insets topRightBottomLeft="5" />
@@ -24,7 +25,7 @@
 
 
         <VBox spacing="5">
-            <JFXButton fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
+            <JFXButton   textFill="white" fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
                 <graphic>
                     <FontAwesomeIconView fill="black" glyphName="CHEVRON_LEFT" glyphSize="20" />
                 </graphic>
@@ -33,7 +34,7 @@
 
             <HBox alignment="TOP_CENTER">
 
-                <Label alignment="TOP_CENTER" prefHeight="23.0" prefWidth="600.0" styleClass="lbl, lbl-info" text="CRITERIOS DE BÚSQUEDA" textFill="WHITE">
+                <Label  alignment="TOP_CENTER" prefHeight="23.0" prefWidth="600.0" styleClass="lbl, lbl-info" text="CRITERIOS DE BÚSQUEDA" textFill="WHITE">
                     <font>
                         <Font name="Arial Bold" size="30.0" />
                     </font>
@@ -45,13 +46,13 @@
                 <padding>
                     <Insets topRightBottomLeft="5" />
                 </padding>
-                <JFXCheckBox fx:id="chkFolios" contentDisplay="LEFT" text="Folios" />
-                <JFXCheckBox fx:id="chkProcedencia" contentDisplay="RIGHT" text="Institucion de procedencia" />
+                <JFXCheckBox  textFill="white" fx:id="chkFolios" contentDisplay="LEFT" text="Folios" />
+                <JFXCheckBox   textFill="white" fx:id="chkProcedencia" contentDisplay="RIGHT" text="Institucion de procedencia" />
             </HBox>
             <HBox alignment="TOP_LEFT" spacing="100">
-                <TextField fx:id="txtFolio" alignment="TOP_LEFT" promptText="No de Folio" visible="false" />
+                <JFXTextField   fx:id="txtFolio" alignment="TOP_LEFT" promptText="No de Folio" visible="false" />
 
-                <JFXComboBox fx:id="cmbProcedencia" promptText="Seleccione Procedencia" visible="false" />
+                <JFXComboBox  fx:id="cmbProcedencia" promptText="Seleccione Procedencia" visible="false" />
 
 
             </HBox>
@@ -67,11 +68,15 @@
             </padding>
 
             <HBox alignment="CENTER">
-                <JFXButton fx:id="btnFiltrarProc" alignment="TOP_CENTER" text="FILTRAR" visible="false">
-
+                <JFXButton  textFill="white" fx:id="btnFiltrarProc" alignment="TOP_CENTER" text="FILTRAR" visible="false" buttonType="RAISED" ripplerFill="#1a12bf" styleClass="btn, btn-lg, btn-primary">
+                    <graphic>
+                        <FontAwesomeIconView fill="black" glyphName="FILTER" glyphSize="30" />
+                    </graphic>
                 </JFXButton>
-                <JFXButton fx:id="btnFiltrarFol" alignment="TOP_CENTER" text="FILTRAR" visible="false">
-
+                <JFXButton  textFill="white" fx:id="btnFiltrarFol" alignment="TOP_CENTER" text="FILTRAR" visible="false" buttonType="RAISED" ripplerFill="#1a12bf" styleClass="btn, btn-lg, btn-primary">
+                    <graphic>
+                        <FontAwesomeIconView fill="black" glyphName="FILTER" glyphSize="30" />
+                    </graphic>
                 </JFXButton>
 
             </HBox>
