@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import sample.MySQLConnection;
 
 import java.awt.*;
@@ -28,7 +29,7 @@ public class ReportesController implements Initializable {
 
 
     @FXML
-    Button filtrar,generarreporte,btnReturn ;
+    Button filtrar,generarreporte,btnReturn,btnEntregados ;
 
    @FXML
    CheckBox documentos,fecha;
@@ -37,6 +38,8 @@ public class ReportesController implements Initializable {
     TableView<Reportes> tablereportes;
     @FXML
     DatePicker date;
+
+
 
 
 
@@ -70,7 +73,9 @@ public class ReportesController implements Initializable {
 
         filtrar.setOnAction(handlerHabilitar);
         generarreporte.setOnAction(handlergenerarReporte);
+        btnEntregados.setOnAction(handlerNoE);
         btnReturn.setOnAction(handlerReturn);
+
 
 
 
@@ -190,7 +195,22 @@ private void reporte(){
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.setMaximized(true);
+
+        st.show();
+    }
+
+    public void showWindowNoEntregados() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Reportes/noEntreg.fxml"));
+        Stage st= new Stage();
+        st.setTitle("DOCUMENTOS NO ENTREGADOS");
+
+        Scene scene = new Scene(root,800,400);
+        scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
+        st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
+
 
         st.show();
     }
@@ -204,7 +224,18 @@ private void reporte(){
                 e.printStackTrace();
             }
         }
+    };
 
+    EventHandler<ActionEvent> handlerNoE = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            try {
+                showWindowNoEntregados();
+                ((Stage)(btnEntregados.getScene().getWindow())).hide();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     };
 
 

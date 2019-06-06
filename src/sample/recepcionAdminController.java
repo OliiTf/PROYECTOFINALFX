@@ -24,6 +24,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,7 +51,7 @@ public class recepcionAdminController implements Initializable {
     MenuItem menuAreas,menuTipodoc,menuTipoforma;
 
     @FXML
-    Button btnUsuarios,btnNuevo,btnGuardar,btnBorrar;
+    Button btnUsuarios,btnNuevo,btnGuardar,btnBorrar,btnExit;
 
     @FXML
     TableView<Usuarios> tblUsuarios;
@@ -79,7 +80,22 @@ public class recepcionAdminController implements Initializable {
         menuAreas.setOnAction(WindowAreasAyuntamiento);
         menuTipodoc.setOnAction(WindowTipoDocumento);
         menuTipoforma.setOnAction(WindowTipoFormato);
-
+        btnExit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("CONFIRMACION DE SALIDA");
+                alert.setContentText("ESTAS SEGURO QUE QUIERES SALIR?");
+                Optional<ButtonType> result = alert.showAndWait();
+                if(result.get()==ButtonType.OK)
+                {
+                    System.exit(0);
+                }
+                else{
+                    alert.close();
+                }
+            }
+        });
 
     }
 
@@ -263,6 +279,7 @@ public class recepcionAdminController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.setMaximized(true);
         st.show();
     }
@@ -275,6 +292,7 @@ public class recepcionAdminController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.setMaximized(true);
         st.show();
     }
@@ -287,6 +305,7 @@ public class recepcionAdminController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.setMaximized(true);
         st.show();
     }
@@ -299,6 +318,7 @@ public class recepcionAdminController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.setMaximized(true);
         st.show();
     }

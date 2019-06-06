@@ -45,8 +45,6 @@
                                 <graphic>
                                     <FontAwesomeIconView fill="brown" glyphName="USER_TIMES" glyphSize="10" />
                                 </graphic>
-
-
                             </MenuItem>
 
                         </items>
@@ -65,6 +63,17 @@
                         <JFXButton fx:id="BtnRecepcion" text="RECEPCION" />
                         <JFXButton fx:id="BtnReportes" text="REPORTES" />
                         <JFXButton fx:id="BtnConsultas" text="CONSULTAS" />
+
+                        <HBox spacing="5">
+                            <padding>
+                                <Insets left="980" />
+                            </padding>
+                            <JFXButton text="Exit" fx:id="Exit" alignment="TOP_RIGHT">
+                                <graphic>
+                                    <FontAwesomeIconView glyphName="WINDOW_CLOSE" glyphSize="20" fill="darkred"/>
+                                </graphic>
+                            </JFXButton>
+                        </HBox>
 
                     </HBox>
                 </VBox>
@@ -220,7 +229,7 @@
 
                 <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
                 <JFXCheckBox fx:id="chkAdjuntar" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-                <JFXButton fx:id="Examinar" text="Examinar" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+
                 <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="18" />
                 <JFXCheckBox fx:id="checkentregado" GridPane.columnIndex="1" GridPane.rowIndex="18" />
 

@@ -1,13 +1,11 @@
 package Reportes;
 
+import Procedencia.InstitucionProcedencia;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.DatePicker;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -191,5 +189,66 @@ public class ReportesDAO {
         return Reportes2;
     }
 
+
+    public ObservableList<ReportesNoEntregados> findDocumentosNoentregados() {
+        ObservableList<ReportesNoEntregados> docsNE = FXCollections.observableArrayList();
+        try {
+            String query = " select iD.idDestinatario,det.numFolio,det.numDocumento,i.nombreInstitucion, det.fechaRecepcion,d.entregado, iD.fechaEntrega, iD.quienRecibe" +
+                    " from informacionDestinatario iD inner join documento d on iD.idDestinatario = d.idDestinatario" +
+                    " inner join detalleDocumento det on d.numFolio = det.numFolio" +
+                    " inner join informacionProcedencia iP on d.idProcedencia = iP.idProcedencia" +
+                    " inner join institucionProcedencia i on iP.idInstitucion = i.idInstitucion where d.entregado=false;";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            ReportesNoEntregados p = null;
+            while(rs.next()) {
+                p = new ReportesNoEntregados(
+                        rs.getInt("iD.idDestinatario"),
+                        rs.getInt("det.numFolio"),
+                        rs.getInt("det.numDocumento"),
+                        rs.getString("i.nombreInstitucion"),
+                        rs.getDate("det.fechaRecepcion"),
+                        rs.getBoolean("d.entregado"),
+                        rs.getDate("iD.fechaEntrega"),
+                        rs.getString("iD.quienRecibe")
+                );
+                docsNE.add(p);
+            }
+            rs.close();
+            st.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Error al recuperar información...");
+        }
+        return docsNE;
+    }
+
+
+
+    public Boolean update(int idDEsti, ReportesNoEntregados RNE) {
+        try {
+            PreparedStatement st;
+            String query = "update informacionDestinatario "
+                    + " set fechaEntrega = ?, quienRecibe = ?"
+                    + " where idDestinatario= '"+idDEsti+"'";
+            st = conn.prepareStatement(query);
+            st.setDate(1, RNE.getFechaEntrega());
+            st.setString(2,RNE.getQuienRecibe());
+            st.execute();
+            String query1 = " update documento"
+                    + " set entregado = true"
+                    + " where idDestinatario= '"+idDEsti+"'";
+            st = conn.prepareStatement(query1);
+            //st.setBoolean(1, RNE.getEntregado());
+            st.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        return false;
+    }
 
 }

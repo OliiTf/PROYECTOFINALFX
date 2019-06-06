@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 
@@ -215,6 +216,7 @@ public class consultController implements Initializable {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.setMaximized(true);
 
         st.show();

@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,6 +55,7 @@ public class Controller implements Initializable {
                     }
                 }
             });
+            btnCancel.setOnAction(handlerCancel);
 
     }
 
@@ -171,14 +173,25 @@ public class Controller implements Initializable {
 
     }
 
+    EventHandler<ActionEvent> handlerCancel = new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            cmbRol.valueProperty().setValue(null);
+            cmbMun.valueProperty().setValue(null);
+            txtUsuario.setText("");
+            txtPass.setText("");
+        }
+    };
+
     public void showStageAdmin() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("recepcionAdmin.fxml"));
         Stage st= new Stage();
-        st.setTitle("Reportes");
+        st.setTitle("ADMINISTRADOR");
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.setMaximized(true);
         st.show();
     }
@@ -186,11 +199,12 @@ public class Controller implements Initializable {
     public void showStageCapturista() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("recepcionCapturista.fxml"));
         Stage st= new Stage();
-        st.setTitle("Reportes");
+        st.setTitle("CAPTURISTA");
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.setMaximized(true);
         st.show();
     }

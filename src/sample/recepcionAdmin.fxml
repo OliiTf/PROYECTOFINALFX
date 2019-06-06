@@ -91,10 +91,21 @@
             </MenuBar>
 
             <JFXToolbar>
-                <VBox spacing="10">
-                        <JFXButton fx:id="btnUsuarios" buttonType="RAISED" ripplerFill="#6e3030" text="USUARIOS" />
-                </VBox>
+
+
+
             </JFXToolbar>
+
+                <HBox spacing="1200">
+                    <JFXButton fx:id="btnUsuarios" buttonType="RAISED" ripplerFill="#6e3030" text="USUARIOS" alignment="TOP_LEFT"/>
+
+                    <JFXButton text="Exit" fx:id="btnExit" alignment="TOP_RIGHT">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="WINDOW_CLOSE" glyphSize="20" fill="darkred"/>
+                        </graphic>
+                    </JFXButton>
+                </HBox>
+
 
 
         </VBox>

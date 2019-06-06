@@ -24,6 +24,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -35,6 +36,9 @@ import java.util.ResourceBundle;
 public class recepcionCapturistaController implements Initializable {
     @FXML
     MenuItem SignOff;
+
+    @FXML
+    Button Exit;
     @FXML
     TextField txtFolio, txtNoDoc,txtIdDoc,txtIdDestinatario,txtQuienRecibe,txtprocedencia,txtfirma,txtpuesto,txtdirigido,txtasunto,txtobservaciones;
     @FXML
@@ -82,6 +86,7 @@ public class recepcionCapturistaController implements Initializable {
         Scene scene = new Scene(root,900,500);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.show();
     }
     public void showStageConsultas() throws IOException {
@@ -92,6 +97,7 @@ public class recepcionCapturistaController implements Initializable {
         Scene scene = new Scene(root,900,500);
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
         st.setScene(scene);
+        st.initStyle( StageStyle.TRANSPARENT );
         st.show();
     }
 
@@ -104,7 +110,22 @@ public class recepcionCapturistaController implements Initializable {
         BtnReportes.setOnAction(handlerReportes);
         BtnConsultas.setOnAction(handlerConsultas);
         BtnEliminar.setOnAction(handlerDeleteDoc);
-
+        Exit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("CONFIRMACION DE SALIDA");
+                alert.setContentText("ESTAS SEGURO QUE QUIERES SALIR?");
+                Optional<ButtonType> result = alert.showAndWait();
+                if(result.get()==ButtonType.OK)
+                {
+                    System.exit(0);
+                }
+                else{
+                    alert.close();
+                }
+            }
+        });
 
 
     }

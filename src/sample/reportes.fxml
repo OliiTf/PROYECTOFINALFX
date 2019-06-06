@@ -21,11 +21,21 @@
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
              <VBox>
-                 <Button fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
-                     <graphic>
-                         <FontAwesomeIconView fill="black" glyphName="CHEVRON_LEFT" glyphSize="20" />
-                     </graphic>
-                 </Button>
+                 <HBox spacing="30">
+                     <Button fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
+                         <graphic>
+                             <FontAwesomeIconView fill="black" glyphName="CHEVRON_LEFT" glyphSize="20" />
+                         </graphic>
+                     </Button>
+
+                     <Button fx:id="btnEntregados" contentDisplay="TOP" styleClass="btn, btn-default" text="PENDIENTES">
+                         <graphic>
+                             <FontAwesomeIconView fill="black" />
+                         </graphic>
+                     </Button>
+                 </HBox>
+
+
                  <padding>
                      <Insets topRightBottomLeft="10" />
                  </padding>
