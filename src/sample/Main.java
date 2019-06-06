@@ -15,7 +15,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("LOGIN");
 
-        //HOLA OMAR YA QUEDO XD
+        //HOLA OMAR YA QUEDO XD again
 
         Scene scene = new Scene(root,700,400);  //SAMPLE
         scene.getStylesheets().add("org/kordamp/bootstrapfx/bootstrapfx.css");
