@@ -36,7 +36,7 @@
 
                      <JFXButton fx:id="btnEntregados" contentDisplay="TOP" styleClass="btn, btn-default" text="PENDIENTES">
                          <graphic>
-                             <FontAwesomeIconView fill="black" />
+                             <FontAwesomeIconView fill="black" glyphName="CLOCK_ALT" glyphSize="20"/>
                          </graphic>
                      </JFXButton>
                  </HBox>
@@ -65,12 +65,12 @@
              </VBox>
          </left>
          <center>
-            <JFXButton mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar"  />
+            <JFXButton mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar" styleClass="btn, btn-default"  />
          </center>
          <bottom>
             <BorderPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <right>
-                  <Button fx:id="generarreporte" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Generar Reporte" BorderPane.alignment="CENTER" />
+                  <JFXButton fx:id="generarreporte" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Generar Reporte" styleClass="btn, btn-default" BorderPane.alignment="CENTER" />
                </right>
 
             </BorderPane>

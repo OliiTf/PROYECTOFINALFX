@@ -57,10 +57,10 @@ public class ReportesController implements Initializable {
     private void initComponents()
     {
         TableColumn col1 = new TableColumn("Numero de Folio");
-        TableColumn col2 = new TableColumn("Fecha de Recepcion");
-        TableColumn col3 = new TableColumn("Insititucion de Procedencia");
-        TableColumn col4 = new TableColumn("Destinatario");
-        TableColumn col5 = new TableColumn("Firma de Recidido");
+        TableColumn col2 = new TableColumn("Insititucion de Procedencia");
+        TableColumn col3 = new TableColumn("Destinatario");
+        TableColumn col4 = new TableColumn("Fecha de Recepcion");
+        TableColumn col5 = new TableColumn("Fecha de Recepcion");
 
 
         col1.setCellValueFactory(new PropertyValueFactory<>("numfolio"));

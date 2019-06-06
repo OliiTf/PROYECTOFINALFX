@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXTextField?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Reportes.EntregadosController"
+            prefHeight="400.0" prefWidth="600.0">
+
+
+    <top>
+
+
+        <VBox spacing="11">
+            <JFXButton fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
+                <graphic>
+                    <FontAwesomeIconView fill="black" glyphName="CHEVRON_LEFT" glyphSize="20" />
+                </graphic>
+            </JFXButton>
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+
+            <HBox alignment="TOP_CENTER" spacing="5">
+
+                <Label alignment="TOP_CENTER" prefHeight="23.0" prefWidth="600.0" styleClass="lbl, lbl-info" text="DOCUMENTOS NO ENTREGADOS" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Bold" size="30.0" />
+                    </font>
+                </Label>
+
+            </HBox>
+
+            <VBox spacing="10">
+                <HBox>
+                    <Label text="FECHA ENTREGA: "/>
+                    <JFXDatePicker fx:id="dpFechaEntrega" visible="false"/>
+                </HBox>
+                <HBox>
+                    <Label text="Quien recibe"/>
+                    <JFXTextField fx:id="txtQuienR" visible="false"/>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <JFXButton fx:id="btnGuardar" text="Guardar" alignment="CENTER"/>
+                </HBox>
+
+            </VBox>
+            
+
+        </VBox>
+
+
+    </top>
+    <center>
+
+        <TableView fx:id="tblEntregados">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy></TableView>
+    </center>
+
+</BorderPane>

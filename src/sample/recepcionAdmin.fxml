@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToolbar?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -19,8 +19,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXToolbar?>
 <BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionAdminController">
     <top>
         <VBox spacing="0">
@@ -31,7 +29,7 @@
                 <menus>
                     <Menu text="FILE">
                         <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="FILE" glyphSize="30" />
+                            <FontAwesomeIconView fill="black" glyphName="FOLDER_ALT" glyphSize="30" />
                         </graphic>
 
                         <items>
@@ -50,7 +48,7 @@
                     </Menu>
                     <Menu text="Catalogos">
                         <graphic>
-                            <FontAwesomeIconView fill="black" glyphName="FILE" glyphSize="30" />
+                            <FontAwesomeIconView fill="black" glyphName="LIST" glyphSize="30" />
                         </graphic>
 
                         <items>
@@ -97,11 +95,11 @@
             </JFXToolbar>
 
                 <HBox spacing="1200">
-                    <JFXButton fx:id="btnUsuarios" buttonType="RAISED" ripplerFill="#6e3030" text="USUARIOS" alignment="TOP_LEFT"/>
+                    <JFXButton fx:id="btnUsuarios" alignment="TOP_LEFT" buttonType="RAISED" prefHeight="25.0" prefWidth="106.0" ripplerFill="#6e3030" text="USUARIOS" />
 
-                    <JFXButton text="Exit" fx:id="btnExit" alignment="TOP_RIGHT">
+                    <JFXButton fx:id="btnExit" alignment="TOP_RIGHT" text="Exit">
                         <graphic>
-                            <FontAwesomeIconView glyphName="WINDOW_CLOSE" glyphSize="20" fill="darkred"/>
+                            <FontAwesomeIconView fill="darkred" glyphName="WINDOW_CLOSE" glyphSize="20" />
                         </graphic>
                     </JFXButton>
                 </HBox>
@@ -129,6 +127,16 @@
                 <JFXPasswordField fx:id="txtContraseña" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <Label text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                 <JFXComboBox fx:id="cmbMunicipio" promptText="Selecciona Municipio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
 
 
             </GridPane>
