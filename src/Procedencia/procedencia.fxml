@@ -10,7 +10,8 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXButton?>
-<BorderPane xmlns="http://javafx.com/javafx"
+<BorderPane  stylesheets="/styles/Fondo4.css"
+            xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Procedencia.procedenciaController"
             prefHeight="400.0" prefWidth="600.0">
@@ -45,7 +46,7 @@
             </menus>
         </MenuBar>
 
-        <JFXButton  fx:id="btnReturn" text="Return" contentDisplay="TOP" styleClass="btn, btn-default">
+        <JFXButton  textFill="white"  fx:id="btnReturn" text="Return" contentDisplay="TOP" styleClass="btn, btn-default">
             <graphic>
                 <FontAwesomeIconView glyphName="CHEVRON_LEFT" glyphSize="20" fill="black"/>
             </graphic>
@@ -64,9 +65,9 @@
                 <padding>
                     <Insets topRightBottomLeft="7"/>
                 </padding>
-                <Label text="Id Institucion" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label textFill="white" text="Id Institucion" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
                 <JFXTextField fx:id="txtIdIns" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-                <Label text="Nombre Institucion" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <Label  textFill="white" text="Nombre Institucion" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
                 <JFXTextField fx:id="txtNombreIns" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
             </GridPane>
 
@@ -74,17 +75,17 @@
                 <padding>
                     <Insets topRightBottomLeft="3"/>
                 </padding>
-                <JFXButton fx:id="btnNew" text="New" styleClass="btn, btn-lg, btn-success">
+                <JFXButton textFill="white" fx:id="btnNew" text="New" styleClass="btn, btn-lg, btn-success">
                     <graphic>
                         <FontAwesomeIconView glyphName="CLOUD_UPLOAD" glyphSize="30" fill="darkgreen"/>
                     </graphic>
                 </JFXButton>
-                <JFXButton fx:id="btnSave" text="Save"  styleClass="btn, btn-lg, btn-primary">
+                <JFXButton  textFill="white" fx:id="btnSave" text="Save"  styleClass="btn, btn-lg, btn-primary">
                     <graphic>
                         <FontAwesomeIconView glyphName="SAVE" glyphSize="30" fill="darkblue"/>
                     </graphic>
                 </JFXButton>
-                <JFXButton fx:id="btnDelete" text="Delete"  styleClass="btn, btn-lg, btn-danger">
+                <JFXButton  textFill="white" fx:id="btnDelete" text="Delete"  styleClass="btn, btn-lg, btn-danger">
                     <graphic>
                         <FontAwesomeIconView glyphName="TRASH" glyphSize="30" fill="darkred"/>
                     </graphic>

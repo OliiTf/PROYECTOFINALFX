@@ -22,19 +22,24 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Reportes.ReportesController">
+<?import java.lang.String?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+
+    <BorderPane stylesheets="/styles/Fondo4.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Reportes.ReportesController">
    <top>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>
              <VBox>
                  <HBox spacing="30">
-                     <JFXButton fx:id="btnReturn" contentDisplay="TOP" styleClass="btn, btn-default" text="Return">
+                     <JFXButton  textFill="white" fx:id="btnReturn" contentDisplay="TOP"  text="Return">
                          <graphic>
                              <FontAwesomeIconView fill="black" glyphName="CHEVRON_LEFT" glyphSize="20" />
                          </graphic>
                      </JFXButton>
 
-                     <JFXButton fx:id="btnEntregados" contentDisplay="TOP" styleClass="btn, btn-default" text="PENDIENTES">
+                     <JFXButton  textFill="white" fx:id="btnEntregados" contentDisplay="TOP"  text="PENDIENTES">
                          <graphic>
                              <FontAwesomeIconView fill="black" glyphName="CLOCK_ALT" glyphSize="20"/>
                          </graphic>
@@ -44,7 +49,7 @@
                      <Insets topRightBottomLeft="10" />
                  </padding>
                  <HBox alignment="TOP_CENTER">
-                     <Label BorderPane.alignment="CENTER"  prefHeight="23.0" prefWidth="600.0" styleClass="lbl, lbl-info" text="REPORTE ENTREGA - RECEPCION">
+                     <Label   textFill="white" BorderPane.alignment="CENTER"  prefHeight="23.0" prefWidth="600.0" styleClass="lbl, lbl-info" text="REPORTE ENTREGA - RECEPCION">
                          <font>
                              <Font name="Arial Bold" size="30.0" />
                          </font>
@@ -56,21 +61,29 @@
          <left>
              <VBox prefHeight="183.0" prefWidth="183.0" BorderPane.alignment="CENTER">
                  <GridPane hgap="10.0" vgap="10">
-                     <JFXCheckBox fx:id="fecha" text="Fecha" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                      <JFXDatePicker GridPane.rowIndex="3" fx:id="date"/>
-                     <JFXCheckBox fx:id="documentos" mnemonicParsing="false" text="Solo Documentos Entregados" BorderPane.alignment="CENTER" GridPane.rowIndex="1" />
+                     <JFXCheckBox  textFill="white" fx:id="fecha" text="Fecha" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                      <JFXDatePicker  GridPane.rowIndex="3" fx:id="date"/>
+                     <JFXCheckBox textFill="white" fx:id="documentos" mnemonicParsing="false" text="Solo Documentos Entregados" BorderPane.alignment="CENTER" GridPane.rowIndex="1" />
 
 
                  </GridPane>
              </VBox>
          </left>
          <center>
-            <JFXButton mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar" styleClass="btn, btn-default"  />
+            <JFXButton  textFill="white" mnemonicParsing="false" text="Filtrar" BorderPane.alignment="CENTER" fx:id="filtrar" >
+                <graphic>
+                    <FontAwesomeIconView fill="black" glyphName="FILTER" glyphSize="30" />
+                </graphic>
+            </JFXButton>
          </center>
          <bottom>
             <BorderPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <right>
-                  <JFXButton fx:id="generarreporte" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Generar Reporte" styleClass="btn, btn-default" BorderPane.alignment="CENTER" />
+                  <JFXButton textFill="white" fx:id="generarreporte" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Generar Reporte"  BorderPane.alignment="CENTER">
+                      <graphic>
+                          <FontAwesomeIconView fill="black" glyphName="FILE_PDF_ALT" glyphSize="30" />
+                      </graphic>
+                  </JFXButton>
                </right>
 
             </BorderPane>
@@ -78,6 +91,6 @@
       </BorderPane>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" fx:id="tablereportes" />
+      <TableView  prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" fx:id="tablereportes" />
    </center>
 </BorderPane>

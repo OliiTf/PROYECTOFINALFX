@@ -27,7 +27,10 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXToolbar?>
-<BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionCapturistaController">
+
+<BorderPane stylesheets="/styles/Fondo4.css" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionCapturistaController">
+
+
     <top>
         <VBox spacing="0">
             <padding>
@@ -55,13 +58,13 @@
 
             </MenuBar>
 
-            <ToolBar>
+            <ToolBar stylesheets="/styles/Fondo4.css"  >
                 <VBox spacing="10">
 
 
                     <HBox spacing="10">
 
-                        <JFXButton fx:id="BtnRecepcion" text="RECEPCION" />
+                        <JFXButton  fx:id="BtnRecepcion" text="RECEPCION" />
                         <JFXButton fx:id="BtnReportes" text="REPORTES" />
                         <JFXButton fx:id="BtnConsultas" text="CONSULTAS" />
 
@@ -79,7 +82,7 @@
                     </HBox>
                 </VBox>
             </ToolBar>
-            <ToolBar style="-fx-background-color: #c1d4f3;">
+            <ToolBar stylesheets="/styles/Fondo4.css">
 
                 <items>
 
@@ -110,37 +113,37 @@
     </top>
     <left>
 
-            <GridPane hgap="4" style="-fx-background-color: #d6d6d6;" vgap="7">
+            <GridPane hgap="4" stylesheets="/styles/Fondo4.css" vgap="7">
                 <padding>
                     <Insets topRightBottomLeft="3" />
                 </padding>
 
-                    <Label alignment="CENTER_LEFT" text="DOCUMENTO">
+                    <Label textFill="white" alignment="CENTER_LEFT" text="DOCUMENTO">
             <font>
-               <Font name="Arial Rounded MT Bold" size="14.0" />
+               <Font name="Arial Rounded MT Bold" size="20.0" />
             </font></Label>
 
 
-                <Label text="Id Doc" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label textFill="white" text="Id Doc" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <JFXTextField fx:id="txtIdDoc" disable="true" editable="false" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
 
-                <Label text="Folio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label textFill="white"  text="Folio" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <JFXTextField fx:id="txtFolio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label text="Numero Doc" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label textFill="white"  text="Numero Doc" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 <JFXTextField fx:id="txtNoDoc" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
-                <Label text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label textFill="white"  text="Fecha Doc" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                 <JFXDatePicker fx:id="dpFechaDoc" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-                <Label text="Fecha Recepcion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label textFill="white"  text="Fecha Recepcion" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <JFXDatePicker fx:id="dpFechaRecep" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                <Label text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <Label textFill="white"  text="Formato" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                 <JFXComboBox fx:id="cmbFormato" prefWidth="140" GridPane.columnIndex="0" GridPane.rowIndex="7" />
 
-                <Label text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <Label textFill="white"  text="Tipo" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                 <JFXComboBox fx:id="cmbTipo" prefWidth="140" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
 
@@ -148,32 +151,32 @@
 
 
 
-                <Label alignment="CENTER_LEFT" text="DESTINATARIO" GridPane.columnIndex="0" GridPane.rowIndex="8">
+                <Label textFill="white"  alignment="CENTER_LEFT" text="DESTINATARIO" GridPane.columnIndex="0" GridPane.rowIndex="8">
             <font>
-               <Font name="Arial Rounded MT Bold" size="13.0" />
+               <Font name="Arial Rounded MT Bold" size="20.0" />
             </font></Label>
 
-                <Label text="Quien Recibe" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <Label textFill="white"  text="Quien Recibe" GridPane.columnIndex="1" GridPane.rowIndex="9" />
                 <TextField fx:id="txtQuienRecibe" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
-                <Label text="Id Destinatario" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                <Label textFill="white"  text="Id Destinatario" GridPane.columnIndex="0" GridPane.rowIndex="9" />
                 <TextField fx:id="txtIdDestinatario" disable="true" editable="false" GridPane.columnIndex="0" GridPane.rowIndex="10" />
 
 
-                <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                <Label textFill="white"  text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />
                 <JFXComboBox fx:id="cmbAreaAyun" GridPane.columnIndex="0" GridPane.rowIndex="12" />
 
 
-                <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                <Label textFill="white"  text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="13" />
                 <JFXComboBox fx:id="cmbinstruccion" prefWidth="70" GridPane.columnIndex="1" GridPane.rowIndex="14" />
 
-                <Label text="Prioridad" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+                <Label textFill="white"  text="Prioridad" GridPane.columnIndex="0" GridPane.rowIndex="13" />
                 <JFXComboBox fx:id="cmbprioridad" prefWidth="120" GridPane.columnIndex="0" GridPane.rowIndex="14" />
 
-                <Label text="Fecha Limite" GridPane.columnIndex="0" GridPane.rowIndex="17" />
+                <Label textFill="white"  text="Fecha Limite" GridPane.columnIndex="0" GridPane.rowIndex="17" />
                 <JFXDatePicker fx:id="dpfechalimite" GridPane.columnIndex="0" GridPane.rowIndex="18" />
 
-                <Label text="Fecha Entrega" GridPane.columnIndex="0" GridPane.rowIndex="19" />
+                <Label textFill="white"  text="Fecha Entrega" GridPane.columnIndex="0" GridPane.rowIndex="19" />
                 <JFXDatePicker fx:id="dpfechaentrega" GridPane.columnIndex="0" GridPane.rowIndex="20" />
 
             </GridPane>
@@ -186,35 +189,35 @@
                     <Insets topRightBottomLeft="3" />
                 </padding>
 
-                    <Label alignment="CENTER_LEFT" prefHeight="16.0" prefWidth="151.0" text="PROCEDENCIA">
+                    <Label textFill="white"  alignment="CENTER_LEFT" prefHeight="16.0" prefWidth="151.0" text="PROCEDENCIA">
             <font>
                <Font name="Arial Rounded MT Bold" size="13.0" />
             </font></Label>
 
 
-                <Label text="Procedencia" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label textFill="white"  text="Procedencia" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <JFXTextField fx:id="txtprocedencia" disable="true" editable="false" prefWidth="240" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
 
 
-                <Label text="Institucion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label textFill="white"  text="Institucion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <JFXComboBox fx:id="cmbinstitucion" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
 
 
-                <Label text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <Label textFill="white"  text="Firma" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                 <JFXTextField fx:id="txtfirma" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-                <Label text="Puesto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label textFill="white" text="Puesto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <JFXTextField fx:id="txtpuesto" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
-                <Label text="Dirigido a" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <Label textFill="white" text="Dirigido a" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                 <JFXTextField fx:id="txtdirigido" GridPane.columnIndex="0" GridPane.rowIndex="7" />
 
-                <Label text="Asunto" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                <Label textFill="white" text="Asunto" GridPane.columnIndex="0" GridPane.rowIndex="8" />
                 <JFXTextField fx:id="txtasunto" GridPane.columnIndex="0" GridPane.rowIndex="9" />
 
-                <Label text="Observaciones" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                <Label textFill="white" text="Observaciones" GridPane.columnIndex="0" GridPane.rowIndex="10" />
                 <JFXTextField fx:id="txtobservaciones" prefHeight="100" prefWidth="250" GridPane.columnIndex="0" GridPane.rowIndex="11" />
 
 
@@ -228,10 +231,10 @@
 
 
 
-                <Label alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                <Label textFill="white" alignment="CENTER_LEFT" text="ADJUNTAR ARCHIVO" GridPane.columnIndex="0" GridPane.rowIndex="12" />
                 <JFXCheckBox fx:id="chkAdjuntar" GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
-                <Label text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="18" />
+                <Label textFill="white" text="Entregado" GridPane.columnIndex="0" GridPane.rowIndex="18" />
                 <JFXCheckBox fx:id="checkentregado" GridPane.columnIndex="1" GridPane.rowIndex="18" />
 
 

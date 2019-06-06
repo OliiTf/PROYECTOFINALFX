@@ -19,8 +19,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionAdminController">
+<?import java.lang.String?>
+<BorderPane stylesheets="/styles/Fondo4.css" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionAdminController">
+
     <top>
+
         <VBox spacing="0">
             <padding>
                 <Insets topRightBottomLeft="3" />
@@ -54,7 +57,7 @@
                         <items>
                             <MenuItem fx:id="instituciones" text="Instituciones de procedencia">
                                 <graphic>
-                                    <FontAwesomeIconView fill="brown" glyphName="USER_TIMES" glyphSize="10" />
+                                    <FontAwesomeIconView fill="#110f80" glyphName="INSTITUTION" glyphSize="10" />
                                 </graphic>
 
 
@@ -62,21 +65,21 @@
 
                             <MenuItem fx:id="menuAreas" text="Areas de Ayuntammiento">
                             <graphic>
-                                <FontAwesomeIconView fill="brown" glyphName="BANK" glyphSize="10" />
+                                <FontAwesomeIconView fill="#000000" glyphName="BANK" glyphSize="10" />
                             </graphic>
 
 
                         </MenuItem>
                         <MenuItem fx:id="menuTipodoc" text="Tipo de Documento">
                             <graphic>
-                                <FontAwesomeIconView fill="brown" glyphName="FILE_ALT" glyphSize="10" />
+                                <FontAwesomeIconView fill="#034c00" glyphName="WPFORMS" glyphSize="10" />
                             </graphic>
 
 
                         </MenuItem>
                         <MenuItem fx:id="menuTipoforma" text="Tipo de Formato">
                             <graphic>
-                                <FontAwesomeIconView fill="brown" glyphName="FILE" glyphSize="10" />
+                                <FontAwesomeIconView fill="brown" glyphName="FILES_ALT" glyphSize="10" />
                             </graphic>
 
 
@@ -95,9 +98,9 @@
             </JFXToolbar>
 
                 <HBox spacing="1200">
-                    <JFXButton fx:id="btnUsuarios" alignment="TOP_LEFT" buttonType="RAISED" prefHeight="25.0" prefWidth="106.0" ripplerFill="#6e3030" text="USUARIOS" />
+                    <JFXButton textFill="white" fx:id="btnUsuarios" alignment="TOP_LEFT" buttonType="RAISED" prefHeight="25.0" prefWidth="106.0" ripplerFill="#6e3030" text="USUARIOS" />
 
-                    <JFXButton fx:id="btnExit" alignment="TOP_RIGHT" text="Exit">
+                    <JFXButton textFill="white" fx:id="btnExit" alignment="TOP_RIGHT" text="Exit">
                         <graphic>
                             <FontAwesomeIconView fill="darkred" glyphName="WINDOW_CLOSE" glyphSize="20" />
                         </graphic>
@@ -119,24 +122,14 @@
                 <padding>
                     <Insets topRightBottomLeft="7" />
                 </padding>
-                <Label text="Id Usuario" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label textFill="white" text="Id Usuario" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                 <JFXTextField fx:id="txtIdUser" promptText="ID Usuario" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <Label text="Nombre Usuario" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <Label textFill="white" text="Nombre Usuario" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                 <JFXTextField fx:id="txtNombre" promptText="Nombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label fx:id="lblPass" text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <Label textFill="white" fx:id="lblPass" text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <JFXPasswordField fx:id="txtContraseña" promptText="Contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <Label textFill="white" text="Municipio" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                 <JFXComboBox fx:id="cmbMunicipio" promptText="Selecciona Municipio" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <columnConstraints>
-               <ColumnConstraints />
-               <ColumnConstraints />
-            </columnConstraints>
-            <rowConstraints>
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-               <RowConstraints />
-            </rowConstraints>
 
 
             </GridPane>
