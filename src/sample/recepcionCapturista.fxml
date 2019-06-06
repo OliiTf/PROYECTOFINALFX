@@ -26,6 +26,7 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXToolbar?>
 <BorderPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.recepcionCapturistaController">
     <top>
         <VBox spacing="0">
@@ -160,7 +161,7 @@
 
 
                 <Label text="Area de Ayuntamiento" GridPane.columnIndex="0" GridPane.rowIndex="11" />
-                <ComboBox fx:id="cmbAreaAyun" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+                <JFXComboBox fx:id="cmbAreaAyun" GridPane.columnIndex="0" GridPane.rowIndex="12" />
 
 
                 <Label text="Instruccion" GridPane.columnIndex="1" GridPane.rowIndex="13" />
