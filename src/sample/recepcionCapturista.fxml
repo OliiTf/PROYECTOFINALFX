@@ -57,7 +57,7 @@
 
             </MenuBar>
 
-            <JFXToolbar>
+            <ToolBar>
                 <VBox spacing="10">
 
 
@@ -69,7 +69,7 @@
 
                     </HBox>
                 </VBox>
-            </JFXToolbar>
+            </ToolBar>
             <ToolBar style="-fx-background-color: #c1d4f3;">
 
                 <items>
